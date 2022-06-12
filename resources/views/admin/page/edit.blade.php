@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content_header')
-    {{__('Редактировать страницу ":name"', ['name' => $model->name])}}
+    {{__('Edit page ":title"', ['title' => $model->title])}}
 @endsection
 
 @section('content')

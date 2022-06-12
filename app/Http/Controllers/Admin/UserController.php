@@ -204,14 +204,14 @@ class UserController extends Controller
         }
         if ($model->save()) {
             $model->uploadAllMediaFromRequest();
-            session()->flash('message', __('Все изменения успешно сохранены.'));
+            session()->flash('message', __('All changes are saved.'));
             session()->flash('type', 'success');
 
             if (array_key_exists('save', $request->post())) {
                 return redirect($return_url ?: route('admin.users.index'));
             }
         } else {
-            session()->flash('message', __('При сохранении возникла ошибка.'));
+            session()->flash('message', __('An error occurred.'));
             session()->flash('type', 'danger');
         }
         return redirect(route('admin.users.edit', ['user' => $model->id, 'return_url' => $return_url]));

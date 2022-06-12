@@ -42,9 +42,9 @@ class UserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'user.role.required' => __('Поле "Роль" обязательно для заполнения.'),
-            'user.email.required' => __('Поле "Email" обязательно для заполнения.'),
-            'user.photo.image' => __('Поле "Фото" должно быть изображением.'),
+            'user.role.required' => __('Field "Role" is required.'),
+            'user.email.required' => __('Field "Email" is required.'),
+            'user.photo.image' => __('Field "Photo" should be a valid image.'),
         ];
     }
 }

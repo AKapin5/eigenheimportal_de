@@ -65,8 +65,8 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-                <span class="custom-file-label" data-browse="{{ __('Выбрать') }}">
-                    {{ $placeholder ?? __('Выберите файлы') }}
+                <span class="custom-file-label" data-browse="{{ __('Browse') }}">
+                    {{ $placeholder ?? __('Select files') }}
                 </span>
             </div>
         </div>
@@ -81,8 +81,8 @@
                     @endif
                 </a>
                 <a href="{{ route('admin.files.remove', ['uuid' => $file->uuid]) }}"
-                   title="{{ __('Удалить файл') }}"
-                   data-confirm-text="{{ __('Вы уверенны, что хотите удалить данный файл?') }}"
+                   title="{{ __('Delete file') }}"
+                   data-confirm-text="{{ __('Are you sure to delete a file?') }}"
                    data-remove-file>
                     <span class="fa fa-trash"></span>
                 </a>
@@ -99,8 +99,8 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-                <span class="custom-file-label" data-browse="{{ __('Выбрать') }}">
-                    {{ $placeholder ?? __('Выберите файл') }}
+                <span class="custom-file-label" data-browse="{{ __('Browse') }}">
+                    {{ $placeholder ?? __('Select file') }}
                 </span>
             </div>
         </div>

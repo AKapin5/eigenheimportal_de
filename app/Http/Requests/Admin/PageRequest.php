@@ -25,8 +25,8 @@ class PageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'page.name.' . app()->getLocale() => ['required'],
-            'page.name.*' => 'max:255',
+            'page.title.' . app()->getLocale() => ['required'],
+            'page.title.*' => 'max:255',
             'page.alias.' . app()->getLocale() => ['required'],
             'page.alias.*' => [
                 'max:255',
@@ -45,9 +45,9 @@ class PageRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'page.name.*.required' => __('Поле "Название" обязательно для заполнения.'),
-            'page.alias.*.required' => __('Поле "Алиас" обязательно для заполнения.'),
-            'page.attachments.*.mimes' => __('AAA'),
+            'page.title.*.required' => __('Field "Name" is required.'),
+            'page.alias.*.required' => __('Field "Alias" is required.'),
+            'page.attachments.*.mimes' => __('Invalid file format of attachments.'),
         ];
     }
 }

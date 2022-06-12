@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content_header')
-    {{__('Создать страницу') }}
+    {{__('Create a page') }}
 @endsection
 
 @section('content')

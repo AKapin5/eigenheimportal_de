@@ -83,8 +83,8 @@ class User extends Authenticatable implements HasMedia
     public static function getStatusOptions() : array
     {
         return [
-            __('Не активен'),
-            __('Активен'),
+            __('Inactive'),
+            __('Active'),
         ];
     }
 

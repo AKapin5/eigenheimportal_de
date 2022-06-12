@@ -3,7 +3,7 @@ let editor_config = {
     selector: 'textarea.editor',
     relative_urls: false,
     height: 400,
-    language: 'ru',
+    language: 'en',
     plugins: [
         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",
@@ -25,7 +25,7 @@ let editor_config = {
 
         tinyMCE.activeEditor.windowManager.openUrl({
             url : cmsURL,
-            title : 'Файловый менеджер',
+            title : 'File manager',
             width : x * 0.8,
             height : y * 0.8,
             resizable : "yes",

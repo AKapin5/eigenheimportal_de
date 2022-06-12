@@ -13,16 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->json('title');
-            $table->json('alias');
-            $table->json('content')->nullable();
+            $table->json('url');
             $table->smallInteger('status')->default(1);
-            $table->json('seo_title');
-            $table->json('seo_description');
-            $table->json('seo_keywords');
-            $table->timestamps();
+            $table->unsignedBigInteger('sort')->default(0);
+
+            $table->foreign('parent_id')
+                ->references('id')
+                ->on('menus')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('menus');
     }
 };

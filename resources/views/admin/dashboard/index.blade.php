@@ -1,9 +1,9 @@
 @extends('admin.layouts.master')
 
 @section('content_header')
-    {{ __('Админ панель') }}
+    {{ __('Admin panel') }}
 @endsection
 
 @section('content')
-    {{ __('Добро пожаловать в админ панель :name!', ['name' => config('app.name')]) }}
+    {{ __('Welcome to admin panel of :name!', ['name' => config('app.name')]) }}
 @endsection

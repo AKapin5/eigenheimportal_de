@@ -37,14 +37,14 @@ class Page extends Model implements HasMedia
      * @var string[]
      */
     public $translatable = [
-        'name', 'alias', 'content', 'seo_title', 'seo_description', 'seo_keywords'
+        'title', 'alias', 'content', 'seo_title', 'seo_description', 'seo_keywords'
     ];
 
     /**
      * @var string[]
      */
     protected $fillable = [
-        'name', 'content', 'alias', 'status', 'seo_title', 'seo_description', 'seo_keywords',
+        'title', 'content', 'alias', 'status', 'seo_title', 'seo_description', 'seo_keywords',
     ];
 
     /**
@@ -60,8 +60,8 @@ class Page extends Model implements HasMedia
     public static function getStatusOptions(): array
     {
         return [
-            __('Не отображать'),
-            __('Отображать'),
+            __('No'),
+            __('Yes'),
         ];
     }
 }

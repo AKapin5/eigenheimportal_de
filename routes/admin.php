@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -44,5 +45,11 @@ Route::group([
             [PageController::class, 'search'])
             ->name('pages.search');
         Route::resource('pages', PageController::class);
+
+        /** Menus */
+        Route::match(['GET', 'POST'], '/menus/search',
+            [MenuController::class, 'search'])
+            ->name('menus.search');
+        Route::resource('menus', MenuController::class);
     });
 });

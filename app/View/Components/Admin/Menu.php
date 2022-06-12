@@ -39,21 +39,28 @@ class Menu extends Component
             [
                 'url' => "/$prefix",
                 'icon' => 'th',
-                'label' => __('Главная'),
+                'label' => __('Dashboard'),
                 'match' => 'admin.dashboard',
             ],
 
             [
                 'url' => "/$prefix/pages",
                 'icon' => 'file-alt',
-                'label' => __('Страницы'),
+                'label' => __('Pages'),
                 'match' => 'admin.pages.*',
+            ],
+
+            [
+                'url' => "/$prefix/menus",
+                'icon' => 'bars',
+                'label' => __('Menu'),
+                'match' => 'admin.menus.*',
             ],
 
             [
                 'url' => "/$prefix/users",
                 'icon' => 'user',
-                'label' => __('Пользователи'),
+                'label' => __('Users'),
                 'match' => 'admin.users.*',
             ],
         ];

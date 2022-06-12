@@ -26,6 +26,12 @@ if (! function_exists('supportedLocales')) {
     }
 }
 
+if (! function_exists('localizeUrl')) {
+    function localizeUrl($url, $locale = null): string {
+        return App\Helpers\UrlFormatter::localizeUrl($url, $locale);
+    }
+}
+
 if (! function_exists('thumb')) {
     function thumb($file, $method, ...$args): string {
         if (!in_array($file->mime_type, ['image/jpeg', 'image/gif', 'image/png'])) {

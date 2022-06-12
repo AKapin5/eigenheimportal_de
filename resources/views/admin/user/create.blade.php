@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content_header')
-    {{__('Создать пользователя') }}
+    {{__('Create user') }}
 @endsection
 
 @section('content')

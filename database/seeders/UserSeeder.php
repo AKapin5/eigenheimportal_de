@@ -24,13 +24,8 @@ class UserSeeder extends Seeder
         ]);
         $roleAdmin->save();
 
-        $roleUser = new Role([
-            'name' => 'user',
-        ]);
-        $roleUser->save();
-
         $admin = new User([
-            'name' => 'Администратор',
+            'name' => 'Administrator',
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
             'status' => 1,
@@ -38,17 +33,6 @@ class UserSeeder extends Seeder
         $admin->setRoleAttribute($roleAdmin);
         $admin->generateToken();
         $admin->save();
-
-        $user = new User([
-            'name' => 'Пользователь',
-            'email' => 'user@example.com',
-            'password' => Hash::make('password'),
-            'status' => 1,
-        ]);
-        $user->setRoleAttribute($roleUser);
-        $user->generateToken();
-        $user->save();
-
     }
 
     /**

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\PageRequest;
-use App\Models\Page;
+use App\Http\Requests\Admin\MenuRequest;
+use App\Models\Menu;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -12,22 +11,39 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use InvalidArgumentException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-
-class PageController extends Controller
+class MenuController
 {
     /**
      * Display a listing of the resource.
      *
      * @return View
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function index(): View
     {
-        $statusOptions = Page::getStatusOptions();
+        $statusOptions = Menu::getStatusOptions();
+        $parent = $this->getParent();
         $return_url = request()->getRequestUri();
-        return view('admin.page.index', compact('statusOptions', 'return_url'));
+        return view('admin.menu.index', compact('statusOptions', 'parent', 'return_url'));
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    protected function getParent(): ?Menu
+    {
+        $parent_id = request()->get('parent_id');
+        $menu = Menu::find($parent_id);
+        if ($parent_id && !$menu) {
+            throw new InvalidArgumentException('Invalid parent_id');
+        }
+        return $menu;
     }
 
     /**
@@ -37,39 +53,40 @@ class PageController extends Controller
      */
     public function search(Request $request): JsonResponse
     {
-        return datatables()->eloquent(Page::query())
+        return datatables()->eloquent(Menu::query())
             ->filter(function (Builder $query) use ($request) {
                 if ($request->filled('id')) {
                     $query->where('id', $request->get('id'));
                 }
-                if ($request->filled('name')) {
-                    $query->where('name->' . app()->getLocale(), 'like',
+                if ($request->filled('title')) {
+                    $query->where('title->' . app()->getLocale(), 'like',
                         '%' . $request->get('name') . '%');
                 }
                 if ($request->filled('status')) {
                     $query->where('status', $request->get('status'));
                 }
+                $query->where('parent_id', $request->get('parent_id'));
+                $query->orderBy('sort');
             })
-            ->editColumn('title', function (Page $model) {
+            ->editColumn('title', function (Menu $model) {
                 return $model->title;
             })
-            ->editColumn('alias', function (Page $model) {
-                return $model->alias;
+            ->editColumn('url', function (Menu $model) {
+                return $model->url;
             })
-            ->editColumn('created_at', function (Page $model) {
-                return $model->created_at->format('d.m.Y H:i');
-            })
-            ->editColumn('updated_at', function (Page $model) {
-                return $model->updated_at->format('d.m.Y H:i');
-            })
-            ->editColumn('status', function (Page $model) {
+            ->editColumn('status', function (Menu $model) {
                 return $model->statusText;
             })
+            ->editColumn('children', function (Menu $model) {
+                $indexRoute = route("admin.menus.index", ['parent_id' => $model->id]);
+                return '<a href="' . $indexRoute . '">' . __('Sub-items (:count)', ['count' => $model->children()->count()]) . '</a>';
+            })
             ->addColumn('action', function ($model) use ($request) {
-                $editRoute = route('admin.pages.edit', ['page' => $model->id, 'return_url' => $request->get('return_url')]);
-                $deleteRoute = route('admin.pages.destroy', ['page' => $model->id, 'return_url' => $request->get('return_url')]);
+                $editRoute = route("admin.menus.edit", ['menu' => $model->id, 'return_url' => $request->get('return_url')]);
+                $deleteRoute = route("admin.menus.destroy", ['menu' => $model->id, 'return_url' => $request->get('return_url')]);
                 return view('admin.partials._actions', compact('model', 'editRoute', 'deleteRoute'));
             })
+            ->rawColumns(['children', 'action'])
             ->make();
     }
 
@@ -82,22 +99,23 @@ class PageController extends Controller
      */
     public function create(): View
     {
-        $model = new Page([
-            'status' => 1
+        $model = new Menu([
+            'status' => 1,
+            'parent_id' => request()->get('parent_id'),
         ]);
         $return_url = request()->get('return_url');
-        return view('admin.page.create', compact('model', 'return_url'));
+        return view("admin.menu.create", compact('model', 'return_url'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param PageRequest $request
+     * @param MenuRequest $request
      * @return RedirectResponse
      */
-    public function store(PageRequest $request): RedirectResponse
+    public function store(MenuRequest $request): RedirectResponse
     {
-        $model = new Page();
+        $model = new Menu(['parent_id' => $request->get('parent_id')]);
         $return_url = $request->get('return_url');
         return $this->save($model, $request, $return_url);
     }
@@ -126,19 +144,19 @@ class PageController extends Controller
     {
         $model = $this->findModel($id);
         $return_url = request()->get('return_url');
-        return view('admin.page.edit', compact('model', 'return_url'));
+        return view("admin.menu.edit", compact('model', 'return_url'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param PageRequest $request
+     * @param MenuRequest $request
      * @param int $id
      * @return RedirectResponse
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function update(PageRequest $request, int $id): RedirectResponse
+    public function update(MenuRequest $request, int $id): RedirectResponse
     {
         $model = $this->findModel($id);
         $return_url = request()->get('return_url');
@@ -158,38 +176,40 @@ class PageController extends Controller
         $model = $this->findModel($id);
         $model->delete();
         $return_url = request()->get('return_url');
-        return redirect($return_url ?: route('admin.pages.index'));
+        return redirect($return_url ?: route("admin.menus.index"));
     }
 
     /**
      * @param $id
-     * @return Page|Model
+     * @return Menu|Model
      */
-    protected function findModel($id): ?Page
+    protected function findModel($id): Menu
     {
-        return Page::query()->findOrFail($id);
+        return Menu::query()->findOrFail($id);
     }
 
     /**
-     * @param Page $model
-     * @param PageRequest $request
+     * @param Menu $model
+     * @param MenuRequest $request
      * @param string|null $return_url
      * @return RedirectResponse
      */
-    protected function save(Page $model, PageRequest $request, ?string $return_url): RedirectResponse
+    protected function save(Menu $model, MenuRequest $request, ?string $return_url): RedirectResponse
     {
         $model->fill($request->get(shorten($model)));
+        if (!isset($model->sort)) {
+            $model->assignNewSort();
+        }
         if ($model->save()) {
-            $model->uploadAllMediaFromRequest(['images']);
             session()->flash('message', __('All changes are saved.'));
             session()->flash('type', 'success');
             if (array_key_exists('save', $request->post())) {
-                return redirect($return_url ?: route('admin.pages.index'));
+                return redirect($return_url ?: route("admin.menus.index"));
             }
         } else {
             session()->flash('message', __('An error occurred.'));
             session()->flash('type', 'danger');
         }
-        return redirect(route('admin.pages.edit', ['page' => $model->id, 'return_url' => $return_url]));
+        return redirect(route("admin.menus.edit", ['menu' => $model->id, 'return_url' => $return_url]));
     }
 }

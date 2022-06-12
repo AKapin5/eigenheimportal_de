@@ -1,27 +1,34 @@
 @extends('admin.layouts.master')
 
 @push('js')
-<script>
+    <script>
         (function($) {
-            let oTable = $('#data_grid').DataTable({
+            let oTable = $('#menus').DataTable({
                 "dom": 'ltipr',
+                ordering: false,
                 ajax: {
-                url: '{{ route('admin.users.search') }}',
+                    url: '{{ url('/admin/menus/search') }}',
                     data: function (d) {
-                    d.id = $('input[name=id]').val();
-                    d.email = $('input[name=email]').val();
-                    d.name = $('input[name=name]').val();
-                    d.status = $('select[name=status]').val();
-                    d.return_url = '{{ $return_url }}';
-                }
+                        d.id = $('input[name=id]').val();
+                        d.name = $('input[name=title]').val();
+                        d.name = $('input[name=url]').val();
+                        d.status = $('select[name=status]').val();
+                        d.parent_id = {{ $parent->id ?? 'null' }};
+                        d.return_url = '{{ $return_url }}';
+                    }
                 },
                 serverSide: true,
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'email', name: 'email' },
-                    { data: 'role', name: 'role' },
-                    { data: 'name', name: 'name' },
+                    { data: 'title', name: 'title' },
+                    { data: 'url', name: 'url' },
                     { data: 'status', name: 'status' },
+                    {
+                        data: 'children',
+                        name: 'children',
+                        orderable: false,
+                        searchable: false
+                    },
                     {
                         data: 'action',
                         name: 'action',
@@ -40,33 +47,32 @@
 @endpush
 
 @section('content_header')
-{{__('Users')}}
+    {{ __('Menu') }}
+    @if ($parent)
+        {{ __(' - ":title"', ['title' => $parent->title]) }}
+    @endif
 @endsection
 
 @section('content')
-
-<div class="panel panel-default form-group">
+    <div class="panel panel-default form-group">
         <div class="panel-body">
             <form method="POST" id="search-form" class="form" role="form" autocomplete="off">
                 <div class="row">
-
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="email">{{ __('Email') }}</label>
-                            <input type="text" class="form-control" name="email" id="email" placeholder="{{ __('Email') }}">
+                            <label for="id">{{ __('ID') }}</label>
+                            <input type="text" class="form-control" name="id" id="id" placeholder="{{ __('ID') }}">
                         </div>
                     </div>
-
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="name">{{ __('Name') }}</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="{{ __('Name') }}">
+                            <label for="title">{{ __('Title') }}</label>
+                            <input type="text" class="form-control" name="title" id="title" placeholder="{{ __('Title') }}">
                         </div>
                     </div>
-
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="status">{{ __('Status') }}</label>
+                            <label for="status">{{ __('Show') }}</label>
                             <select name="status" id="status" class="form-control">
                                 <option value=""></option>
                                 @foreach($statusOptions as $value => $text)
@@ -76,24 +82,24 @@
                         </div>
                     </div>
                 </div>
-
                 <button type="submit" class="btn btn-primary">{{ __('Search') }}</button>
-                <a class="btn btn-success" href="{{ route('admin.users.create', ['return_url' => $return_url])}}">
-                    {{ __('Создать') }}
+                <a class="btn btn-success" href="{{ route("admin.menus.create", ['parent_id' => $parent->id ?? null, 'return_url' => $return_url]) }}">
+                    {{ __('Create') }}
                 </a>
             </form>
         </div>
     </div>
-    <table id="data_grid" class="table table-striped table-bordered">
+    <table id="menus" class="table table-striped table-bordered">
         <thead>
         <tr>
             <th>{{ __('ID') }}</th>
-            <th>{{ __('Email') }}</th>
-            <th>{{ __('Role') }}</th>
-            <th>{{ __('Name') }}</th>
+            <th>{{ __('Title') }}</th>
+            <th>{{ __('URL') }}</th>
             <th>{{ __('Show') }}</th>
+            <th>{{ __('Sub-items') }}</th>
             <th></th>
         </tr>
         </thead>
     </table>
 @endsection
+

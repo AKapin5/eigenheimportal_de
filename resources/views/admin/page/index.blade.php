@@ -5,14 +5,11 @@
         (function($) {
             let oTable = $('#data_grid').DataTable({
                 "dom": 'ltipr',
-                language: {
-                    url: '{{ url('/admin-panel/libs/dataTables/language/Russian.json') }}'
-                },
                 ajax: {
                     url: '{{ url('/admin/pages/search') }}',
                     data: function (d) {
                         d.id = $('input[name=id]').val();
-                        d.name = $('input[name=name]').val();
+                        d.name = $('input[name=title]').val();
                         d.status = $('select[name=status]').val();
                         d.return_url = '{{ $return_url }}';
                     }
@@ -20,7 +17,7 @@
                 serverSide: true,
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'name', name: 'name' },
+                    { data: 'title', name: 'title' },
                     { data: 'alias', name: 'alias' },
                     { data: 'status', name: 'status' },
                     { data: 'created_at', name: 'created_at'},
@@ -46,7 +43,7 @@
 @endpush
 
 @section('content_header')
-    {{__('Страницы')}}
+    {{__('Pages')}}
 @endsection
 
 @section('content')
@@ -62,13 +59,13 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="name">{{ __('Название') }}</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="{{ __('Название') }}">
+                            <label for="title">{{ __('Title') }}</label>
+                            <input type="text" class="form-control" name="title" id="title" placeholder="{{ __('Title') }}">
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="status">{{ __('Статус') }}</label>
+                            <label for="status">{{ __('Show') }}</label>
                             <select name="status" id="status" class="form-control">
                                 <option value=""></option>
                                 @foreach($statusOptions as $value => $text)
@@ -78,9 +75,9 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">{{ __('Поиск') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Search') }}</button>
                 <a class="btn btn-success" href="{{ route('admin.pages.create', ['return_url' => $return_url])}}">
-                    {{ __('Создать') }}
+                    {{ __('Create') }}
                 </a>
             </form>
         </div>
@@ -89,11 +86,11 @@
         <thead>
         <tr>
             <th>{{ __('ID') }}</th>
-            <th>{{ __('Название') }}</th>
-            <th>{{ __('Алиас') }}</th>
-            <th>{{ __('Статус') }}</th>
-            <th>{{ __('Дата создания') }}</th>
-            <th>{{ __('Дата обновления') }}</th>
+            <th>{{ __('Title') }}</th>
+            <th>{{ __('Alias') }}</th>
+            <th>{{ __('Show') }}</th>
+            <th>{{ __('Created at') }}</th>
+            <th>{{ __('Updated at') }}</th>
             <th></th>
         </tr>
         </thead>
