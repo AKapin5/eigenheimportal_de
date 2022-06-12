@@ -58,6 +58,24 @@ class Menu extends Component
             ],
 
             [
+                'url' => "/$prefix/menus",
+                'icon' => 'bars',
+                'label' => __('Apartments'),
+                'items' => [
+                    [
+                        'url' => "/$prefix/apartment-categories",
+                        'label' => __('Categories'),
+                        'match' => 'admin.apartment-categories.*',
+                    ],
+                    [
+                        'url' => "/$prefix/apartment-items",
+                        'label' => __('Items'),
+                        'match' => 'admin.apartment-items.*',
+                    ],
+                ],
+            ],
+
+            [
                 'url' => "/$prefix/users",
                 'icon' => 'user',
                 'label' => __('Users'),

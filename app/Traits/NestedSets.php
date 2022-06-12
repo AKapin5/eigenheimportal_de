@@ -48,7 +48,7 @@ trait NestedSets
 
     public function updatePath(): void
     {
-        foreach (config('app.languages') as $locale) {
+        foreach (supportedLocales() as $locale) {
             $nodes = $this->breadcrumbs()->pluck('translations.slug.' . $locale)->all();
             $this->setTranslation('path', $locale, implode('/', $nodes));
             $this->save();

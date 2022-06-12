@@ -4,7 +4,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 if (! function_exists('shorten')) {
     function shorten($model): string {
-        return strtolower(class_basename($model));
+        return lcfirst(class_basename($model));
     }
 }
 

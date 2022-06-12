@@ -4,34 +4,42 @@ namespace App\Models;
 
 use App\Traits\HasOptions;
 use App\Traits\HasTranslations;
+use App\Traits\NestedSets;
 use App\Traits\Sortable;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
- /**
- * @property int $id
- * @property int $parent_id
- * @property string $title
- * @property string $url
- * @property int $status
- * @property int $sort
+/**
+ * @property integer $id
+ * @property integer $lft
+ * @property integer $rgt
+ * @property integer $parent_id
+ * @property string $name
+ * @property string $alias
+ * @property string $path
+ * @property string $description
+ * @property string $seo_title
+ * @property string $seo_keywords
+ * @property string $seo_description
  *
  * @property string $statusText
  * @mixin Eloquent
  */
-class Menu extends Model
+class ApartmentCategory extends Model
 {
     use HasTranslations;
     use Sortable;
     use HasOptions;
+    use NestedSets;
 
     /**
      * @var string[]
      */
     public $translatable = [
-        'title', 'url',
+        'name', 'alias', 'path', 'description', 'seo_title', 'seo_keywords', 'seo_description',
     ];
 
     /**
@@ -45,7 +53,7 @@ class Menu extends Model
      * @var string[]
      */
     protected $fillable = [
-        'title', 'url', 'status', 'sort', 'parent_id'
+        'parent_id', 'sort', 'status', 'name', 'alias', 'description', 'seo_title', 'seo_keywords', 'seo_description',
     ];
 
     /**
@@ -82,11 +90,10 @@ class Menu extends Model
     }
 
     /**
-     * @param null $locale
-     * @return string
+     * @return BelongsTo
      */
-    public function getLink($locale = null) :string
+    public function getParent(): BelongsTo
     {
-        return localizeUrl($this->url, $locale);
+        return $this->belongsTo(static::class, 'id', 'parent_id');
     }
 }

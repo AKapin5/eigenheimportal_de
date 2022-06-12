@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ApartmentCategoryController;
+use App\Http\Controllers\Admin\ApartmentItemController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FileController;
@@ -51,5 +53,17 @@ Route::group([
             [MenuController::class, 'search'])
             ->name('menus.search');
         Route::resource('menus', MenuController::class);
+
+        /** Apartment categories */
+        Route::match(['GET', 'POST'], '/apartment-categories/search',
+            [ApartmentCategoryController::class, 'search'])
+            ->name('apartment-categories.search');
+        Route::resource('apartment-categories', ApartmentCategoryController::class);
+
+        /** Apartment items */
+        Route::match(['GET', 'POST'], '/apartment-items/search',
+            [ApartmentItemController::class, 'search'])
+            ->name('apartment-items.search');
+        Route::resource('apartment-items', ApartmentItemController::class);
     });
 });

@@ -7,11 +7,13 @@
         :model="$model"
         :label="__('Show')" />
 
-    <x-admin.file
-        multiple
+    <x-admin.select
+        :attribute="'parent_id'"
         :model="$model"
-        :attribute="'attachments'"
-        :label="__('Attachments')" />
+        :options="$categoryOptions"
+        :label="__('Parent')"
+        :placeholder="''"
+    />
 
     <ul class="nav nav-tabs" id="tabs" role="tablist">
         @foreach($languages as $language)
@@ -30,10 +32,10 @@
                 <x-admin.input
                     required
                     data-transliteration="{{ (int)empty($model->translate('alias', $language, false)) }}"
-                    value="{{ old('title.' . $language, $model->translate('title', $language, false)) }}"
-                    :attribute="'title.' . $language"
+                    value="{{ old('title.' . $language, $model->translate('name', $language, false)) }}"
+                    :attribute="'name.' . $language"
                     :model="$model"
-                    :label="__('Title')" />
+                    :label="__('Name')" />
 
                 <x-admin.input
                     required
@@ -45,10 +47,10 @@
 
                 <x-admin.textarea
                     class="editor"
-                    :attribute="'content.' . $language"
+                    :attribute="'description.' . $language"
                     :model="$model"
-                    :label="__('Content')">
-                    {{ old('content.' . $language, $model->translate('content', $language, false)) }}
+                    :label="__('Description')">
+                    {{ old('content.' . $language, $model->translate('description', $language, false)) }}
                 </x-admin.textarea>
 
                 <x-admin.input
