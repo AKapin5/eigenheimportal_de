@@ -1,0 +1,23 @@
+.form-control:invalid {
+    border-color: #dc3545;
+}
+
+.btn-actions {
+    justify-content: center;
+    width: 120px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.btn-actions form {
+    width: 100%;
+}
+
+.btn-actions .btn {
+    width: 100%;
+    display: block;
+}
+
+.tab-content {
+    padding: 10px 0;
+}
