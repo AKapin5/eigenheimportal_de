@@ -1,0 +1,27 @@
+.pagination {
+    &-list {
+        display: flex;
+        padding-bottom: 13rem;
+    }
+    &-btn {
+        display: flex;
+        margin-right: 0.5rem;
+        width: 4rem;
+        height: 4rem;
+        background: none;
+        color: $title-color;
+        font-size: $font-size-h5;
+        line-height: $line-height-h5;
+        font-weight: 500;
+        border-radius: 10px;  
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $primary-color;
+
+        &.m-active {
+            background: $primary-color;
+            color: #fff;
+            border: none;
+        }
+    }
+}

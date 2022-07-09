@@ -1,0 +1,32 @@
+.breadcrumbs {
+    display: flex;
+    padding: 2rem 0;
+
+    &:last-child {
+        color: #A08A79;
+    }
+
+    &__item {
+        position: relative;
+        padding-right: 26px;
+        font-weight: 400;
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 15px;
+            right: 10px;
+            top: 1px;
+            left: auto;
+            background: url("../img/icons/arrow-secondary.svg") 50% 50% no-repeat;
+        }
+
+        &:last-child {
+            padding-right: 0;
+            &:after {
+                display: none;
+            }
+        }
+    }
+}

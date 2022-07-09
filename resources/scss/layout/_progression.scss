@@ -1,0 +1,98 @@
+.progression {
+    padding: 3rem 0 0 0;
+    background: #F7F5F6;
+
+    @include breakpoint($breakpoint: medium){
+        padding: 4rem 0;
+    }
+
+    &__wrapper-img {
+        max-width: 330px;
+        @include breakpoint($breakpoint: medium){
+            margin: 0 auto 3rem;
+            width: 30%;
+            order: 2;
+            min-width: 120px;
+        }
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__item {
+        display: flex;
+        margin-bottom: 2.5rem;
+        align-items: flex-start;
+
+        @include breakpoint($breakpoint: medium){
+            margin-bottom: 1.5rem;
+        }
+
+        &-text {
+            width: calc(100% - 6.6rem);
+        }
+
+        &-title {
+            color: $text-color;
+            font-weight: 600;
+        }
+        &-subtitle {
+            font-weight: 400;
+            color: $text-color;
+        }
+
+        &-icon {
+            background: $title-color;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 700;
+            font-size: $font-size-h2;
+            line-height: 1;
+            padding: 1.4rem 1.5rem 1rem 1.5rem;
+            height: 4.6rem;
+            width: 4.6rem;
+            margin-right: 2rem;
+        }
+    }
+
+    &__container {
+        margin: 5rem 0;
+        display: flex;
+        align-items: center;
+
+
+        @include breakpoint($breakpoint: medium){
+            flex-direction: column;
+            margin: 0;
+        }
+
+    }
+
+    &__info {
+        align-items: center;
+        margin-left: 4rem;
+        padding-right: 2.5rem;
+        width: calc(100% - (37% + 4rem));
+
+        &-title {
+            color: $title-color;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+
+            @include breakpoint($breakpoint: medium){
+                font-weight: 500;
+                text-align: center;
+            }
+        }
+
+        @include breakpoint($breakpoint: medium){
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+    }
+}

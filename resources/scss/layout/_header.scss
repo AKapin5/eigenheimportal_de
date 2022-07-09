@@ -1,0 +1,24 @@
+.header {
+    padding: 10rem 0 1rem;
+
+    @include breakpoint($breakpoint: large){
+        padding: 3rem 0 1rem;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 -1rem;
+        position: relative;
+
+        @include breakpoint($breakpoint: large){
+            justify-content: flex-start;
+        }
+
+        @include breakpoint($breakpoint: medium){
+            margin: 0;
+            justify-content: flex-start;
+        }
+    }
+}

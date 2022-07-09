@@ -1,0 +1,85 @@
+<footer class="footer">
+    <div class="footer__top">
+        <div class="wrapper m-secondary">
+            <div class="footer__container">
+                <div class="footer__item">
+                    <a href="#" class="footer__item-link">
+                        <div class="footer__item-img">
+                            <svg width="69" height="31" viewBox="0 0 69 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_2_778)">
+                                    <path d="M12.1963 10.5359V15.1484L15.4022 11.9052V10.8962L12.1963 10.5359Z" fill="#CB5F10" />
+                                    <path d="M20.6989 7.14868L8.57228 20.2654H10.7328V24.0851L0 26.8237L11.9176 24.7337V18.3195L21.1171 8.37387L20.6989 7.14868Z" fill="#CB5F10" />
+                                    <path d="M19.4443 17.0222L19.514 15.2925L21.117 15.3645L21.0473 17.0942L19.4443 17.0222Z" fill="#F3B180" />
+                                    <path d="M52.7578 20.5535L52.8275 19.1121L54.1517 19.1841L54.082 20.6255L52.7578 20.5535Z" fill="#F3B180" />
+                                    <path d="M19.4443 19.1122L19.514 17.3826L21.117 17.4546L21.0473 19.1843L19.4443 19.1122Z" fill="#F3B180" />
+                                    <path d="M54.3608 22.4275L54.4305 20.9861L55.7547 21.0582L55.685 22.4996L54.3608 22.4275Z" fill="#F3B180" />
+                                    <path d="M21.396 19.1843L21.4657 17.4546L23.0686 17.5267L22.9989 19.1843H21.396Z" fill="#F3B180" />
+                                    <path d="M52.688 22.3552L52.7577 20.9138L54.0819 20.9859L54.0122 22.4273L52.688 22.3552Z" fill="#F3B180" />
+                                    <path d="M21.4653 17.0942L21.535 15.3645L23.138 15.4366L23.0683 17.1662L21.4653 17.0942Z" fill="#F3B180" />
+                                    <path d="M54.5 20.6257L54.5697 19.1843L55.8939 19.2564L55.8242 20.6978L54.5 20.6257Z" fill="#F3B180" />
+                                    <path d="M21.4653 6.49976L32.0587 11.3284L38.7493 21.1299H39.3068L45.9974 13.2022L54.5697 10.896L45.7883 20.9858V22.4993L31.9193 21.6344V20.5534L21.4653 6.49976Z" fill="#F3B180" />
+                                    <path d="M40.4918 3.40096L53.0366 0.374023L39.7948 16.0852L36.1011 15.797L33.2437 11.5448L40.4918 3.40096Z" fill="#F3B180" />
+                                    <path d="M58.8906 6.86035V7.79726L61.6087 12.1214L61.8177 7.2207L58.8906 6.86035Z" fill="#CB5F10" />
+                                    <path d="M54.0822 1.02271L53.1064 2.03168L61.8181 15.9412V18.3915L64.9543 18.6077L54.0822 1.02271Z" fill="#CB5F10" />
+                                    <path d="M36.589 25.5984C35.6133 25.5984 34.5679 25.5984 33.5922 25.6705C14.9841 26.3191 0 29.7784 0 29.7784C0 29.7784 14.9841 27.6163 33.5922 26.9677C34.9164 26.8956 36.1708 26.8956 37.495 26.8956C54.5002 26.8956 69.0661 30.4991 69.0661 30.4991C69.0661 30.4991 53.9426 25.5984 36.589 25.5984Z" fill="#CB5F10" />
+                                    <path d="M55.7546 11.4727L54.8486 12.4816L61.0513 22.139V27.328L68.4388 29.9225L61.3998 26.8235L61.6089 24.0849H63.8391L55.7546 11.4727Z" fill="#CB5F10" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2_778">
+                                        <rect width="68.9964" height="30.1252" fill="white" transform="translate(0 0.374023)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div> EigenheimPortal.de
+                    </a>
+                    <p class="footer__item-text">Gestalten Sie Ihre Zukunft selbst. Die passenden Lösungen gibt es bei uns!</p>
+                    <a href="#" class="footer__social">
+                        <div class="footer__social-icon-wrapper">
+                            <img src="/img/icons/facebook.svg" alt="" class="footer__social-icon">
+                        </div>
+                        <span class="footer__social-text">Impressum</span>
+                        <span class="footer__social-text">Datenschutzerklärung</span>
+                    </a>
+                </div>
+                <div class="footer__quick-nav">
+                    <h5 class="footer__title">Schnelle Links</h5>
+                    <ul class="footer__quick-nav-list">
+                        <li class="footer__quick-nav-item"><a href="#" class="footer__link">Referenzen</a></li>
+                        <li class="footer__quick-nav-item"><a href="#" class="footer__link">Gewerbe</a></li>
+                        <li class="footer__quick-nav-item"><a href="#" class="footer__link">Wohnobjekte</a></li>
+                        <li class="footer__quick-nav-item"><a href="#" class="footer__link">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer__data">
+                    <h5 class="footer__title">Data</h5>
+                    <ul class="footer__data-list">
+                        <li class="footer__data-item">
+                            <a href="#" class="footer__data-link">News 1</a>
+                        </li>
+                        <li class="footer__data-item">
+                            <a href="#" class="footer__data-link">News 2</a>
+                        </li>
+                        <li class="footer__data-item">
+                            <a href="#" class="footer__data-link">News 3</a>
+                        </li>
+                        <li class="footer__data-item">
+                            <a href="#" class="footer__data-link m-secondary">Alles sehen</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__services">
+                    <h5 class="footer__title">Unsere Leistungen</h5>
+                    <a href="" class="footer__services-link link_1">EigenheimWunsch.de</a>
+                    <p class="footer__services-text">Finanzieren Sie Ihr Eigenheim schnell und unkompliziert!</p>
+                    <a href="" class="footer__services-link link_2">EigenheimInfo.de</a>
+                    <p class="footer__services-text">Berechnen Sie den Wert Ihrer Immobilie schnell und unkompliziert!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <div class="wrapper m-secondary">
+            <div class="footer__copy"> Copyright 2022 © EigenheimInfo.de </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,70 @@
+.info {
+    padding: 8rem;
+
+    @include breakpoint($breakpoint: large){
+        padding: 6rem 0;
+    }
+
+    &__title {
+        text-align: center;
+        color: $title-color;
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 -1.5rem;
+
+        @include breakpoint($breakpoint: medium){
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        width: calc(33.333% - 3rem);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0 1.5rem 2rem;
+        min-height: 290px;
+        padding: 1rem;
+
+        &:hover {
+            border-radius: 10px;
+            background: $tertiary-color;
+        }
+
+        @include breakpoint($breakpoint: medium){
+            max-width: 70%;
+            width: 100%;
+            margin: 0 auto 2.5rem;
+            min-height: auto;
+
+        }
+        
+        &-wrapper-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            max-width: 100%;
+            min-height: 8rem;
+        }
+        &-img {
+            width: 100%;
+        }
+
+        &-text {
+            color: $text-color;
+            font-weight: 300;
+            margin: 0;
+
+            @include breakpoint($breakpoint: medium){
+                line-height: 2.4rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@import "base/reset";
+@import "base/fonts";
+@import "base/colors";
+
+@import "utils/mixins";
+@import "utils/variables";
+
+@import "components/slick";
+
+@import "layout/content";
+@import "layout/media";
+@import "layout/menu";
+@import "layout/header";
+@import "layout/nav";
+@import "layout/banner";
+@import "layout/info";
+@import "layout/progression";
+@import "layout/real-estate";
+@import "layout/cards";
+@import "layout/blog";
+@import "layout/footer";
+@import "layout/breadcrumbs";
+@import "layout/advertising.scss";
+@import "layout/sales-offers";
+@import "layout/product";
+@import "layout/features";
+@import "layout/download";
+@import "layout/forms";
+@import "layout/contact";
+@import "layout/pagination";
+@import "layout/question";
+@import "layout/reviews";
+@import "layout/comments";
+@import "layout/add-comment";
+@import "layout/burger-menu";
+@import "layout/overlay";

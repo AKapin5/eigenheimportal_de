@@ -1,0 +1,31 @@
+.sales-offers {
+    padding-top: 3rem;
+    margin-bottom: 10rem;
+
+    &__title {
+        font-weight: 700;
+        text-align: center;
+        @include breakpoint($breakpoint: medium){
+            font-weight: 500;
+            font-size: $font-size-h2;
+            line-height: $line-height-h2;
+        }
+    }
+
+    &__subtitle {
+        margin: 0 auto 2rem;
+        text-align: center;
+        font-weight: 500;
+        font-size: $font-size-h3;
+        line-height: $line-height-h3;
+        max-width: 57rem;
+    }
+
+    &__btn {
+        @include secondary-btn($height:4.7rem, $width:22rem);
+
+        display: flex;
+        justify-content: center;
+        margin: 2rem auto;
+    }
+}

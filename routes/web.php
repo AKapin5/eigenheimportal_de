@@ -12,14 +12,17 @@
 |
 */
 
-use App\Http\Controllers\DefaultController;
+
+use App\Http\Controllers\HomeController;
 
 require __DIR__.'/admin.php';
 
 Route::localized(function () {
-    require __DIR__ . '/auth.php';
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    Route::paginate('/', [DefaultController::class, 'home'])
-        ->name('home');
+    foreach (['blog', 'condominium', 'contact', 'credentials', 'product', 'question'] as $page) {
+        Route::get("$page.html", function () use ($page) {
+            return view("pages.$page");
+        });
+    }
 });
-

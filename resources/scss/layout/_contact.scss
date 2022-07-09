@@ -1,0 +1,60 @@
+.contact {
+    padding: 3.5rem 0 0;
+
+    &__title {
+        color: $title-color;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    &__info {
+        background: #F7F5F6;
+        border-radius: 10px;
+        margin-bottom: 6rem;
+        padding: 2.7rem 1.5rem;
+
+        @include breakpoint($breakpoint: large){
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+
+        @include breakpoint($breakpoint: large){
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        align-items: center;
+        position: relative;
+        max-width: 17rem;
+        width: 100%;
+
+        @include breakpoint($breakpoint: large){
+            margin-bottom: 2rem;
+            max-width: 100%;
+        }
+
+        &:last-child {
+            @include breakpoint($breakpoint: large){
+                margin-bottom: 0;
+            }
+        }
+
+        &-wrapper-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &-text {
+            display: flex;
+            padding-left: 25px;
+        }
+    }
+}

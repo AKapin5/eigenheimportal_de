@@ -1,0 +1,48 @@
+/* reset */
+$min-width: 320px; 
+$max-width: 960px; 
+$max-width-secondary: 1170px;
+$base-bg: #FFF; 
+$base-font-size: 12px; 
+$base-line-height: 18px; 
+$base-font-family: 'poppins', sans-serif; 
+$custom-font-family: 'poppins', sans-serif; 
+$link-color: #193C40;
+$default-transition:all 0.2s linear;
+
+$global-font-size: 10px;
+
+$breakpoints: (
+    start: 0,
+    small: 576px,
+    medium: 768px,
+    large: 1024px,
+    xl: 1200px
+);
+
+/* main variables */
+
+$title-font-family: $custom-font-family;
+
+$font-size-h1: 4rem;
+$line-height-h1: 6rem;
+
+$font-size-h2: 2.4rem;
+$line-height-h2: 3.6rem;
+
+$font-size-h3-large: 2rem;
+$line-height-h3-large: 3rem;
+
+$font-size-h3: 1.8rem;
+$line-height-h3: 2.7rem;
+
+$font-size-h4: 1.6rem;
+$line-height-h4: 2.4rem;
+
+$font-size-h5: 1.4rem;
+$line-height-h5: 2.1rem;
+
+$font-size-h6: 1.2rem;
+$line-height-h6: 1.8rem;
+
+

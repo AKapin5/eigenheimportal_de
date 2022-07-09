@@ -1,0 +1,111 @@
+
+//main styles
+
+html {
+	font-size: $global-font-size;
+}
+
+#body {
+
+	&.m-fixed {
+		position: fixed;
+	}
+}
+
+.main-wrapper{
+	min-width: $min-width;
+    width: 100%;
+	position: relative;
+	overflow: hidden;
+	min-height:100%;
+	display: flex;
+	flex-direction:column;
+}
+.wrapper{
+	min-width: $min-width;
+	max-width: $max-width;
+	padding: 0 3.5rem;
+	margin: 0 auto;
+	position: relative;
+	height: 100%;
+
+	@include breakpoint($breakpoint: medium){
+		padding: 0 1.5rem;
+	}
+	
+	&.m-secondary {
+		max-width: $max-width-secondary;
+	}
+}
+
+
+
+/* titles */
+p{	
+	@include font($base-font-size,$base-line-height,$text-color);
+	padding: 0;
+	margin-bottom: 1rem;
+	font-weight: 400;	
+	letter-spacing: 0.1px;
+}
+h1{	
+	@include font($font-size-h1,$line-height-h1,$title-color);
+	font-family: $title-font-family;
+	padding: 0;
+	margin-bottom: 1rem;
+	font-weight: 400;	
+}
+h2{
+	@include font($font-size-h2,$line-height-h2,$title-color);
+	font-family: $title-font-family;
+	padding: 0;
+	margin-bottom: 1rem;
+	font-weight: 400;	
+}
+h3{
+	@include font($font-size-h3,$line-height-h3,$title-color);
+	font-family: $title-font-family;
+	padding: 0;
+	margin-bottom: 1rem;
+	font-weight: 400;
+}
+h4{
+	@include font($font-size-h4,$line-height-h4,$title-color);
+	font-family: $title-font-family;
+	padding: 0;
+	margin-bottom: 1rem;
+	font-weight: 400;
+}
+
+ul,li{
+	list-style: none;
+}
+
+/* text position */
+.text-left{text-align: left!important}
+.text-center{text-align: center!important}
+.text-right{text-align: right!important}
+.nowrap{white-space: nowrap!important;}
+
+
+/* loader */
+.loaded .main-wrapper{visibility:hidden;}
+.icon-load{background:url(../img/loader.gif) no-repeat left top;width:40px;height:40px;position:fixed;left:50%;top:50%;margin-left:-20px;margin-left:-20px;display:none;}
+.loaded .icon-load{display:block;}
+
+
+/*
+================================================================================
+|                                     CONTENT                                 |
+================================================================================
+*/
+.content{	
+	min-width: $min-width;
+	text-align:left;
+    width: 100%;
+	order: 2;
+    -webkit-order: 2;
+	flex-grow: 1;
+    -webkit-flex-grow: 1;
+	background: #fff;
+}

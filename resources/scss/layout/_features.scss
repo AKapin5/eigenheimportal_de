@@ -1,0 +1,54 @@
+.features {
+
+    &__wrapper-icon {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: $font-size-h3-large;
+        line-height: $line-height-h3-large;
+        margin-bottom: 2rem;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 -1rem;
+    }
+
+    &__item {
+        display: flex;
+        margin:0 1rem 6rem;
+        align-items: center;
+        width: calc(25% - 2rem);
+
+        @include breakpoint($breakpoint: small){
+            width: calc(50% - 2rem);
+        }
+    }
+
+    &__info {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1rem;
+
+        &-title {
+            font-weight: 400;
+        }
+
+        &-value {
+            font-weight: 700;
+
+            sup {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}  

@@ -1,0 +1,91 @@
+.banner {
+   &-hero {
+
+      width: 100%;
+      position: relative;
+
+      &__wrapper {
+         height: 100%;
+
+         @include breakpoint($breakpoint: medium) {
+            display: flex;
+            align-items: center;
+         }
+      }
+
+      &__bg {
+         max-width: 1350px;
+         margin-left: auto;
+         margin-right: auto;
+
+         background: url("../img/Banner.png") 50% 50% no-repeat;
+         height: 592px;
+         position: relative;
+         padding: 7.7rem 0;
+
+         @include breakpoint($breakpoint: medium) {
+            background-size: cover;
+            background-position-x: 70%;
+   
+            &::before {
+               content: "";
+               position: absolute;
+               width: 100%;
+               top: 0;
+               left: 0;
+               height: 100%;
+               background: rgba(255, 255, 255, 0.5);
+            }
+         }
+      }
+
+      &__info {
+         max-width: 370px;
+         margin-left: 1rem;
+
+         @include breakpoint($breakpoint: medium) {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+         }
+      }
+
+      &__title {
+         color: $title-color;
+         font-weight: 700;
+
+         @include breakpoint($breakpoint: medium) {
+            font-weight: 400;
+         }
+      }
+
+      &__text {
+         color: $text-color;
+         font-size: $font-size-h3;
+         line-height: $line-height-h3;
+         font-weight: 500;
+         width: 24rem;
+
+         @include breakpoint($breakpoint: medium) {
+            font-weight: 400;
+         }
+      }
+
+      &__btn {
+         @include secondary-btn($width: 219px)
+      }
+   }
+
+   &__img {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+   }
+
+   &.m-secondary {
+      .banner__wrapper {
+         width: 100%;
+         max-height: 355px;
+      }
+   }
+}

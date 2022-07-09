@@ -1,0 +1,96 @@
+.form {
+    &__wrapper {
+        background: #F7F5F6;
+        border: none;
+        border-radius: 10px;
+        padding: 5em 10rem;
+        margin-bottom: 13rem;
+
+        &.m-secondary {
+            background: #A05E2A;
+        }
+
+        @include breakpoint($breakpoint: medium){
+            padding: 1.5rem 3rem;
+        }
+    }
+
+    &__content {
+        display: flex;
+    }
+
+    &__label {
+        display: block;
+        color: $title-color;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        &.m-secondary {
+            color: #fff;
+        }
+    }
+
+    &__input {
+        display: block;
+        border-radius: 10px;
+        border: 1px solid #C9A78F;
+        text-align: left;
+        padding: 1rem;
+        width: 100%;
+
+        &.m-secondary {
+            border: none;
+        }
+
+        &.textarea {
+            width: 100%;
+            margin-bottom: 3rem;
+            
+        }
+
+        
+    }
+
+    &__title {
+        text-align: center;
+        color: $title-color;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        &.m-secondary {
+            color: #fff;
+        }
+    }
+
+    &__group {
+        display: flex;
+        margin-bottom: 2rem;
+        @include breakpoint($breakpoint: medium){
+            display: block;
+        }
+    }
+
+    &__field {
+        margin-right: 2rem;
+        width: 50%;
+        &:last-child {
+            margin: 0;
+        }
+
+        &.textarea {
+            width: 100%;
+        }
+
+        @include breakpoint($breakpoint: medium){
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__btn {
+        @include secondary-btn($width: 13.5rem, $height:4.5rem);
+        text-align: center;
+        margin: 0 auto;
+        &.m-secondary {
+            color: #fff;
+        }
+    }
+}

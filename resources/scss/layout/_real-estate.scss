@@ -1,0 +1,13 @@
+.real-estate {
+    padding: 8rem 0;
+
+    &-title {
+        text-align: center;
+        color: $title-color;
+        font-weight: 600;
+        margin-bottom: 2.5rem;
+    }
+    @include breakpoint($breakpoint: medium){
+        padding: 4rem 0;
+    }
+}

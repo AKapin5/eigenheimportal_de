@@ -108,7 +108,7 @@
 <script src="{{ asset('admin-panel/libs/bsCustomFileInput/bs-custom-file-input.min.js') }}"></script>
 <script src="{{ asset('admin-panel/js/redactor.js') }}?v=1"></script>
 <script src="{{ asset('admin-panel/js/uploader.js') }}"></script>
-<script src="{{ asset('admin-panel/js/app.js') }}?v=1"></script>
+<script src="{{ asset('admin-panel/js/custom.min.js') }}?v=1"></script>
 @stack('js')
 </body>
 </html>

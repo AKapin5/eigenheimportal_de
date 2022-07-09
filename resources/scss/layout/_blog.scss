@@ -1,0 +1,210 @@
+.blog {
+    padding: 7rem 0;
+
+    &__content {
+        margin-right: 2rem;
+        @include breakpoint($breakpoint: medium){
+            order: 2;
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+
+    &.page {
+        padding: 3.5rem 0;
+    }
+    &__title {
+        text-align: center;
+        color: $title-color;
+        font-weight: 600;
+
+        &.page {
+            font-weight: 700;
+            color: $title-color;
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: flex-start;
+        
+        @include breakpoint($breakpoint: medium){
+            flex-direction: column;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 155px;
+        height: 35px;
+        border: none;
+        border-radius: 25px;
+        background: #2C353F;
+        color: #fff;
+        font-size: $font-size-h4;
+        font-weight: 700;
+    }
+
+    &__item {
+        margin-bottom: 3rem;
+
+        &-container {
+            display: flex;
+            position: relative;
+            align-items: center;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        &-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &-date {
+            padding: 1.5rem 0 1.5rem 2.5rem;
+            font-weight: 400;
+            
+            &:before {
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 50%; 
+                transform: translateY(-50%);
+                width: 15px;
+                height: 15px;
+                background: url("../img/icons/clock.svg") 50% 50% no-repeat;
+            }
+        }
+
+        &-title {
+            margin-bottom: 1.5rem;
+            color: $text-color;
+            font-weight: 600;
+        }
+        &-subtitle {
+            display: -webkit-box;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            color: $text-color;
+            font-weight: 400;
+            font-size: $font-size-h5;
+            line-height: $line-height-h5;
+            max-width: 50rem;
+            width: 100%;
+            line-clamp: 1;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+
+        &-btn {
+            @include primary-btn($width:13rem, $height:3.8rem);
+            align-items: center;
+            transition: all 0.4s;
+
+            &:hover {
+                border: none;
+                background: $primary-color;
+                color: #fff;
+                
+            }
+        }
+    }
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        margin: 5rem 0 0;
+
+    }
+
+    &__categories {
+        background: #F7F5F6;
+        border-radius: 10px;
+        padding: 2rem 1.5rem;
+        width: 28.5rem;
+
+        @include breakpoint($breakpoint: medium){
+            order: 1;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        &.m-secondary{
+            background: none;
+
+            @include breakpoint($breakpoint: medium){
+                background: #F7F5F6;
+            }
+        }
+
+
+        &-header {
+            color: $primary-color;
+            font-weight: 700;
+        }
+
+        &-item {
+            border-bottom: 1px solid #F3E5DB;
+            padding: 1rem 0;
+
+            &:last-child {
+                border: none;
+                padding-bottom: 0;
+            }
+
+            &.m-active {
+                .blog__subcategories-list {
+                    display: block;
+                }
+                .blog__categories-title:before {
+                    transform: translateY(-50%) rotate(90deg);
+                }
+            }
+        }
+
+        &-title {
+            padding-left: 1.5rem;
+            margin-right: 0.5rem;
+            position: relative;
+            cursor: pointer;
+
+            &:before {
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(0); 
+                width: 10px;
+                height: 10px;
+                background: url("../img/icons/arrow.png") 50% 50% no-repeat;
+                cursor: pointer;
+                transition: transform 0.3s;
+                transform-origin: center;
+            }
+        }
+
+        &-quantity {
+            padding-bottom: 0;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__subcategories {
+        &-list {
+            padding-left: 3rem;
+            display: none;
+        }
+
+        &-item {
+            padding-top: .8rem;
+        }
+    }
+}

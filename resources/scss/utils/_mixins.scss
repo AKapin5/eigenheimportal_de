@@ -1,0 +1,169 @@
+@mixin font($font-s, $font-h, $font-c) {
+    font-size: $font-s;
+    line-height: $font-h;
+    color:$font-c;
+}
+
+@mixin secondary-btn($button-bg : $primary-color, $button-border : none, $button-border-color : $primary-color, $height : 47px, $width : 219, $radius : 10px, $font-weight : 700) {
+	display: flex;
+	background: $button-bg;
+	border: $button-border;
+	border-radius: $radius;
+	height: $height;
+	width: $width;
+	color: #fff;
+	align-items: center;
+	justify-content: center;
+   font-weight: $font-weight;
+}
+
+@mixin primary-btn($button-bg : none, $color:#fff, $button-border : 1px, $button-border-color : $primary-color, $height : 47px, $width : 219, $radius : 10px, $font-weight : 700) {
+	display: flex;
+	background: $button-bg;
+	border: $button-border solid $button-border-color;
+	border-radius: $radius;
+	height: $height;
+	width: $width;
+	color: $color;
+	align-items: center;
+	justify-content: center;
+   font-weight: $font-weight;
+   color: $primary-color;
+   padding-top: .3rem;
+}
+
+@mixin breakpoint($breakpoint, $width-range: up) {
+	@if (map-has-key($breakpoints, $breakpoint)) {
+	   $value: map-get($breakpoints, $breakpoint);
+ 
+	   @if $width-range==up {
+		  @media screen and (max-width: $value) {
+			 @content;
+		  }
+	   }
+ 
+	   @else if $width-range==only {
+		  $next-key: nextMapKey($breakpoint);
+		  $next-value: map-get($breakpoints, $next-key);
+ 
+		  @if $value != $next-value {
+			 @media screen and (min-width: $value) and (max-width: $next-value) {
+				@content;
+			 }
+		  } @else {
+			 @media screen and (min-width: $value) {
+				@content;
+			 }
+		  }
+		  
+	   }
+	}
+ }
+
+ @mixin h1 ($font-size : $font-size-h1,
+   $font-size--large : $font-size-h1--large,
+   $font-family : $font-family-base,
+   $color : color(light),
+   $line-height : $line-height-h1--large,
+   $line-height--large: $line-height-h1--large) {
+   color: $color;
+   font-size: $font-size-h1;
+   font-family: $font-family;
+   line-height: $line-height;
+   margin-bottom: 2rem;
+
+   @include breakpoint(large) {
+      font-size: $font-size-h1--large;
+      line-height: $line-height-h1--large;
+   }
+}
+
+@mixin h2 ($color : color(light),
+   $font-size--large : $font-size-h2--large,
+   $line-height--large: $line-height-h2--large,
+   $font-family : $font-family-base,
+   $line-height : $line-height-h2,
+   $font-size : $font-size-h2) {
+   color: $color;
+   font-size: $font-size;
+   font-family: $font-family;
+   line-height: $line-height;
+   margin-bottom: 1.8rem;
+
+   @include breakpoint(large) {
+      font-size: $font-size-h2--large;
+      line-height: $line-height-h2--large;
+   }
+}
+
+@mixin h3 ($color : color(light),
+   $font-size--large : $font-size-h3--large,
+   $line-height--large: $line-height-h3--large,
+   $font-family : $font-family-base,
+   $line-height : $line-height-h3--large,
+   $font-size : $font-size-h3) {
+   color: $color;
+   font-size: $font-size;
+   font-family: $font-family;
+   line-height: $line-height;
+   margin-bottom: 1.6rem;
+
+   @include breakpoint(large) {
+      font-size: $font-size-h3--large;
+      line-height: $line-height-h3--large;
+   }
+}
+
+@mixin h4 ($color : color(light),
+   $font-size--large : $font-size-h4--large,
+   $line-height--large: $line-height-h4--large,
+   $font-family : $font-family-base,
+   $line-height : $line-height-h4,
+   $font-size : $font-size-h4) {
+   color: $color;
+   font-size: $font-size;
+   font-family: $font-family;
+   line-height: $line-height;
+   margin-bottom: 1.4rem;
+
+   @include breakpoint(large) {
+      font-size: $font-size-h4--large;
+      line-height: $line-height-h4--large;
+   }
+}
+
+@mixin h5 ($color : color(light),
+   $font-size--large : $font-size-h5--large,
+   $line-height--large: $line-height-h5--large,
+   $font-family : $font-family-base,
+   $line-height : $line-height-h5,
+   $font-size : $font-size-h5) {
+   color: $color;
+   font-size: $font-size;
+   font-family: $font-family;
+   line-height: $line-height;
+   margin-bottom: 1.2rem;
+
+   @include breakpoint(large) {
+      font-size: $font-size-h5--large;
+      line-height: $line-height-h5--large;
+   }
+}
+
+@mixin h6 ($color : color(light),
+   $font-size--large : $font-size-h6--large,
+   $line-height--large: $line-height-h6--large,
+   $font-family : $font-family-base,
+   $line-height : $line-height-h6,
+   $font-size : $font-size-h6) {
+   color: $color;
+   font-size: $font-size;
+   font-family: $font-family;
+   line-height: $line-height;
+   margin-bottom: 1rem;
+
+   @include breakpoint(large) {
+      font-size: $font-size-h6--large;
+      line-height: $line-height-h6--large;
+   }
+}
