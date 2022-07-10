@@ -14,10 +14,10 @@ Route::group([
     'prefix' => config('admin.urlPrefix'),
     'as' => 'admin.',
 ], function () {
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-        ->name('login');
+    Route::get('login', [AuthenticatedSessionController::class, 'create']);
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', [AuthenticatedSessionController::class, 'store'])
+        ->name('login');
 
     Route::group(['prefix' => 'fm', 'middleware' => ['auth.admin']], function () {
         UniSharp\LaravelFilemanager\Lfm::routes();
