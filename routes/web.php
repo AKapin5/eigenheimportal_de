@@ -13,6 +13,7 @@
 */
 
 
+use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\HomeController;
 
 require __DIR__.'/admin.php';
@@ -25,4 +26,14 @@ Route::localized(function () {
             return view("pages.$page");
         });
     }
+
+    Route::get('apartments', [ApartmentController::class, 'index'])
+        ->name('apartment.index');
+
+    Route::get('apartments/{path}', [ApartmentController::class, 'category'])
+        ->name('apartment.category');
+
+    Route::get('apartments/{path}/{alias}.html', [ApartmentController::class, 'show'])
+        ->where('path', '.*')
+        ->name('apartment.show');
 });

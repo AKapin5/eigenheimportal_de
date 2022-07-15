@@ -4,12 +4,12 @@ namespace App\Models;
 
 use App\Traits\HasOptions;
 use App\Traits\HasTranslations;
+use App\Traits\LocalizedLinks;
 use App\Traits\NestedSets;
 use App\Traits\Sortable;
 use App\Traits\UploadsMedia;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -41,6 +41,7 @@ class ApartmentCategory extends Model implements HasMedia
     use HasOptions;
     use NestedSets;
     use UploadsMedia;
+    use LocalizedLinks;
 
     /**
      * @var string[]
@@ -110,5 +111,15 @@ class ApartmentCategory extends Model implements HasMedia
     public function apartments(): HasMany
     {
         return $this->hasMany(Apartment::class, 'category_id', 'id');
+    }
+
+    /**
+     * @param string $locale
+     * @param bool $absolute
+     * @return string|null
+     */
+    public function getLink(string $locale = '', bool $absolute = false): ?string
+    {
+        return route('apartment.category', ['path' => $this->getTranslatedOrDefault('path', $locale)], $absolute, $locale);
     }
 }

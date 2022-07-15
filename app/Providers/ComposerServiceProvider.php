@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Menu;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 
@@ -27,6 +28,16 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer('*', function(View $view) {
             $view->with([
                 'languages' => supportedLocales(),
+            ]);
+        });
+        view()->composer('partials.header', function(View $view) {
+            $view->with([
+                'menuItems' => Menu::getItems(),
+            ]);
+        });
+        view()->composer('partials.footer', function(View $view) {
+            $view->with([
+                'menuItems' => Menu::getItems(),
             ]);
         });
     }

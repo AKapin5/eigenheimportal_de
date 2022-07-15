@@ -25,7 +25,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     const categoryItems = document.querySelectorAll('.js-categories-list .blog__categories-item');
-    console.log(categoryItems);
     for (let i = 0; i < categoryItems.length; i++) {
         categoryItems[i].addEventListener('click', function () {
             if (this.classList.contains('m-active')) {

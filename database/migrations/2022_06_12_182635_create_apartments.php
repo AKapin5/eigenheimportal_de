@@ -59,6 +59,7 @@ return new class extends Migration
             $table->string('contact_email')->nullable();
             $table->string('contact_website')->nullable();
             $table->smallInteger('status')->default(1);
+            $table->smallInteger('is_top')->default(0);
             $table->timestamps();
 
             $table->foreign('category_id')

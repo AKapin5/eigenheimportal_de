@@ -69,6 +69,11 @@
         :model="$model"
         :label="__('Show')" />
 
+    <x-admin.input
+        :attribute="'sort'"
+        :model="$model"
+        :label="__('Sort')" />
+
     <x-admin.select
         :attribute="'parent_id'"
         :model="$model"

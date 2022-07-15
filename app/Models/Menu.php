@@ -7,6 +7,7 @@ use App\Traits\HasTranslations;
 use App\Traits\Sortable;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -88,5 +89,13 @@ class Menu extends Model
     public function getLink($locale = null) :string
     {
         return localizeUrl($this->url, $locale);
+    }
+
+    /**
+     * @return Collection
+     */
+    public static function getItems(): Collection
+    {
+        return static::query()->orderBy('sort')->get();
     }
 }

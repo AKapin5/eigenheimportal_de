@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\HasOptions;
 use App\Traits\HasTranslations;
+use App\Traits\LocalizedLinks;
 use App\Traits\UploadsMedia;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
@@ -34,6 +35,7 @@ use Spatie\MediaLibrary\HasMedia;
  * @property string $contact_email
  * @property string $contact_website
  * @property int $status
+ * @property int $is_top
  *
  * @property ApartmentCategory $category
  * @property string $statusText
@@ -46,6 +48,7 @@ class Apartment extends Model implements HasMedia
     use HasTranslations;
     use HasOptions;
     use UploadsMedia;
+    use LocalizedLinks;
 
     /**
      * @var string[]
@@ -58,7 +61,7 @@ class Apartment extends Model implements HasMedia
      * @var string[]
      */
     protected $fillable = [
-        'category_id', 'status', 'name', 'alias',
+        'category_id', 'status', 'is_top', 'name', 'alias',
         'description', 'seo_title', 'seo_keywords', 'seo_description',
         'living_space', 'construction_year', 'rooms_count', 'heating',
         'airport_travel_time', 'highway_travel_time', 'hospital_travel_time', 'school_travel_time',
@@ -120,5 +123,18 @@ class Apartment extends Model implements HasMedia
         } else {
             return $query->where('category_id', $category->id);
         }
+    }
+
+    /**
+     * @param string $locale
+     * @param bool $absolute
+     * @return string|null
+     */
+    public function getLink(string $locale = '', bool $absolute = false): ?string
+    {
+        return route('apartment.show', [
+            'path' => $this->category->getTranslatedOrDefault('path', $locale),
+            'alias' => $this->getTranslatedOrDefault('alias', $locale),
+        ], $absolute, $locale);
     }
 }

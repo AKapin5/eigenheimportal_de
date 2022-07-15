@@ -29,6 +29,7 @@ class MenuRequest extends FormRequest
             'menu.url.*' => 'max:255',
             'menu.parent_id' => 'integer',
             'menu.status' => 'integer',
+            'menu.sort' => 'integer',
         ];
     }
 
@@ -42,6 +43,7 @@ class MenuRequest extends FormRequest
             'menu.url' => __('URL'),
             'menu.parent_id' => __('Parent'),
             'menu.status' => __('Show'),
+            'menu.sort' => __('Sort'),
         ];
     }
 }

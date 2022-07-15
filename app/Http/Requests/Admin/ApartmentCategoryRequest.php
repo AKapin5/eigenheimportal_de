@@ -30,6 +30,7 @@ class ApartmentCategoryRequest extends FormRequest
             'apartmentCategory.alias.*' => 'max:255',
             'apartmentCategory.parent_id' => 'integer|nullable',
             'apartmentCategory.status' => 'integer',
+            'apartmentCategory.sort' => 'integer',
             'apartmentCategory.description.*' => 'max:50000',
             'apartmentCategory.seo_title.*' => 'max:255',
             'apartmentCategory.seo_keywords.*' => 'max:50000',
@@ -53,6 +54,7 @@ class ApartmentCategoryRequest extends FormRequest
             'apartmentCategory.photo' => __('Photo'),
             'apartmentCategory.parent_id' => __('Parent'),
             'apartmentCategory.status' => __('Show'),
+            'apartmentCategory.sort' => __('Sort'),
         ];
     }
 }

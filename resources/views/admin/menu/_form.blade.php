@@ -2,11 +2,6 @@
     @csrf
     @method($method)
 
-    <x-admin.checkbox
-        :attribute="'status'"
-        :model="$model"
-        :label="__('Show')" />
-
     <ul class="nav nav-tabs" id="tabs" role="tablist">
         @foreach($languages as $language)
             <li class="nav-item">
@@ -39,6 +34,16 @@
             </div>
         @endforeach
     </div>
+
+    <x-admin.checkbox
+        :attribute="'status'"
+        :model="$model"
+        :label="__('Show')" />
+
+    <x-admin.input
+        :attribute="'sort'"
+        :model="$model"
+        :label="__('Sort')" />
 
     <div class="form-group">
         <button type="submit" name="save" class="btn btn-primary">{{ __('Save') }}</button>

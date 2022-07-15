@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\ApartmentRepository;
 use Illuminate\Contracts\View\View;
 
-class HomeController extends Controller
+class ApartmentController extends Controller
 {
     protected ApartmentRepository $apartmentRepository;
 
@@ -16,7 +16,16 @@ class HomeController extends Controller
 
     public function index(): View
     {
-        $topApartments = $this->apartmentRepository->getTop();
-        return view('pages.home', compact('topApartments'));
+        return view('apartment.index');
+    }
+
+    public function category($path): View
+    {
+        return view('apartment.category');
+    }
+
+    public function show($path, $alias): View
+    {
+        return view('apartment.show');
     }
 }
