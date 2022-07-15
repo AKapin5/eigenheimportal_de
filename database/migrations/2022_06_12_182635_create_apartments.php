@@ -39,30 +39,31 @@ return new class extends Migration
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->json('title');
+            $table->json('name');
             $table->json('alias');
-            $table->json('description');
-            $table->json('seo_title');
-            $table->json('seo_keywords');
-            $table->json('seo_description');
+            $table->json('description')->nullable();
+            $table->json('seo_title')->nullable();
+            $table->json('seo_keywords')->nullable();
+            $table->json('seo_description')->nullable();
             $table->decimal('living_space', 10)->default(0);
-            $table->integer('construction_year');
-            $table->integer('rooms_count');
-            $table->integer('heating');
-            $table->string('airport_distance');
-            $table->string('highway_distance');
-            $table->string('hospital_distance');
-            $table->string('school_distance');
-            $table->text('location_map');
-            $table->string('location_address');
-            $table->string('contact_phone');
-            $table->string('contact_email');
-            $table->string('contact_website');
+            $table->integer('construction_year')->nullable();
+            $table->integer('rooms_count')->nullable();
+            $table->integer('heating')->nullable();
+            $table->integer('airport_travel_time')->nullable();
+            $table->integer('highway_travel_time')->nullable();
+            $table->integer('hospital_travel_time')->nullable();
+            $table->integer('school_travel_time')->nullable();
+            $table->text('location_map')->nullable();
+            $table->string('location_address')->nullable();
+            $table->string('contact_phone')->nullable();
+            $table->string('contact_email')->nullable();
+            $table->string('contact_website')->nullable();
+            $table->smallInteger('status')->default(1);
             $table->timestamps();
 
             $table->foreign('category_id')
                 ->references('id')
-                ->on('apartments')
+                ->on('apartment_categories')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
         });

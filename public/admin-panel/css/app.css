@@ -21,3 +21,7 @@
 .tab-content {
     padding: 10px 0;
 }
+
+table.table-bordered.dataTable tbody td {
+    vertical-align: middle;
+}

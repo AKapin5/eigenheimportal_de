@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\ApartmentCategoryRequest;
+use App\Http\Requests\Admin\ApartmentRequest;
 use App\Models\Apartment;
 use App\Models\ApartmentCategory;
-use Exception;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use InvalidArgumentException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Exception;
 
-class ApartmentCategoryController
+
+class ApartmentController
 {
     /**
      * Display a listing of the resource.
@@ -27,22 +28,24 @@ class ApartmentCategoryController
      */
     public function index(): View
     {
-        $statusOptions = ApartmentCategory::getStatusOptions();
-        $parent = $this->getParent();
+        $statusOptions = Apartment::getStatusOptions();
+        $categoryOptions = ApartmentCategory::asTextTree();
+        $category = $this->getCategory();
         $return_url = request()->getRequestUri();
-        return view('admin.apartment-category.index', compact('statusOptions', 'parent', 'return_url'));
+        return view('admin.apartment.index',
+            compact('statusOptions', 'categoryOptions', 'category', 'return_url'));
     }
 
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    protected function getParent(): ?ApartmentCategory
+    protected function getCategory(): ?ApartmentCategory
     {
-        $parent_id = request()->get('parent_id');
-        $model = ApartmentCategory::find($parent_id);
-        if ($parent_id && !$model) {
-            throw new InvalidArgumentException('Invalid parent_id');
+        $category_id = request()->get('category_id');
+        $model = ApartmentCategory::find($category_id);
+        if ($category_id && !$model) {
+            throw new InvalidArgumentException('Invalid category_id');
         }
         return $model;
     }
@@ -54,7 +57,7 @@ class ApartmentCategoryController
      */
     public function search(Request $request): JsonResponse
     {
-        return datatables()->eloquent(ApartmentCategory::query())
+        return datatables()->eloquent(Apartment::query())
             ->filter(function (Builder $query) use ($request) {
                 if ($request->filled('id')) {
                     $query->where('id', $request->get('id'));
@@ -66,36 +69,33 @@ class ApartmentCategoryController
                 if ($request->filled('status')) {
                     $query->where('status', $request->get('status'));
                 }
-                $query->where('parent_id', $request->get('parent_id'));
-                $query->orderBy('sort');
+                if ($request->filled('category_id')) {
+                    $category = $this->getCategory();
+                    $query->ofCategory($category);
+                }
             })
-            ->editColumn('photo', function (ApartmentCategory $model) {
-                if ($file = $model->getFirstMedia('photo')) {
+            ->editColumn('photo', function (Apartment $model) {
+                if ($file = $model->getFirstMedia('photos')) {
                     return '<img src="' . thumb($file, 'fit', 100) . '">';
                 } else {
                     return null;
                 }
             })
-            ->editColumn('name', function (ApartmentCategory $model) {
+            ->editColumn('category_id', function (Apartment $model) {
+                return $model->category->name;
+            })
+            ->editColumn('name', function (Apartment $model) {
                 return $model->name;
             })
-            ->editColumn('alias', function (ApartmentCategory $model) {
+            ->editColumn('alias', function (Apartment $model) {
                 return $model->alias;
             })
-            ->editColumn('status', function (ApartmentCategory $model) {
+            ->editColumn('status', function (Apartment $model) {
                 return $model->statusText;
             })
-            ->editColumn('children', function (ApartmentCategory $model) {
-                $indexRoute = route("admin.apartment-categories.index", ['parent_id' => $model->id]);
-                return '<a href="' . $indexRoute . '">' . __('Sub-categories (:count)', ['count' => $model->children()->count()]) . '</a>';
-            })
-            ->editColumn('items', function (ApartmentCategory $model) {
-                $indexRoute = route("admin.apartments.index", ['category_id' => $model->id]);
-                return '<a href="' . $indexRoute . '">' . __('Apartments (:count)', ['count' => Apartment::ofCategory($model)->count()]) . '</a>';
-            })
             ->addColumn('action', function ($model) use ($request) {
-                $editRoute = route("admin.apartment-categories.edit", ['apartment_category' => $model->id, 'return_url' => $request->get('return_url')]);
-                $deleteRoute = route("admin.apartment-categories.destroy", ['apartment_category' => $model->id, 'return_url' => $request->get('return_url')]);
+                $editRoute = route("admin.apartments.edit", ['apartment' => $model->id, 'return_url' => $request->get('return_url')]);
+                $deleteRoute = route("admin.apartments.destroy", ['apartment' => $model->id, 'return_url' => $request->get('return_url')]);
                 return view('admin.partials._actions', compact('model', 'editRoute', 'deleteRoute'));
             })
             ->rawColumns(['children', 'items', 'action', 'photo'])
@@ -111,24 +111,26 @@ class ApartmentCategoryController
      */
     public function create(): View
     {
-        $model = new ApartmentCategory([
+        $model = new Apartment([
             'status' => 1,
-            'parent_id' => request()->get('parent_id'),
+            'category_id' => request()->get('category_id'),
         ]);
         $return_url = request()->get('return_url');
-        $categoryOptions = $model->asTextTree(null, $model->id);
-        return view("admin.apartment-category.create", compact('model', 'return_url', 'categoryOptions'));
+        $categoryOptions = ApartmentCategory::asTextTree();
+        $heatingOptions = Apartment::getHeatingOptions();
+        return view("admin.apartment.create",
+            compact('model', 'return_url', 'categoryOptions', 'heatingOptions'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param ApartmentCategoryRequest $request
+     * @param ApartmentRequest $request
      * @return RedirectResponse
      */
-    public function store(ApartmentCategoryRequest $request): RedirectResponse
+    public function store(ApartmentRequest $request): RedirectResponse
     {
-        $model = new ApartmentCategory(['parent_id' => $request->get('parent_id')]);
+        $model = new Apartment(['category_id' => $request->get('category_id')]);
         $return_url = $request->get('return_url');
         return $this->save($model, $request, $return_url);
     }
@@ -157,20 +159,22 @@ class ApartmentCategoryController
     {
         $model = $this->findModel($id);
         $return_url = request()->get('return_url');
-        $categoryOptions = $model->asTextTree(null, $model->id);
-        return view("admin.apartment-category.edit", compact('model', 'return_url', 'categoryOptions'));
+        $categoryOptions = ApartmentCategory::asTextTree();
+        $heatingOptions = Apartment::getHeatingOptions();
+        return view("admin.apartment.edit",
+            compact('model', 'return_url', 'categoryOptions', 'heatingOptions'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param ApartmentCategoryRequest $request
+     * @param ApartmentRequest $request
      * @param int $id
      * @return RedirectResponse
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function update(ApartmentCategoryRequest $request, int $id): RedirectResponse
+    public function update(ApartmentRequest $request, int $id): RedirectResponse
     {
         $model = $this->findModel($id);
         $return_url = request()->get('return_url');
@@ -190,42 +194,38 @@ class ApartmentCategoryController
         $model = $this->findModel($id);
         $model->delete();
         $return_url = request()->get('return_url');
-        return redirect($return_url ?: route("admin.apartment-categories.index"));
+        return redirect($return_url ?: route("admin.apartments.index"));
     }
 
     /**
      * @param $id
-     * @return ApartmentCategory|Model
+     * @return Apartment|Model
      */
-    protected function findModel($id): ApartmentCategory
+    protected function findModel($id): Apartment
     {
-        return ApartmentCategory::query()->findOrFail($id);
+        return Apartment::query()->findOrFail($id);
     }
 
     /**
-     * @param ApartmentCategory $model
-     * @param ApartmentCategoryRequest $request
+     * @param Apartment $model
+     * @param ApartmentRequest $request
      * @param string|null $return_url
      * @return RedirectResponse
      */
-    protected function save(ApartmentCategory $model, ApartmentCategoryRequest $request, ?string $return_url): RedirectResponse
+    protected function save(Apartment $model, ApartmentRequest $request, ?string $return_url): RedirectResponse
     {
         $model->fill($request->get(shorten($model)));
-        if (!isset($model->sort)) {
-            $model->assignNewSort();
-        }
         if ($model->save()) {
-            $model->updatePath();
-            $model->uploadAllMediaFromRequest();
+            $model->uploadAllMediaFromRequest(['photos']);
             session()->flash('message', __('All changes are saved.'));
             session()->flash('type', 'success');
             if (array_key_exists('save', $request->post())) {
-                return redirect($return_url ?: route("admin.apartment-categories.index"));
+                return redirect($return_url ?: route("admin.apartments.index"));
             }
         } else {
             session()->flash('message', __('An error occurred.'));
             session()->flash('type', 'danger');
         }
-        return redirect(route("admin.apartment-categories.edit", ['apartment_category' => $model->id, 'return_url' => $return_url]));
+        return redirect(route("admin.apartments.edit", ['apartment' => $model->id, 'return_url' => $return_url]));
     }
 }

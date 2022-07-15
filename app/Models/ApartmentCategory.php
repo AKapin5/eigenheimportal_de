@@ -6,11 +6,14 @@ use App\Traits\HasOptions;
 use App\Traits\HasTranslations;
 use App\Traits\NestedSets;
 use App\Traits\Sortable;
+use App\Traits\UploadsMedia;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\MediaLibrary\HasMedia;
 
 /**
  * @property integer $id
@@ -26,14 +29,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $seo_description
  *
  * @property string $statusText
+ * @property ApartmentCategory $parent
+ * @property ApartmentCategory[] $children
+ * @property Apartment[] $apartments
  * @mixin Eloquent
  */
-class ApartmentCategory extends Model
+class ApartmentCategory extends Model implements HasMedia
 {
     use HasTranslations;
     use Sortable;
     use HasOptions;
     use NestedSets;
+    use UploadsMedia;
 
     /**
      * @var string[]
@@ -92,8 +99,16 @@ class ApartmentCategory extends Model
     /**
      * @return BelongsTo
      */
-    public function getParent(): BelongsTo
+    public function parent(): BelongsTo
     {
-        return $this->belongsTo(static::class, 'id', 'parent_id');
+        return $this->belongsTo(static::class, 'parent_id', 'id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function apartments(): HasMany
+    {
+        return $this->hasMany(Apartment::class, 'category_id', 'id');
     }
 }

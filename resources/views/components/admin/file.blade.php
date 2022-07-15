@@ -3,57 +3,59 @@
 <div class="file-uploader">
     <label for="{{ shorten($model) }}-{{ $attribute }}">{{ $label }}</label>
     @if ($attributes->get('multiple'))
-        <div class="form-group table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>{{ __('ID') }}</th>
-                    <th>{{ __('Name') }}</th>
-                    <th>{{ __('MIME type') }}</th>
-                    <th>{{ __('Size') }}</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody class="sortable" data-sort-url="{{ route('admin.files.sort') }}">
-                    @foreach($model->getMedia($attribute) as $file)
-                        <tr class="file-item" data-id="{{ $file->id }}">
-                            <td class="handle">
-                                <span class="fa fa-align-justify"></span>
-                            </td>
-                            <td>
-                                @if ($thumb = thumb($file, 'fit', 100))
-                                    <img src="{{ $thumb }}" alt="">
-                                @endif
-                            </td>
-                            <td>
-                                {{ $file->id }}
-                            </td>
-                            <td>
-                                <a download href="{{ $file->getFullUrl() }}">
-                                    {{ $file->file_name }}
-                                </a>
-                            </td>
-                            <td>
-                                {{ $file->mime_type }}
-                            </td>
-                            <td>
-                                {{ formatBytes($file->size) }}
-                            </td>
-                            <td>
-                                <a href="{{ route('admin.files.remove', ['uuid' => $file->uuid]) }}"
-                                   class="btn btn-danger"
-                                   data-confirm-text="{{ __('Are you sure you want to delete this file?') }}"
-                                   data-remove-file>
-                                    {{ __('Delete') }}
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+        @if ($model->hasMedia($attribute))
+            <div class="form-group table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>{{ __('ID') }}</th>
+                        <th>{{ __('Name') }}</th>
+                        <th>{{ __('MIME type') }}</th>
+                        <th>{{ __('Size') }}</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody class="sortable" data-sort-url="{{ route('admin.files.sort') }}">
+                        @foreach($model->getMedia($attribute) as $file)
+                            <tr class="file-item" data-id="{{ $file->id }}">
+                                <td class="handle">
+                                    <span class="fa fa-align-justify"></span>
+                                </td>
+                                <td>
+                                    @if ($thumb = thumb($file, 'fit', 100))
+                                        <img src="{{ $thumb }}" alt="">
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ $file->id }}
+                                </td>
+                                <td>
+                                    <a download href="{{ $file->getFullUrl() }}">
+                                        {{ $file->file_name }}
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ $file->mime_type }}
+                                </td>
+                                <td>
+                                    {{ formatBytes($file->size) }}
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.files.remove', ['uuid' => $file->uuid]) }}"
+                                       class="btn btn-danger"
+                                       data-confirm-text="{{ __('Are you sure you want to delete this file?') }}"
+                                       data-remove-file>
+                                        {{ __('Delete') }}
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
         <div class="form-group">
             <div class="custom-file">
                 <input type="file"

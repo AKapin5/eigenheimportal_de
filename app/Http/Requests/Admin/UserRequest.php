@@ -39,12 +39,13 @@ class UserRequest extends FormRequest
     /**
      * @return array
      */
-    public function messages(): array
+    public function attributes(): array
     {
         return [
-            'user.role.required' => __('Field "Role" is required.'),
-            'user.email.required' => __('Field "Email" is required.'),
-            'user.photo.image' => __('Field "Photo" should be a valid image.'),
+            'user.role' => __('Role'),
+            'user.email' => __('E-mail'),
+            'user.photo' => __('Photo'),
+            'user.status' => __('Status'),
         ];
     }
 }

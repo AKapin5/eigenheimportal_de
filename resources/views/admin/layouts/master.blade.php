@@ -106,9 +106,9 @@
 <script src="{{ asset('admin-panel/libs/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('admin-panel/libs/select2/dist/js/i18n/ru.js') }}"></script>
 <script src="{{ asset('admin-panel/libs/bsCustomFileInput/bs-custom-file-input.min.js') }}"></script>
-<script src="{{ asset('admin-panel/js/redactor.js') }}?v=1"></script>
+<script src="{{ asset('admin-panel/js/redactor.js') }}"></script>
 <script src="{{ asset('admin-panel/js/uploader.js') }}"></script>
-<script src="{{ asset('admin-panel/js/custom.min.js') }}?v=1"></script>
+<script src="{{ asset('admin-panel/js/app.js') }}"></script>
 @stack('js')
 </body>
 </html>

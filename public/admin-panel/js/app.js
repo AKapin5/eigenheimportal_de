@@ -58,7 +58,7 @@
                     target.value = transliterate(element.value);
                 }
             });
-        })
+        });
     });
 
     $('.datetimepicker').each(function () {

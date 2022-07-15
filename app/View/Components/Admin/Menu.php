@@ -68,9 +68,9 @@ class Menu extends Component
                         'match' => 'admin.apartment-categories.*',
                     ],
                     [
-                        'url' => "/$prefix/apartment-items",
+                        'url' => "/$prefix/apartments",
                         'label' => __('Items'),
-                        'match' => 'admin.apartment-items.*',
+                        'match' => 'admin.apartments.*',
                     ],
                 ],
             ],

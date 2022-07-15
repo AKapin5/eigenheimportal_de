@@ -42,12 +42,17 @@ class PageRequest extends FormRequest
     /**
      * @return array
      */
-    public function messages(): array
+    public function attributes(): array
     {
         return [
-            'page.title.*.required' => __('Field "Name" is required.'),
-            'page.alias.*.required' => __('Field "Alias" is required.'),
-            'page.attachments.*.mimes' => __('Invalid file format of attachments.'),
+            'page.title.*' => __('Title'),
+            'page.alias.*' => __('Alias'),
+            'page.content.*' => __('Content'),
+            'page.seo_title.*' => __('Seo title'),
+            'page.seo_keywords.*' => __('Seo keywords'),
+            'page.seo_description.*' => __('Seo description'),
+            'page.status' => __('Show'),
+            'page.attachments' => __('Attachments'),
         ];
     }
 }

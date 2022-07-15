@@ -43,7 +43,7 @@ trait NestedSets
 
     public function getTextPathAttribute(): string
     {
-        return implode(' > ', $this->breadcrumbs()->pluck('name')->all());
+        return implode(' / ', $this->breadcrumbs()->pluck('name')->all());
     }
 
     public function updatePath(): void

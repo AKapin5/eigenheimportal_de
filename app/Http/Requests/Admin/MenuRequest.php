@@ -35,10 +35,13 @@ class MenuRequest extends FormRequest
     /**
      * @return array
      */
-    public function messages(): array
+    public function attributes(): array
     {
         return [
-            'menu.title.*.required' => __('Field "Title" is required.'),
+            'menu.title' => __('Title'),
+            'menu.url' => __('URL'),
+            'menu.parent_id' => __('Parent'),
+            'menu.status' => __('Show'),
         ];
     }
 }

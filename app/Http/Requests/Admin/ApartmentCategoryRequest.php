@@ -34,17 +34,25 @@ class ApartmentCategoryRequest extends FormRequest
             'apartmentCategory.seo_title.*' => 'max:255',
             'apartmentCategory.seo_keywords.*' => 'max:50000',
             'apartmentCategory.seo_description.*' => 'max:50000',
+            'apartmentCategory.photo' => 'image',
         ];
     }
 
     /**
      * @return array
      */
-    public function messages(): array
+    public function attributes(): array
     {
         return [
-            'apartmentCategory.title.*.required' => __('Field "Title" is required.'),
-            'apartmentCategory.alias.*.required' => __('Field "Alias" is required.'),
+            'apartmentCategory.name.*' => __('Name'),
+            'apartmentCategory.alias.*' => __('Alias'),
+            'apartmentCategory.description.*' => __('Description'),
+            'apartmentCategory.seo_title.*' => __('Seo title'),
+            'apartmentCategory.seo_keywords.*' => __('Seo keywords'),
+            'apartmentCategory.seo_description.*' => __('Seo description'),
+            'apartmentCategory.photo' => __('Photo'),
+            'apartmentCategory.parent_id' => __('Parent'),
+            'apartmentCategory.status' => __('Show'),
         ];
     }
 }
