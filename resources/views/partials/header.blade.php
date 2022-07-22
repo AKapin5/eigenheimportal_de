@@ -39,5 +39,6 @@
                 <span></span>
             </div>
         </div>
+        <x-breadcrumbs />
     </div>
 </header>

@@ -21,6 +21,7 @@ use Spatie\MediaLibrary\HasMedia;
  * @property string $seo_title
  * @property string $seo_keywords
  * @property string $seo_description
+ * @property double $price
  * @property double $living_space
  * @property int $construction_year
  * @property int $rooms_count
@@ -54,7 +55,7 @@ class Apartment extends Model implements HasMedia
      * @var string[]
      */
     public $translatable = [
-        'name', 'alias', 'description', 'seo_title', 'seo_keywords', 'seo_description',
+        'name', 'alias', 'short_text', 'description', 'seo_title', 'seo_keywords', 'seo_description',
     ];
 
     /**
@@ -62,11 +63,11 @@ class Apartment extends Model implements HasMedia
      */
     protected $fillable = [
         'category_id', 'status', 'is_top', 'name', 'alias',
-        'description', 'seo_title', 'seo_keywords', 'seo_description',
-        'living_space', 'construction_year', 'rooms_count', 'heating',
+        'short_text', 'description', 'seo_title', 'seo_keywords', 'seo_description',
+        'price', 'living_space', 'construction_year', 'rooms_count', 'heating',
         'airport_travel_time', 'highway_travel_time', 'hospital_travel_time', 'school_travel_time',
         'contact_phone', 'contact_email', 'contact_website',
-        'location_address', 'location_map',
+        'location_address', 'location_map', 'youtube_video',
     ];
 
     /**
@@ -74,6 +75,8 @@ class Apartment extends Model implements HasMedia
      */
     protected $optionsFields = [
         'status',
+        'heating',
+        'is_top',
     ];
 
     /**
@@ -98,6 +101,17 @@ class Apartment extends Model implements HasMedia
             __('Geothermal'),
             __('Radiant'),
             __('Steam Radiant'),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getIsTopOptions(): array
+    {
+        return [
+            __('No'),
+            __('Yes'),
         ];
     }
 

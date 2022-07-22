@@ -24,6 +24,8 @@
                     { data: 'category_id', name: 'category_id' },
                     { data: 'name', name: 'name' },
                     { data: 'alias', name: 'alias' },
+                    { data: 'price', name: 'price' },
+                    { data: 'is_top', name: 'is_top' },
                     { data: 'status', name: 'status' },
                     {
                         data: 'action',
@@ -104,6 +106,8 @@
             <th>{{ __('Category') }}</th>
             <th>{{ __('Name') }}</th>
             <th>{{ __('Alias') }}</th>
+            <th>{{ __('Price') }}</th>
+            <th>{{ __('Top') }}</th>
             <th>{{ __('Show') }}</th>
             <th></th>
         </tr>

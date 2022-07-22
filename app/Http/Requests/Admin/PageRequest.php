@@ -52,7 +52,7 @@ class PageRequest extends FormRequest
             'page.seo_keywords.*' => __('Seo keywords'),
             'page.seo_description.*' => __('Seo description'),
             'page.status' => __('Show'),
-            'page.attachments' => __('Attachments'),
+            'page.attachments.*' => __('Attachments'),
         ];
     }
 }

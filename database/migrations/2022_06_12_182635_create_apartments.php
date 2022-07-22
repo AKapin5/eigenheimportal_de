@@ -41,10 +41,12 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id')->nullable();
             $table->json('name');
             $table->json('alias');
+            $table->json('short_text')->nullable();
             $table->json('description')->nullable();
             $table->json('seo_title')->nullable();
             $table->json('seo_keywords')->nullable();
             $table->json('seo_description')->nullable();
+            $table->decimal('price', 10)->default(0);
             $table->decimal('living_space', 10)->default(0);
             $table->integer('construction_year')->nullable();
             $table->integer('rooms_count')->nullable();
@@ -58,6 +60,7 @@ return new class extends Migration
             $table->string('contact_phone')->nullable();
             $table->string('contact_email')->nullable();
             $table->string('contact_website')->nullable();
+            $table->string('youtube_video')->nullable();
             $table->smallInteger('status')->default(1);
             $table->smallInteger('is_top')->default(0);
             $table->timestamps();

@@ -33,11 +33,18 @@
                     :label="__('Alias')" />
 
                 <x-admin.textarea
+                    :attribute="'short_text.' . $language"
+                    :model="$model"
+                    :label="__('Short text')">
+                    {{ old('short_text.' . $language, $model->translate('short_text', $language, false)) }}
+                </x-admin.textarea>
+
+                <x-admin.textarea
                     class="editor"
                     :attribute="'description.' . $language"
                     :model="$model"
                     :label="__('Description')">
-                    {{ old('content.' . $language, $model->translate('description', $language, false)) }}
+                    {{ old('description.' . $language, $model->translate('description', $language, false)) }}
                 </x-admin.textarea>
 
                 <x-admin.input
@@ -74,6 +81,12 @@
         :model="$model"
         :label="__('Is top')" />
 
+    <x-admin.input
+        :attribute="'price'"
+        :model="$model"
+        :label="__('Price $')"
+    />
+
     <x-admin.select
         :attribute="'category_id'"
         :model="$model"
@@ -84,9 +97,22 @@
 
     <x-admin.file
         multiple
+        accept="image/*"
         :model="$model"
         :attribute="'photos'"
         :label="__('Photos')" />
+
+    <x-admin.file
+        accept="image/*"
+        :model="$model"
+        :attribute="'floor_plan'"
+        :label="__('Floor plan')" />
+
+    <x-admin.file
+        multiple
+        :model="$model"
+        :attribute="'attachments'"
+        :label="__('Attachments')" />
 
     <div class="card">
         <div class="card-body">
@@ -99,7 +125,6 @@
                         :attribute="'living_space'"
                         :model="$model"
                         :label="__('Living space m2')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
@@ -107,7 +132,6 @@
                         :attribute="'construction_year'"
                         :model="$model"
                         :label="__('Year of construction')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
@@ -115,7 +139,6 @@
                         :attribute="'rooms_count'"
                         :model="$model"
                         :label="__('Rooms count')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
@@ -134,7 +157,6 @@
                         :attribute="'airport_travel_time'"
                         :model="$model"
                         :label="__('Airport distance (min)')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
@@ -142,7 +164,6 @@
                         :attribute="'highway_travel_time'"
                         :model="$model"
                         :label="__('Highway distance (min)')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
@@ -150,7 +171,6 @@
                         :attribute="'hospital_travel_time'"
                         :model="$model"
                         :label="__('Hospital distance (min)')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
@@ -158,7 +178,6 @@
                         :attribute="'school_travel_time'"
                         :model="$model"
                         :label="__('School distance (min)')"
-                        :placeholder="''"
                     />
                 </div>
             </div>
@@ -168,7 +187,6 @@
                         :attribute="'contact_phone'"
                         :model="$model"
                         :label="__('Contact phone')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
@@ -176,15 +194,13 @@
                         :attribute="'contact_email'"
                         :model="$model"
                         :label="__('Contact e-mail')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
                     <x-admin.input
-                        :attribute="'$contact_website'"
+                        :attribute="'contact_website'"
                         :model="$model"
                         :label="__('Contact website')"
-                        :placeholder="''"
                     />
                 </div>
                 <div class="col-md-3">
@@ -192,17 +208,22 @@
                         :attribute="'location_address'"
                         :model="$model"
                         :label="__('Location address')"
-                        :placeholder="''"
                     />
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <x-admin.textarea
+                    <x-admin.input
                         :attribute="'location_map'"
                         :model="$model"
-                        :label="__('Location map')"
-                        :placeholder="''"
+                        :label="__('Location map (frame)')"
+                    />
+                </div>
+                <div class="col-md-6">
+                    <x-admin.input
+                        :attribute="'youtube_video'"
+                        :model="$model"
+                        :label="__('Youtube video (frame)')"
                     />
                 </div>
             </div>
@@ -213,9 +234,7 @@
         <button type="submit" name="save" class="btn btn-primary">{{ __('Save') }}</button>
         <button type="submit" name="save_and_return" class="btn btn-success">{{ __('Save & return') }}</button>
         @if ($return_url)
-            <a href="{{ $return_url }}" class="btn btn-default">
-                {{ __('Back') }}
-            </a>
+            <a href="{{ $return_url }}" class="btn btn-default">{{ __('Back') }}</a>
         @endif
     </div>
 </form>

@@ -84,11 +84,17 @@ class ApartmentController
             ->editColumn('category_id', function (Apartment $model) {
                 return $model->category->name;
             })
+            ->editColumn('price', function (Apartment $model) {
+                return $model->price;
+            })
             ->editColumn('name', function (Apartment $model) {
                 return $model->name;
             })
             ->editColumn('alias', function (Apartment $model) {
                 return $model->alias;
+            })
+            ->editColumn('is_top', function (Apartment $model) {
+                return $model->isTopText;
             })
             ->editColumn('status', function (Apartment $model) {
                 return $model->statusText;
@@ -113,6 +119,7 @@ class ApartmentController
     {
         $model = new Apartment([
             'status' => 1,
+            'price' => 0,
             'category_id' => request()->get('category_id'),
         ]);
         $return_url = request()->get('return_url');
@@ -201,7 +208,7 @@ class ApartmentController
      * @param $id
      * @return Apartment|Model
      */
-    protected function findModel($id): Apartment
+    protected function findModel($id): Model|Apartment
     {
         return Apartment::query()->findOrFail($id);
     }
@@ -216,7 +223,7 @@ class ApartmentController
     {
         $model->fill($request->get(shorten($model)));
         if ($model->save()) {
-            $model->uploadAllMediaFromRequest(['photos']);
+            $model->uploadAllMediaFromRequest($request->multipleUploadFileAttributes());
             session()->flash('message', __('All changes are saved.'));
             session()->flash('type', 'success');
             if (array_key_exists('save', $request->post())) {

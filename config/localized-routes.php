@@ -5,7 +5,7 @@ return [
     /**
      * The locales you wish to support.
      */
-    'supported-locales' => ['en'],
+    'supported-locales' => ['de'],
 
     /**
      * If you have a main locale and don't want
@@ -13,7 +13,7 @@ return [
      *
      * 'omit_url_prefix_for_locale' => 'en',
      */
-    'omit_url_prefix_for_locale' => 'en',
+    'omit_url_prefix_for_locale' => 'de',
 
     /**
      * Set this option to true if you want to redirect

@@ -167,7 +167,7 @@
                         <li class="card__item">
                             <figure class="card">
                                 <a class="card__wrapper-img" href="{{ $topApartment->getLink() }}">
-                                    <img class="card__img" src="/img/House_1.jpg" alt="">
+                                    <img class="card__img" src="{{ thumb($topApartment->getFirstMedia('photos'), 'fit', 400) }}" alt="">
                                 </a>
                                 <figcaption class="card__container">
                                     <h4 class="card__title">

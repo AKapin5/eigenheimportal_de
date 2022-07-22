@@ -31,6 +31,8 @@ class ApartmentRequest extends FormRequest
             'apartment.category_id' => 'integer|nullable|required',
             'apartment.status' => 'integer',
             'apartment.is_top' => 'integer',
+            'apartment.price' => 'numeric',
+            'apartment.short_text.*' => 'max:400',
             'apartment.description.*' => 'max:50000',
             'apartment.seo_title.*' => 'max:255',
             'apartment.seo_keywords.*' => 'max:50000',
@@ -46,9 +48,23 @@ class ApartmentRequest extends FormRequest
             'apartment.contact_phone' => 'max:255|nullable',
             'apartment.contact_email' => 'max:255|nullable|email',
             'apartment.contact_website' => 'max:255|nullable',
-            'apartment.location_map' => 'max:255|nullable',
+            'apartment.location_map' => 'max:4000|nullable',
             'apartment.location_address' => 'nullable',
             'apartment.photos.*' => 'image',
+            'apartment.floor_plan' => 'image',
+            'apartment.attachments.*' => 'file',
+            'apartment.youtube_video' => 'max:4000',
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function multipleUploadFileAttributes(): array
+    {
+        return [
+            'photos',
+            'attachments',
         ];
     }
 
@@ -60,6 +76,7 @@ class ApartmentRequest extends FormRequest
         return [
             'apartment.name.*' => __('Name'),
             'apartment.alias.*' => __('Alias'),
+            'apartment.short_text.*' => __('Short text'),
             'apartment.description.*' => __('Description'),
             'apartment.seo_title.*' => __('Seo title'),
             'apartment.seo_keywords.*' => __('Seo keywords'),
@@ -67,6 +84,7 @@ class ApartmentRequest extends FormRequest
             'apartment.category_id' => __('Category'),
             'apartment.status' => __('Show'),
             'apartment.is_top' => __('Is top'),
+            'apartment.price' => __('Price'),
             'apartment.living_space' => __('Living space'),
             'apartment.construction_year' => __('Year of construction'),
             'apartment.rooms_count' => __('Rooms count'),
@@ -80,8 +98,10 @@ class ApartmentRequest extends FormRequest
             'apartment.contact_website' => __('Contact website'),
             'apartment.location_map' => __('Location map'),
             'apartment.location_address' => __('Location address'),
-            'apartment.photos' => __('Photos'),
+            'apartment.photos.*' => __('Photos'),
+            'apartment.floor_plan' => __('Floor plan'),
+            'apartment.attachments.*' => __('Attachments'),
+            'apartment.youtube_video' => __('Youtube video'),
         ];
     }
 }
-

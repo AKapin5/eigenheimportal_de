@@ -17,6 +17,7 @@ class HomeController extends Controller
     public function index(): View
     {
         $topApartments = $this->apartmentRepository->getTop();
+        view()->share('breadcrumbs', null);
         return view('pages.home', compact('topApartments'));
     }
 }

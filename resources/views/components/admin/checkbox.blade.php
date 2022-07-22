@@ -3,7 +3,7 @@
 <div class="{{ $containerCssClass ?? 'form-group' }}">
     <div class="form-check">
         <input type="hidden" name="{{ shorten($model) . dot2Brackets($attribute) }}" value="0">
-        <input type="checkbox" value="1" {{ old('status', $model->status) ? 'checked' : '' }} {!! $attributes->merge([
+        <input type="checkbox" value="1" {{ old('status', $model->$attribute) ? 'checked' : '' }} {!! $attributes->merge([
             'id' => shorten($model) . "-$attribute",
             'name' => shorten($model) . dot2Brackets($attribute),
             'value' => old($attribute, $model->$attribute),

@@ -98,6 +98,14 @@ class ApartmentCategory extends Model implements HasMedia
     }
 
     /**
+     * @return HasMany
+     */
+    public function activeChildren(): HasMany
+    {
+        return $this->children()->where('status', 1);
+    }
+
+    /**
      * @return BelongsTo
      */
     public function parent(): BelongsTo
@@ -120,6 +128,6 @@ class ApartmentCategory extends Model implements HasMedia
      */
     public function getLink(string $locale = '', bool $absolute = false): ?string
     {
-        return route('apartment.category', ['path' => $this->getTranslatedOrDefault('path', $locale)], $absolute, $locale);
+        return route('apartment.index', ['path' => $this->getTranslatedOrDefault('path', $locale)], $absolute, $locale);
     }
 }

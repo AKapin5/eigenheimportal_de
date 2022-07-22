@@ -33,11 +33,10 @@
                     :label="__('Alias')" />
 
                 <x-admin.textarea
-                    class="editor"
                     :attribute="'description.' . $language"
                     :model="$model"
                     :label="__('Description')">
-                    {{ old('content.' . $language, $model->translate('description', $language, false)) }}
+                    {{ old('description.' . $language, $model->translate('description', $language, false)) }}
                 </x-admin.textarea>
 
                 <x-admin.input
@@ -84,6 +83,7 @@
 
     <x-admin.file
         :model="$model"
+        accept="image/*"
         :attribute="'photo'"
         :label="__('Photo')" />
 

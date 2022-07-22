@@ -10,7 +10,7 @@
     @include breakpoint($breakpoint: small){
         flex-direction: column;
     }
-    
+
     &__list {
         display: flex;
         margin: 0 -1.5rem;
@@ -28,7 +28,7 @@
         margin: 2rem 1.5rem;
         width: calc(33.33% - 3rem);
         overflow: hidden;
-        
+
         @include breakpoint($breakpoint: medium){
             margin: 0;
             margin: 0 auto;
@@ -57,7 +57,7 @@
             .card__info {
                 padding: 1rem;
             }
-        } 
+        }
     }
 
     &__wrapper-img {
@@ -68,8 +68,12 @@
         align-items: center;
         justify-content: center;
 
+        img {
+            height: 220px;
+        }
+
         @include breakpoint($breakpoint: medium){
-            margin: 0 2rem 0 0; 
+            margin: 0 2rem 0 0;
         }
 
         @include breakpoint($breakpoint: small){
