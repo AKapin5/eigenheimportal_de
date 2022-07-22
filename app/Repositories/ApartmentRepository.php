@@ -20,20 +20,18 @@ class ApartmentRepository
             ->get();
     }
 
-    public function getCategories(ApartmentCategory $parent = null): Collection
+    public function getCategories(ApartmentCategory $parent = null): Builder
     {
         return ApartmentCategory::query()
             ->where('status', 1)
-            ->where('parent_id', $parent->id ?? null)
-            ->get();
+            ->where('parent_id', $parent->id ?? null);
     }
 
-    public function getApartments(ApartmentCategory $parent = null): Collection
+    public function getApartments(ApartmentCategory $parent = null): Builder
     {
         return Apartment::query()
             ->where('status', 1)
-            ->where('category_id', $parent->id ?? null)
-            ->get();
+            ->where('category_id', $parent->id ?? null);
     }
 
     public function findCategory($path): ApartmentCategory

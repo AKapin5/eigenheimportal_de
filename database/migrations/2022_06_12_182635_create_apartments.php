@@ -47,7 +47,7 @@ return new class extends Migration
             $table->json('seo_keywords')->nullable();
             $table->json('seo_description')->nullable();
             $table->decimal('price', 10)->default(0);
-            $table->decimal('living_space', 10)->default(0);
+            $table->decimal('living_space', 10)->nullable();
             $table->integer('construction_year')->nullable();
             $table->integer('rooms_count')->nullable();
             $table->integer('heating')->nullable();

@@ -15,6 +15,7 @@
         <!-- Scripts -->
         <script src="{{ asset('js/libs.min.js') }}" defer></script>
         <script src="{{ asset('js/custom.min.js') }}" defer></script>
+        @livewireStyles
     </head>
     <body class="loaded" id="body">
         <!-- BEGIN BODY -->
@@ -32,5 +33,6 @@
         </div>
         <div class="icon-load"></div>
         <!-- BODY EOF   -->
+        @livewireScripts
     </body>
 </html>

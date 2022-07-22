@@ -8,11 +8,23 @@
 
         &.m-secondary {
             background: #A05E2A;
+
+            h2 {
+                color: white;
+            }
+            label {
+                color: white;
+            }
         }
 
         @include breakpoint($breakpoint: medium){
             padding: 1.5rem 3rem;
         }
+    }
+
+    &__alert {
+        color: black;
+        font-size: 16px;
     }
 
     &__content {
@@ -24,9 +36,6 @@
         color: $title-color;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        &.m-secondary {
-            color: #fff;
-        }
     }
 
     &__input {
@@ -43,11 +52,9 @@
 
         &.textarea {
             width: 100%;
-            margin-bottom: 3rem;
-            
         }
 
-        
+
     }
 
     &__title {
@@ -55,9 +62,6 @@
         color: $title-color;
         font-weight: 700;
         margin-bottom: 2rem;
-        &.m-secondary {
-            color: #fff;
-        }
     }
 
     &__group {
@@ -77,6 +81,11 @@
 
         &.textarea {
             width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        .error {
+            color: $primary-color;
         }
 
         @include breakpoint($breakpoint: medium){

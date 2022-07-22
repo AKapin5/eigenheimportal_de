@@ -17,7 +17,7 @@ class ApartmentController extends Controller
     public function index($path = null): View
     {
         $category = $path ? $this->apartmentRepository->findCategory($path) : null;
-        $subCategories = $this->apartmentRepository->getCategories($category);
+        $subCategories = $this->apartmentRepository->getCategories($category)->get();
 
         if ($category) {
             $breadcrumbs[] = ['name' => __('app.apartments.title'), 'url' => route('apartment.index')];
@@ -36,24 +36,22 @@ class ApartmentController extends Controller
         if ($subCategories->isNotEmpty()) {
             return view('apartment.categories',
                 compact('category', 'subCategories', 'pageTitle', 'pageDescription'));
+        } else {
+            return view('apartment.list',
+                compact('category', 'pageTitle', 'pageDescription'));
         }
-        $apartments = $this->apartmentRepository->getApartments($category);
-        return view('apartment.list',
-            compact('category', 'apartments', 'pageTitle', 'pageDescription'));
     }
 
     public function show($path, $alias): View
     {
         $apartment = $this->apartmentRepository->findApartment($path, $alias);
         $category = $apartment->category;
-        $pageTitle = $apartment->name;
-        $pageDescription = $apartment->description;
         $breadcrumbs[] = ['name' => __('app.apartments.title'), 'url' => route('apartment.index')];
         foreach ($category->breadcrumbs() as $node) {
             $breadcrumbs[] = ['name' => $node->name, 'url' => $node->getLink()];
         }
-        $breadcrumbs[] = ['name' => $pageTitle];
+        $breadcrumbs[] = ['name' => $apartment->name];
         view()->share('breadcrumbs', $breadcrumbs);
-        return view('apartment.show', compact('apartment', 'category', 'pageTitle', 'pageDescription'));
+        return view('apartment.show', compact('apartment', 'category'));
     }
 }
