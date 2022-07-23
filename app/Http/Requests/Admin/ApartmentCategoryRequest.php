@@ -30,7 +30,7 @@ class ApartmentCategoryRequest extends FormRequest
             'apartmentCategory.alias.*' => 'max:255',
             'apartmentCategory.parent_id' => 'integer|nullable',
             'apartmentCategory.status' => 'integer',
-            'apartmentCategory.sort' => 'integer',
+            'apartmentCategory.sort' => 'integer|nullable',
             'apartmentCategory.description.*' => 'max:50000',
             'apartmentCategory.seo_title.*' => 'max:255',
             'apartmentCategory.seo_keywords.*' => 'max:50000',

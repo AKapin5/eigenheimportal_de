@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\ApartmentRequest;
-use App\Models\Apartment;
-use App\Models\ApartmentCategory;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\BlogRequest;
+use App\Models\Blog;
+use App\Models\BlogCategory;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -14,10 +16,9 @@ use Illuminate\Http\Request;
 use InvalidArgumentException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use Exception;
 
 
-class ApartmentController
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,11 +29,11 @@ class ApartmentController
      */
     public function index(): View
     {
-        $statusOptions = Apartment::getStatusOptions();
-        $categoryOptions = ApartmentCategory::asTextTree();
+        $statusOptions = Blog::getStatusOptions();
+        $categoryOptions = BlogCategory::pluck('name', 'id');
         $category = $this->getCategory();
         $return_url = request()->getRequestUri();
-        return view('admin.apartment.index',
+        return view('admin.blog.index',
             compact('statusOptions', 'categoryOptions', 'category', 'return_url'));
     }
 
@@ -40,10 +41,10 @@ class ApartmentController
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    protected function getCategory(): ?ApartmentCategory
+    protected function getCategory(): ?BlogCategory
     {
         $category_id = request()->get('category_id');
-        $model = ApartmentCategory::find($category_id);
+        $model = BlogCategory::find($category_id);
         if ($category_id && !$model) {
             throw new InvalidArgumentException('Invalid category_id');
         }
@@ -57,7 +58,7 @@ class ApartmentController
      */
     public function search(Request $request): JsonResponse
     {
-        return datatables()->eloquent(Apartment::query())
+        return datatables()->eloquent(Blog::query())
             ->filter(function (Builder $query) use ($request) {
                 if ($request->filled('id')) {
                     $query->where('id', $request->get('id'));
@@ -70,38 +71,31 @@ class ApartmentController
                     $query->where('status', $request->get('status'));
                 }
                 if ($request->filled('category_id')) {
-                    $category = $this->getCategory();
-                    $query->ofCategory($category);
+                    $query->where('category_id', $request->get('category_id'));
                 }
             })
-            ->editColumn('photo', function (Apartment $model) {
-                if ($file = $model->getFirstMedia('photos')) {
+            ->editColumn('photo', function (Blog $model) {
+                if ($file = $model->getFirstMedia('photo')) {
                     return '<img src="' . thumb($file, 'fit', 100) . '">';
                 } else {
                     return null;
                 }
             })
-            ->editColumn('category_id', function (Apartment $model) {
+            ->editColumn('category_id', function (Blog $model) {
                 return $model->category->name;
             })
-            ->editColumn('price', function (Apartment $model) {
-                return $model->price;
-            })
-            ->editColumn('name', function (Apartment $model) {
+            ->editColumn('name', function (Blog $model) {
                 return $model->name;
             })
-            ->editColumn('alias', function (Apartment $model) {
+            ->editColumn('alias', function (Blog $model) {
                 return $model->alias;
             })
-            ->editColumn('is_top', function (Apartment $model) {
-                return $model->isTopText;
-            })
-            ->editColumn('status', function (Apartment $model) {
+            ->editColumn('status', function (Blog $model) {
                 return $model->statusText;
             })
             ->addColumn('action', function ($model) use ($request) {
-                $editRoute = route("admin.apartments.edit", ['apartment' => $model->id, 'return_url' => $request->get('return_url')]);
-                $deleteRoute = route("admin.apartments.destroy", ['apartment' => $model->id, 'return_url' => $request->get('return_url')]);
+                $editRoute = route("admin.blogs.edit", ['blog' => $model->id, 'return_url' => $request->get('return_url')]);
+                $deleteRoute = route("admin.blogs.destroy", ['blog' => $model->id, 'return_url' => $request->get('return_url')]);
                 return view('admin.partials._actions', compact('model', 'editRoute', 'deleteRoute'));
             })
             ->rawColumns(['action', 'photo'])
@@ -117,27 +111,25 @@ class ApartmentController
      */
     public function create(): View
     {
-        $model = new Apartment([
+        $model = new Blog([
             'status' => 1,
-            'price' => 0,
             'category_id' => request()->get('category_id'),
         ]);
         $return_url = request()->get('return_url');
-        $categoryOptions = ApartmentCategory::asTextTree();
-        $heatingOptions = Apartment::getHeatingOptions();
-        return view("admin.apartment.create",
-            compact('model', 'return_url', 'categoryOptions', 'heatingOptions'));
+        $categoryOptions = BlogCategory::pluck('name', 'id');
+        return view("admin.blog.create",
+            compact('model', 'return_url', 'categoryOptions'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param ApartmentRequest $request
+     * @param BlogRequest $request
      * @return RedirectResponse
      */
-    public function store(ApartmentRequest $request): RedirectResponse
+    public function store(BlogRequest $request): RedirectResponse
     {
-        $model = new Apartment(['category_id' => $request->get('category_id')]);
+        $model = new Blog(['category_id' => $request->get('category_id')]);
         $return_url = $request->get('return_url');
         return $this->save($model, $request, $return_url);
     }
@@ -166,22 +158,21 @@ class ApartmentController
     {
         $model = $this->findModel($id);
         $return_url = request()->get('return_url');
-        $categoryOptions = ApartmentCategory::asTextTree();
-        $heatingOptions = Apartment::getHeatingOptions();
-        return view("admin.apartment.edit",
-            compact('model', 'return_url', 'categoryOptions', 'heatingOptions'));
+        $categoryOptions = BlogCategory::pluck('name', 'id');
+        return view("admin.blog.edit",
+            compact('model', 'return_url', 'categoryOptions'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param ApartmentRequest $request
+     * @param BlogRequest $request
      * @param int $id
      * @return RedirectResponse
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function update(ApartmentRequest $request, int $id): RedirectResponse
+    public function update(BlogRequest $request, int $id): RedirectResponse
     {
         $model = $this->findModel($id);
         $return_url = request()->get('return_url');
@@ -201,38 +192,38 @@ class ApartmentController
         $model = $this->findModel($id);
         $model->delete();
         $return_url = request()->get('return_url');
-        return redirect($return_url ?: route("admin.apartments.index"));
+        return redirect($return_url ?: route("admin.blogs.index"));
     }
 
     /**
      * @param $id
-     * @return Apartment|Model
+     * @return Blog|Model
      */
-    protected function findModel($id): Model|Apartment
+    protected function findModel($id): Model|Blog
     {
-        return Apartment::query()->findOrFail($id);
+        return Blog::query()->findOrFail($id);
     }
 
     /**
-     * @param Apartment $model
-     * @param ApartmentRequest $request
+     * @param Blog $model
+     * @param BlogRequest $request
      * @param string|null $return_url
      * @return RedirectResponse
      */
-    protected function save(Apartment $model, ApartmentRequest $request, ?string $return_url): RedirectResponse
+    protected function save(Blog $model, BlogRequest $request, ?string $return_url): RedirectResponse
     {
         $model->fill($request->get(shorten($model)));
         if ($model->save()) {
-            $model->uploadAllMediaFromRequest($request->multipleUploadFileAttributes());
+            $model->uploadAllMediaFromRequest();
             session()->flash('message', __('All changes are saved.'));
             session()->flash('type', 'success');
             if (array_key_exists('save', $request->post())) {
-                return redirect($return_url ?: route("admin.apartments.index"));
+                return redirect($return_url ?: route("admin.blogs.index"));
             }
         } else {
             session()->flash('message', __('An error occurred.'));
             session()->flash('type', 'danger');
         }
-        return redirect(route("admin.apartments.edit", ['apartment' => $model->id, 'return_url' => $return_url]));
+        return redirect(route("admin.blogs.edit", ['blog' => $model->id, 'return_url' => $return_url]));
     }
 }

@@ -32,13 +32,6 @@
                     :model="$model"
                     :label="__('Alias')" />
 
-                <x-admin.textarea
-                    :attribute="'description.' . $language"
-                    :model="$model"
-                    :label="__('Description')">
-                    {{ old('description.' . $language, $model->translate('description', $language, false)) }}
-                </x-admin.textarea>
-
                 <x-admin.input
                     value="{{ old('seo_title.' . $language, $model->translate('seo_title', $language, false)) }}"
                     :attribute="'seo_title.' . $language"
@@ -72,20 +65,6 @@
         :attribute="'sort'"
         :model="$model"
         :label="__('Sort')" />
-
-    <x-admin.select
-        :attribute="'parent_id'"
-        :model="$model"
-        :options="$categoryOptions"
-        :label="__('Parent')"
-        :class="'select2'"
-        :placeholder="''" />
-
-    <x-admin.file
-        :model="$model"
-        accept="image/*"
-        :attribute="'photo'"
-        :label="__('Photo')" />
 
     <div class="form-group">
         <button type="submit" name="save" class="btn btn-primary">{{ __('Save') }}</button>

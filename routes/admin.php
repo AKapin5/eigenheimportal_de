@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\ApartmentCategoryController;
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\MenuController;
@@ -65,5 +67,17 @@ Route::group([
             [ApartmentController::class, 'search'])
             ->name('apartments.search');
         Route::resource('apartments', ApartmentController::class);
+
+        /** Blog categories */
+        Route::match(['GET', 'POST'], '/blog-categories/search',
+            [BlogCategoryController::class, 'search'])
+            ->name('blog-categories.search');
+        Route::resource('blog-categories', BlogCategoryController::class);
+
+        /** Blog items */
+        Route::match(['GET', 'POST'], '/blogs/search',
+            [BlogController::class, 'search'])
+            ->name('blogs.search');
+        Route::resource('blogs', BlogController::class);
     });
 });

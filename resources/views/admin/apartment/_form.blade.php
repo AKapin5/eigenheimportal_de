@@ -19,7 +19,7 @@
                 <x-admin.input
                     required
                     data-transliteration="{{ (int)empty($model->translate('alias', $language, false)) }}"
-                    value="{{ old('title.' . $language, $model->translate('name', $language, false)) }}"
+                    value="{{ old('name.' . $language, $model->translate('name', $language, false)) }}"
                     :attribute="'name.' . $language"
                     :model="$model"
                     :label="__('Name')" />

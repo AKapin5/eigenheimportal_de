@@ -59,7 +59,7 @@ class Menu extends Component
 
             [
                 'url' => "/$prefix/menus",
-                'icon' => 'bars',
+                'icon' => 'home',
                 'label' => __('Apartments'),
                 'items' => [
                     [
@@ -71,6 +71,24 @@ class Menu extends Component
                         'url' => "/$prefix/apartments",
                         'label' => __('Items'),
                         'match' => 'admin.apartments.*',
+                    ],
+                ],
+            ],
+
+            [
+                'url' => "/$prefix/menus",
+                'icon' => 'newspaper',
+                'label' => __('Blogs'),
+                'items' => [
+                    [
+                        'url' => "/$prefix/blog-categories",
+                        'label' => __('Categories'),
+                        'match' => 'admin.blog-categories.*',
+                    ],
+                    [
+                        'url' => "/$prefix/blogs",
+                        'label' => __('Items'),
+                        'match' => 'admin.blogs.*',
                     ],
                 ],
             ],

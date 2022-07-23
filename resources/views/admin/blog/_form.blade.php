@@ -33,6 +33,14 @@
                     :label="__('Alias')" />
 
                 <x-admin.textarea
+                    :attribute="'short_text.' . $language"
+                    :model="$model"
+                    :label="__('Short text')">
+                    {{ old('short_text.' . $language, $model->translate('short_text', $language, false)) }}
+                </x-admin.textarea>
+
+                <x-admin.textarea
+                    class="editor"
                     :attribute="'description.' . $language"
                     :model="$model"
                     :label="__('Description')">
@@ -68,22 +76,17 @@
         :model="$model"
         :label="__('Show')" />
 
-    <x-admin.input
-        :attribute="'sort'"
-        :model="$model"
-        :label="__('Sort')" />
-
     <x-admin.select
-        :attribute="'parent_id'"
+        :attribute="'category_id'"
         :model="$model"
         :options="$categoryOptions"
-        :label="__('Parent')"
+        :label="__('Category')"
         :class="'select2'"
         :placeholder="''" />
 
     <x-admin.file
-        :model="$model"
         accept="image/*"
+        :model="$model"
         :attribute="'photo'"
         :label="__('Photo')" />
 
@@ -91,9 +94,7 @@
         <button type="submit" name="save" class="btn btn-primary">{{ __('Save') }}</button>
         <button type="submit" name="save_and_return" class="btn btn-success">{{ __('Save & return') }}</button>
         @if ($return_url)
-            <a href="{{ $return_url }}" class="btn btn-default">
-                {{ __('Back') }}
-            </a>
+            <a href="{{ $return_url }}" class="btn btn-default">{{ __('Back') }}</a>
         @endif
     </div>
 </form>

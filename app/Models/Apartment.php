@@ -40,6 +40,7 @@ use Spatie\MediaLibrary\HasMedia;
  *
  * @property ApartmentCategory $category
  * @property string $statusText
+ * @property string $isTopText
  * @mixin Eloquent
  *
  * @method static ofCategory(ApartmentCategory $category, bool $descendants = true)

@@ -13,7 +13,7 @@
             <option value=""></option>
         @endisset
         @foreach($options as $optionValue => $optionText)
-            <option @if ($optionValue === old($attribute, $model->$attribute)) selected
+            <option @if ((string)$optionValue === (string)old($attribute, $model->$attribute)) selected
                     @endif value="{{ $optionValue }}">
                 {{ $optionText }}
             </option>
