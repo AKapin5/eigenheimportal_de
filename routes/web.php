@@ -36,9 +36,9 @@ Route::localized(function () {
         ->where('path', '.*')
         ->name('apartment.index');
 
-    Route::get('blogs/{category}/{alias}.html', [BlogController::class, 'show'])
+    Route::get('blog/{category}/{alias}.html', [BlogController::class, 'show'])
         ->name('blog.show');
 
-    Route::paginate('blogs/{category?}', [BlogController::class, 'index'])
+    Route::paginate('blog/{category?}', [BlogController::class, 'index'])
         ->name('blog.index');
 });

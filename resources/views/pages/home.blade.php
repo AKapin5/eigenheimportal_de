@@ -192,70 +192,43 @@
             </div>
         </div>
     </section>
-    <section class="blog">
-        <div class="wrapper">
-            <h2 class="blog__title">{{ __('Blog') }}</h2>
-            <ul class="card__list">
-                <li class="card__item m-secondary">
-                    <figure class="card">
-                        <div class="card__wrapper-img">
-                            <img class="card__img" src="/img/House_4.jpg" alt="">
-                        </div>
-                        <div class="card__info">
-                            <figcaption figcaption class="card__container m-secondary">
-                                <div class="card__date">
-                                    <div class="card__date-icon"></div>
-                                    <p class="card__date-text">December 4, 2022</p>
+    @if ($topBlogs->isNotEmpty())
+        <section class="blog">
+            <div class="wrapper">
+                <h2 class="blog__title">{{ __('Blog') }}</h2>
+                <ul class="card__list">
+                    @foreach($topBlogs as $topBlog)
+                        <li class="card__item m-secondary">
+                            <figure class="card">
+                                @if ($photo = $topBlog->getFirstMedia('photo'))
+                                    <a class="card__wrapper-img" href="{{ route('blog.show', ['category' => $topBlog->category->alias, 'alias' => $topBlog->alias]) }}">
+                                        <img class="card__img" src="{{ thumb($photo, 'fit', 800, 400) }}" alt="">
+                                    </a>
+                                @endif
+                                <div class="card__info">
+                                    <figcaption class="card__container m-secondary">
+                                        <div class="card__date">
+                                            <div class="card__date-icon"></div>
+                                            <p class="card__date-text">{{ date('M d, Y', $topBlog->from_date) }}</p>
+                                        </div>
+                                        <h4 class="card__title">{{ $topBlog->name }}</h4>
+                                        <p class="card__subtitle">{{ $topBlog->short_text }}</p>
+                                    </figcaption>
+                                    <a href="{{ route('blog.show', ['category' => $topBlog->category->alias, 'alias' => $topBlog->alias]) }} }}"
+                                       class="card__btn">
+                                        {{ __('Mehr Info') }}
+                                    </a>
                                 </div>
-                                <h4 class="card__title">14 Natural Spring Cleaning Tips For Your Home</h4>
-                                <p class="card__subtitle">Amet luctus venenatis lectus magna. Sed velit dignissim...</p>
-                            </figcaption>
-                            <a href="" class="card__btn">Mehr Info</a>
-                        </div>
-                    </figure>
-                </li>
-                <li class="card__item m-secondary">
-                    <figure class="card">
-                        <div class="card__wrapper-img">
-                            <img class="card__img" src="/img/House_5.jpg" alt="">
-                        </div>
-                        <div class="card__info">
-                            <figcaption class="card__container m-secondary">
-                                <div class="card__date">
-                                    <div class="card__date-icon"></div>
-                                    <p class="card__date-text">October, 2021</p>
-                                </div>
-                                <h4 class="card__title">Why Choose Residential as your Real Estate brokerage</h4>
-                                <p class="card__subtitle">Amet luctus venenatis lectus magna. Sed velit dignissim...</p>
-                            </figcaption>
-                            <a href="" class="card__btn">Mehr Info</a>
-                        </div>
-                    </figure>
-                </li>
-                <li class="card__item m-secondary">
-                    <figure class="card">
-                        <div class="card__wrapper-img">
-                            <img class="card__img" src="/img/House_6.jpg" alt="">
-                        </div>
-                        <div class="card__info">
-                            <div class="card__container m-secondary">
-                                <div class="card__date">
-                                    <figure class="card__date-icon"></figure>
-                                    <p class="card__date-text">October, 2021</p>
-                                </div>
-                                <h4 class="card__title">How to Become a Real Estate Agent and How Manage…</h4>
-                                <p class="card__subtitle">Amet luctus venenatis lectus magna. Sed velit dignissim...</p>
-                            </div>
-                            <a href="" class="card__btn">Mehr Info</a>
-                        </div>
-                    </figure>
-                </li>
-            </ul>
-            <div class="blog__container">
-                <a href="/blog" class="blog__btn">
-                    {{ __('Alles sehen') }}
-                </a>
+                            </figure>
+                        </li>
+                    @endforeach
+                </ul>
+                <div class="blog__container">
+                    <a href="{{ route('blog.index') }}" class="blog__btn">
+                        {{ __('Alles sehen') }}
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 </x-layout>
