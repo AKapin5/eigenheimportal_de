@@ -90,6 +90,9 @@ class BlogController extends Controller
             ->editColumn('alias', function (Blog $model) {
                 return $model->alias;
             })
+            ->editColumn('is_top', function (Blog $model) {
+                return $model->isTopText;
+            })
             ->editColumn('status', function (Blog $model) {
                 return $model->statusText;
             })

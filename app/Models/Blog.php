@@ -7,6 +7,7 @@ use App\Traits\HasTranslations;
 use App\Traits\LocalizedLinks;
 use App\Traits\UploadsMedia;
 use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
@@ -24,6 +25,7 @@ use Spatie\MediaLibrary\HasMedia;
  *
  * @property BlogCategory $category
  * @property string $statusText
+ * @property string $isTopText
  * @mixin Eloquent
  *
  */
@@ -45,8 +47,9 @@ class Blog extends Model implements HasMedia
      * @var string[]
      */
     protected $fillable = [
-        'category_id', 'status', 'name', 'alias',
-        'short_text', 'description', 'seo_title', 'seo_keywords', 'seo_description',
+        'category_id', 'status', 'is_top',
+        'name', 'alias', 'short_text', 'description',
+        'seo_title', 'seo_keywords', 'seo_description',
     ];
 
 
@@ -55,6 +58,7 @@ class Blog extends Model implements HasMedia
      */
     protected $optionsFields = [
         'status',
+        'is_top',
     ];
 
     /**
@@ -66,6 +70,26 @@ class Blog extends Model implements HasMedia
             __('No'),
             __('Yes'),
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getIsTopOptions(): array
+    {
+        return [
+            __('No'),
+            __('Yes'),
+        ];
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeActive(Builder $query): Builder
+    {
+        return $query->where('status', 1);
     }
 
     /**
@@ -83,7 +107,7 @@ class Blog extends Model implements HasMedia
      */
     public function getLink(string $locale = '', bool $absolute = false): ?string
     {
-        return route('apartment.show', [
+        return route('blog.show', [
             'category' => $this->category->getTranslatedOrDefault('alias', $locale),
             'alias' => $this->getTranslatedOrDefault('alias', $locale),
         ], $absolute, $locale);

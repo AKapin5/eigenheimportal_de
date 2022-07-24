@@ -29,9 +29,13 @@ class ApartmentRepository
 
     public function getApartments(ApartmentCategory $parent = null): Builder
     {
-        return Apartment::query()
+        $query = Apartment::query()
             ->where('status', 1)
-            ->where('category_id', $parent->id ?? null);
+            ->orderBy('id', 'desc');
+        if ($parent) {
+            $query->where('category_id', $parent->id);
+        }
+        return $query;
     }
 
     public function findCategory($path): ApartmentCategory

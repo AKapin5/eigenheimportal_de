@@ -76,6 +76,11 @@
         :model="$model"
         :label="__('Show')" />
 
+    <x-admin.checkbox
+        :attribute="'is_top'"
+        :model="$model"
+        :label="__('Is top')" />
+
     <x-admin.select
         :attribute="'category_id'"
         :model="$model"

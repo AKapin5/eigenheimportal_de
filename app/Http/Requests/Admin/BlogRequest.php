@@ -30,6 +30,7 @@ class BlogRequest extends FormRequest
             'blog.alias.*' => 'max:255',
             'blog.category_id' => 'integer|nullable|required',
             'blog.status' => 'integer',
+            'blog.is_top' => 'integer',
             'blog.short_text.*' => 'max:400',
             'blog.description.*' => 'max:50000',
             'blog.seo_title.*' => 'max:255',
@@ -54,6 +55,7 @@ class BlogRequest extends FormRequest
             'blog.seo_description.*' => __('Seo description'),
             'blog.category_id' => __('Category'),
             'blog.status' => __('Show'),
+            'blog.is_top' => __('Is top'),
             'blog.photo' => __('Photo'),
         ];
     }

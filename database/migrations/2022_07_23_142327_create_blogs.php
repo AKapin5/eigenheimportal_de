@@ -22,7 +22,6 @@ return new class extends Migration
             $table->json('seo_description')->nullable();
             $table->smallInteger('status')->default(1);
             $table->unsignedBigInteger('sort')->default(0);
-            $table->timestamps();
         });
 
         Schema::create('blogs', function (Blueprint $table) {
@@ -36,6 +35,7 @@ return new class extends Migration
             $table->json('seo_keywords')->nullable();
             $table->json('seo_description')->nullable();
             $table->smallInteger('status')->default(1);
+            $table->smallInteger('is_top')->default(0);
             $table->timestamps();
 
             $table->foreign('category_id')

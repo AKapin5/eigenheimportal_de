@@ -14,6 +14,7 @@
 
 
 use App\Http\Controllers\ApartmentController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 
 require __DIR__.'/admin.php';
@@ -34,4 +35,10 @@ Route::localized(function () {
     Route::get('objects/{path?}', [ApartmentController::class, 'index'])
         ->where('path', '.*')
         ->name('apartment.index');
+
+    Route::get('blogs/{category}/{alias}.html', [BlogController::class, 'show'])
+        ->name('blog.show');
+
+    Route::paginate('blogs/{category?}', [BlogController::class, 'index'])
+        ->name('blog.index');
 });

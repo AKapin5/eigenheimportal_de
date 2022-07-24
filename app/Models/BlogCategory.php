@@ -82,6 +82,6 @@ class BlogCategory extends Model
      */
     public function getLink(string $locale = '', bool $absolute = false): ?string
     {
-        return route('blog.index', ['path' => $this->getTranslatedOrDefault('alias', $locale)], $absolute, $locale);
+        return route('blog.index', ['category' => $this->getTranslatedOrDefault('alias', $locale)], $absolute, $locale);
     }
 }
