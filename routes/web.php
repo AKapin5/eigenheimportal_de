@@ -12,33 +12,23 @@
 |
 */
 
-
-use App\Http\Controllers\ApartmentController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\HomeController;
-
 require __DIR__.'/admin.php';
 
 Route::localized(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\PageController::class, 'home'])->name('home');
+    Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contact');
 
-    foreach (['blog', 'contact', 'product', 'question'] as $page) {
-        Route::get("$page.html", function () use ($page) {
-            return view("pages.$page");
-        });
-    }
-
-    Route::get('objects/{path}/{alias}.html', [ApartmentController::class, 'show'])
+    Route::get('objects/{path}/{alias}.html', [App\Http\Controllers\ApartmentController::class, 'show'])
         ->where('path', '.*')
         ->name('apartment.show');
 
-    Route::get('objects/{path?}', [ApartmentController::class, 'index'])
+    Route::get('objects/{path?}', [App\Http\Controllers\ApartmentController::class, 'index'])
         ->where('path', '.*')
         ->name('apartment.index');
 
-    Route::get('blog/{category}/{alias}.html', [BlogController::class, 'show'])
+    Route::get('blog/{category}/{alias}.html', [App\Http\Controllers\BlogController::class, 'show'])
         ->name('blog.show');
 
-    Route::paginate('blog/{category?}', [BlogController::class, 'index'])
+    Route::paginate('blog/{category?}', [App\Http\Controllers\BlogController::class, 'index'])
         ->name('blog.index');
 });

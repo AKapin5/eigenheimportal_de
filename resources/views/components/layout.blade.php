@@ -6,7 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'EigenheimPortal.de') }}</title>
+        @isset($pageTitle)
+            <title>{{ $pageTitle }} | {{ config('app.name') }}</title>
+        @else
+            <title>{{ config('app.name') }}</title>
+        @endisset
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
         <!-- Styles -->

@@ -24,7 +24,7 @@
                                     @endforeach
                                 </div>
                             @endif
-                            <a href="{{ $subCategory->getLink() }}" class="advertising__info-btn">{{ __('Mehr Info') }}</a>
+                            <a href="{{ $subCategory->getLink() }}" class="advertising__info-btn">{{ __('app.itemInfo') }}</a>
                         </div>
                     </li>
                 @endforeach

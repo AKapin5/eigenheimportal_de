@@ -1,7 +1,7 @@
 @isset($breadcrumbs)
     <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
-            <a href="{{ route('home') }}" class="breadcrumbs__link">{{ __('Heim') }}</a>
+            <a href="{{ route('home') }}" class="breadcrumbs__link">{{ __('app.home.breadCrumbsLabel') }}</a>
         </li>
         @foreach($breadcrumbs as $item)
             <li class="breadcrumbs__item">

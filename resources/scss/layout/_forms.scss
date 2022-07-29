@@ -5,16 +5,11 @@
         border-radius: 10px;
         padding: 5em 10rem;
         margin-bottom: 13rem;
+        color: $title-color;
 
         &.m-secondary {
             background: #A05E2A;
-
-            h2 {
-                color: white;
-            }
-            label {
-                color: white;
-            }
+            color: #fff;
         }
 
         @include breakpoint($breakpoint: medium){
@@ -22,8 +17,14 @@
         }
     }
 
+    .error,
+    &__title,
+    &__alert,
+    &__label {
+        color: inherit;
+    }
+
     &__alert {
-        color: black;
         font-size: 16px;
     }
 
@@ -33,7 +34,6 @@
 
     &__label {
         display: block;
-        color: $title-color;
         font-weight: 700;
         margin-bottom: 0.5rem;
     }
@@ -59,7 +59,6 @@
 
     &__title {
         text-align: center;
-        color: $title-color;
         font-weight: 700;
         margin-bottom: 2rem;
     }

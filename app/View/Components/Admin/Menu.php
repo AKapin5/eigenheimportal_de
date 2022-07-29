@@ -43,22 +43,15 @@ class Menu extends Component
                 'match' => 'admin.dashboard',
             ],
 
-            [
-                'url' => "/$prefix/pages",
-                'icon' => 'file-alt',
-                'label' => __('Pages'),
-                'match' => 'admin.pages.*',
-            ],
+//            [
+//                'url' => "/$prefix/pages",
+//                'icon' => 'file-alt',
+//                'label' => __('Pages'),
+//                'match' => 'admin.pages.*',
+//            ],
 
             [
-                'url' => "/$prefix/menus",
-                'icon' => 'bars',
-                'label' => __('Menu'),
-                'match' => 'admin.menus.*',
-            ],
-
-            [
-                'url' => "/$prefix/menus",
+                'url' => "/$prefix/apartments",
                 'icon' => 'home',
                 'label' => __('Apartments'),
                 'items' => [
@@ -76,7 +69,7 @@ class Menu extends Component
             ],
 
             [
-                'url' => "/$prefix/menus",
+                'url' => "/$prefix/blogs",
                 'icon' => 'newspaper',
                 'label' => __('Blogs'),
                 'items' => [
@@ -99,6 +92,15 @@ class Menu extends Component
                 'label' => __('Users'),
                 'match' => 'admin.users.*',
             ],
+
+
+            [
+                'url' => "/$prefix/menus",
+                'icon' => 'bars',
+                'label' => __('Menu'),
+                'match' => 'admin.menus.*',
+            ],
+
         ];
     }
 

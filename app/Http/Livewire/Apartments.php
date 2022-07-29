@@ -33,7 +33,7 @@ class Apartments extends Component
     public function loadItems()
     {
         $newApartments = $this->apartmentRepository->getApartments($this->category)
-            ->paginate(3, ['*'], 'page', $this->page);
+            ->paginate(21, ['*'], 'page', $this->page);
         $this->hasMore = $newApartments->hasMorePages();
         $this->page++;
         $this->apartments->push(...$newApartments);

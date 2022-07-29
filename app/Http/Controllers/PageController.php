@@ -6,7 +6,7 @@ use App\Repositories\ApartmentRepository;
 use App\Repositories\BlogRepository;
 use Illuminate\Contracts\View\View;
 
-class HomeController extends Controller
+class PageController extends Controller
 {
     protected ApartmentRepository $apartmentRepository;
     protected BlogRepository $blogRepository;
@@ -17,11 +17,21 @@ class HomeController extends Controller
         $this->blogRepository = $blogRepository;
     }
 
-    public function index(): View
+    public function home(): View
     {
         $topApartments = $this->apartmentRepository->getTop();
         $topBlogs = $this->blogRepository->getTop();
         view()->share('breadcrumbs', null);
         return view('pages.home', compact('topApartments', 'topBlogs'));
+    }
+
+    public function contact(): View
+    {
+        $pageTitle = __('app.contact.title');
+        view()->share('breadcrumbs', [
+            ['name' => $pageTitle],
+        ]);
+        view()->share('pageTitle', $pageTitle);
+        return view('pages.contact', compact('pageTitle'));
     }
 }

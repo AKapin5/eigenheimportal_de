@@ -25,7 +25,7 @@
                                     </div>
                                     <a href="{{ route('blog.show', ['category' => $blog->category->alias, 'alias' => $blog->alias]) }}"
                                        class="blog__item-btn">
-                                        {{ __('Mehr Info') }}
+                                        {{ __('app.itemInfo') }}
                                     </a>
                                 </figcaption>
                             </figure>

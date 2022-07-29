@@ -4,9 +4,9 @@
             <div class="wrapper m-secondary">
                 <div class="banner-hero__wrapper">
                     <div class="banner-hero__info">
-                        <h1 class="banner-hero__title"> {{ __('Gestalten Sie Ihre Zukunft selbst.') }} </h1>
-                        <p class="banner-hero__text"> {{ __('Die passenden Lösungen gibt es bei uns!') }} </p>
-                        <a href="{{ route('apartment.index') }}" class="banner-hero__btn"> {{ __('Objekte') }} </a>
+                        <h1 class="banner-hero__title"> {{ __('app.home.mainBanner.title') }} </h1>
+                        <p class="banner-hero__text"> {{ __('app.home.mainBanner.heroText') }} </p>
+                        <a href="{{ route('apartment.index') }}" class="banner-hero__btn"> {{ __('app.home.mainBanner.buttonText') }} </a>
                     </div>
                 </div>
             </div>
@@ -14,14 +14,14 @@
     </section>
     <section class="info">
         <div class="wrapper">
-            <h2 class="info__title"> {{ __('Wie verkaufe ich meine Immobilie selbst') }} </h2>
+            <h2 class="info__title"> {{ __('app.home.infoBlock.title') }} </h2>
             <ul class="info__list">
                 <li class="info__item">
                     <div class="info__item-wrapper-img">
                         <img class="info__item-img" src="/img/icons/layout.svg" alt="">
                     </div>
                     <p class="info__item-text">
-                        {{ __('Richten Sie ihre bestehenden Unterlagen zum Objekt: wie Pläne, Grundrisse, Höhenschnitt, Ansichten, Wohnflächen-berechnung und Kubatur-Berechnung. Wichtig zu bedenken ist, dass beim Verkaufspreis der von Ihnen ausgewählte Käufer Kosten wie Grunderwerbsteuer (je nach Bundesland ca. 5%) und Notar + Eintragungskosten (ca. 2%) tragen muss.') }}
+                        {{ __('app.home.infoBlock.text1') }}
                     </p>
                 </li>
                 <li class="info__item">
@@ -29,7 +29,7 @@
                         <img class="info__item-img" src="/img/icons/house-document.svg" alt="">
                     </div>
                     <p class="info__item-text">
-                        {{ __('Machen Sie eine hochwertige Objektbeschreibung: Lage des Objekts, welche Einkaufsmöglichkeiten es gibt, Entfernung zu den Kindergärten und Schulen, wie sind diese erreichbar. Farbbilder von Küche, Bad Wohnzimmer, eventuell Garage. Auch alle Außen-Fotos der Immobilie sind wichtig und selbstverständlich der Garten.') }}
+                        {{ __('app.home.infoBlock.text2') }}
                     </p>
                 </li>
                 <li class="info__item">
@@ -37,7 +37,7 @@
                         <img class="info__item-img" src="/img/icons/house-reports.svg" alt="">
                     </div>
                     <p class="info__item-text">
-                        {{ __('Besuchen Sie unsere Seite Eigenheiminfo.de und machen Sie eine Objektbewertung ihres Hauses oder Wohnung. Damit erhalten Sie einen aktuellen Marktwert, den Sie mit ihrem Wunschpreis vergleichen sollten. Dann können Sie sich Gedanken machen zu welchem Preis sie die Wohnung oder das Haus verkaufen möchten.') }}
+                        {{ __('app.home.infoBlock.text3') }}
                     </p>
                 </li>
                 <li class="info__item">
@@ -45,7 +45,7 @@
                         <img class="info__item-img" src="/img/icons/house-building.svg" alt="">
                     </div>
                     <p class="info__item-text">
-                        {{ __('Eine kosmetische Aufwertung ihrer Immobilie macht immer Sinn. Der erste Eindruck des Objektes auf den Fotos und bei der Besichtigung kann einen höheren Verkaufspreis ermöglichen. Deshalb machen Sie sich Gedanken, ob die von Ihnen gemachte Bilder das Interesse des potenziellen Käufers steigern.') }}
+                        {{ __('app.home.infoBlock.text4') }}
                     </p>
                 </li>
                 <li class="info__item">
@@ -53,7 +53,7 @@
                         <img class="info__item-img" src="/img/icons/laptop.svg" alt="">
                     </div>
                     <p class="info__item-text">
-                        {{ __('Wenn alle Unterlagen gerichtet und eingescannt sind und ihre Wertermittlung auch abgeschlossen ist, sollten Sie die Immobilie auf ein ihnen bekanntes Internetportal stellen. Selbstverständlich können wir Ihnen in dieser Situation unsere Hilfe anbieten und mit Ihnen gemeinsam den passenden Partner aussuchen und die Daten eingeben.') }}
+                        {{ __('app.home.infoBlock.text5') }}
                     </p>
                 </li>
                 <li class="info__item">
@@ -61,7 +61,7 @@
                         <img class="info__item-img" src="/img/icons/house-keys.svg" alt="">
                     </div>
                     <p class="info__item-text">
-                        {{ __('Sobald sie und der neue Eigentümer sich einig sind, sollte der Käufer Ihnen eine Finanzierungsbestätigung seitens seiner Bank vorlegen damit sie sicher sind, dass er sich ihre') }}
+                        {{ __('app.home.infoBlock.text6') }}
                     </p>
                 </li>
             </ul>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="progression__info">
                     <h2 class="progression__info-title">
-                        {{ __('Wir begleiten unsere Business Kunden und Kapitalanleger durch den gesamten Prozess.') }}
+                        {{ __('app.home.progressionBlock.title') }}
                     </h2>
                     <ul class="progression__list">
                         <li class="progression__item">
@@ -83,9 +83,9 @@
                                 <span>1</span>
                             </div>
                             <div class="progression__item-text">
-                                <h3 class="progression__item-title">{{ __('Projekt') }}</h3>
+                                <h3 class="progression__item-title">{{ __('app.home.progressionBlock.item1.title') }}</h3>
                                 <p class="progression__item-subtitle">
-                                    {{ __('Sie entscheiden sich für ein Objekt aus unserem Portfolio oder haben eine andere Immobilie in Aussicht. Über die Kontaktfunktion vereinbaren sie ein Termin mit unserem Team') }}
+                                    {{ __('app.home.progressionBlock.item1.description') }}
                                 </p>
                             </div>
                         </li>
@@ -94,9 +94,9 @@
                                 <span>2</span>
                             </div>
                             <div class="progression__item-text">
-                                <h3 class="progression__item-title">{{ __('Analysegespräch') }}</h3>
+                                <h3 class="progression__item-title">{{ __('app.home.progressionBlock.item2.title') }}</h3>
                                 <p class="progression__item-subtitle">
-                                    {{ __('Es erfolgt eine individuelle Analyse Ihrer persönlichen Situation durch unser Team, dabei werden Ihre Ziele und Wünsche festgehalten') }}
+                                    {{ __('app.home.progressionBlock.item2.description') }}
                                 </p>
                             </div>
                         </li>
@@ -105,9 +105,9 @@
                                 <span>3</span>
                             </div>
                             <div class="progression__item-text">
-                                <h3 class="progression__item-title">{{ __('Informationen') }}</h3>
+                                <h3 class="progression__item-title">{{ __('app.home.progressionBlock.item3.title') }}</h3>
                                 <p class="progression__item-subtitle">
-                                    {{ __('Unsere Kooperationspartner erstellen eine Steuerliche- und eine Renditeberechnung für einen bestimmten Zeitraum. Dabei wird auch das Einsparpotenzial während der Kaufabwicklung berücksichtigt') }}
+                                    {{ __('app.home.progressionBlock.item3.description') }}
                                 </p>
                             </div>
                         </li>
@@ -122,9 +122,9 @@
                                 <span>4</span>
                             </div>
                             <div class="progression__item-text">
-                                <h3 class="progression__item-title">{{ __('Projekt') }}</h3>
+                                <h3 class="progression__item-title">{{ __('app.home.progressionBlock.item4.title') }}</h3>
                                 <p class="progression__item-subtitle">
-                                    {{ __('Sie entscheiden sich für ein Objekt aus unserem Portfolio oder haben eine andere Immobilie in Aussicht. Über die Kontaktfunktion vereinbaren sie ein Termin mit unserem Team') }}
+                                    {{ __('app.home.progressionBlock.item4.description') }}
                                 </p>
                             </div>
                         </li>
@@ -133,9 +133,9 @@
                                 <span>5</span>
                             </div>
                             <div class="progression__item-text">
-                                <h3 class="progression__item-title">{{ __('Analysegespräch') }}</h3>
+                                <h3 class="progression__item-title">{{ __('app.home.progressionBlock.item5.title') }}</h3>
                                 <p class="progression__item-subtitle">
-                                    {{ __('Es erfolgt eine individuelle Analyse Ihrer persönlichen Situation durch unser Team, dabei werden Ihre Ziele und Wünsche festgehalten') }}
+                                    {{ __('app.home.progressionBlock.item5.description') }}
                                 </p>
                             </div>
                         </li>
@@ -144,9 +144,9 @@
                                 <span>6</span>
                             </div>
                             <div class="progression__item-text">
-                                <h3 class="progression__item-title">{{ __('Informationen') }}</h3>
+                                <h3 class="progression__item-title">{{ __('app.home.progressionBlock.item6.title') }}</h3>
                                 <p class="progression__item-subtitle">
-                                    {{ __('Unsere Kooperationspartner erstellen eine Steuerliche- und eine Renditeberechnung für einen bestimmten Zeitraum. Dabei wird auch das Einsparpotenzial während der Kaufabwicklung berücksichtigt') }}
+                                    {{ __('app.home.progressionBlock.item6.description') }}
                                 </p>
                             </div>
                         </li>
@@ -161,7 +161,7 @@
     @if (!$topApartments->isEmpty())
         <section class="real-estate">
             <div class="wrapper">
-                <h2 class="real-estate-title">{{ __('TOP Immobilien') }}</h2>
+                <h2 class="real-estate-title">{{ __('app.home.topApartmentsBlock.title') }}</h2>
                 <ul class="card__list">
                     @foreach($topApartments as $topApartment)
                         <li class="card__item">
@@ -175,7 +175,7 @@
                                     </h4>
                                     <p class="card__subtitle">{{ $topApartment->category->name }}</p>
                                     <a href="{{ $topApartment->getLink() }}" class="card__btn">
-                                        {{ __('Mehr Info') }}
+                                        {{ __('app.itemInfo') }}
                                     </a>
                                 </figcaption>
                             </figure>
@@ -195,7 +195,7 @@
     @if ($topBlogs->isNotEmpty())
         <section class="blog">
             <div class="wrapper">
-                <h2 class="blog__title">{{ __('Blog') }}</h2>
+                <h2 class="blog__title">{{ __('app.home.latestBlogsBlock.title') }}</h2>
                 <ul class="card__list">
                     @foreach($topBlogs as $topBlog)
                         <li class="card__item m-secondary">
@@ -216,7 +216,7 @@
                                     </figcaption>
                                     <a href="{{ route('blog.show', ['category' => $topBlog->category->alias, 'alias' => $topBlog->alias]) }} }}"
                                        class="card__btn">
-                                        {{ __('Mehr Info') }}
+                                        {{ __('app.itemInfo') }}
                                     </a>
                                 </div>
                             </figure>
@@ -225,7 +225,7 @@
                 </ul>
                 <div class="blog__container">
                     <a href="{{ route('blog.index') }}" class="blog__btn">
-                        {{ __('Alles sehen') }}
+                        {{ __('app.pagination.showAll') }}
                     </a>
                 </div>
             </div>

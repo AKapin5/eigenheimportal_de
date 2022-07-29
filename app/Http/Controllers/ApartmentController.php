@@ -47,6 +47,7 @@ class ApartmentController extends Controller
             $pageDescription = __('app.apartments.description');
         }
         $breadcrumbs[] = ['name' => $pageTitle];
+        view()->share('pageTitle', $pageTitle);
         view()->share('breadcrumbs', $breadcrumbs);
 
         if ($subCategories->isNotEmpty()) {
@@ -77,6 +78,7 @@ class ApartmentController extends Controller
                 'url' => $node->getLink(),
             ];
         }
+        view()->share('pageTitle', $apartment->name);
         $breadcrumbs[] = ['name' => $apartment->name];
         view()->share('breadcrumbs', $breadcrumbs);
         return view('apartment.show', compact('apartment', 'category'));

@@ -12,7 +12,7 @@
                         <figcaption class="card__container">
                             <h4 class="card__title">{{ $apartment->name }}</h4>
                             <p class="card__subtitle">{{ nl2br($apartment->short_text) }}</p>
-                            <a href="{{ $apartment->getLink() }}" class="card__btn">{{ __('Mehr Info') }}</a>
+                            <a href="{{ $apartment->getLink() }}" class="card__btn">{{ __('app.itemInfo') }}</a>
                         </figcaption>
                     </figure>
                 </li>
@@ -21,7 +21,7 @@
     @endif
     @if ($hasMore)
         <button class="sales-offers__btn" wire:click="loadItems">
-            {{ __('Zeig mehr') }}
+            {{ __('app.pagination.showMore') }}
         </button>
     @endif
 </div>
