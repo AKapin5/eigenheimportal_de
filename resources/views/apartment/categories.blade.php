@@ -2,7 +2,9 @@
     <div class="wrapper">
         <div class="advertising">
             <h1 class="advertising__title">{{ $pageTitle }}</h1>
-            <p class="advertising__subtitle">{{ $pageDescription }}</p>
+            <p class="advertising__subtitle">
+                {!! nl2br($pageDescription) !!}
+            </p>
 
             <ul class="advertising__list">
                 @foreach($subCategories as $subCategory)
@@ -15,7 +17,7 @@
                         <div class="advertising__info">
                             <h2 class="advertising__info-title">{{ $subCategory->name }}</h2>
                             <div class="advertising__info-subtitle">
-                                {{ nl2br($subCategory->description) }}
+                                {!! nl2br($subCategory->description) !!}
                             </div>
                             @if ($subCategory->children->isNotEmpty())
                                 <div class="advertising__info-category">
