@@ -36,15 +36,15 @@ class MenuSeeder extends Seeder
         return [
             [
                 'title' => 'Referenzen',
-                'url' => '/referenzen',
+                'url' => '/objects',
             ],
             [
                 'title' => 'Gewerbe',
-                'url' => '/gewerbe',
+                'url' => '/objects/gewerbe',
             ],
             [
                 'title' => 'Wohnobjecte',
-                'url' => '/wohnobjecte',
+                'url' => '/objects/eigentumswohnung',
             ],
             [
                 'title' => 'Blog',
