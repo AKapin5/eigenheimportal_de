@@ -214,8 +214,7 @@
                                         <h4 class="card__title">{{ $topBlog->name }}</h4>
                                         <p class="card__subtitle">{{ $topBlog->short_text }}</p>
                                     </figcaption>
-                                    <a href="{{ route('blog.show', ['category' => $topBlog->category->alias, 'alias' => $topBlog->alias]) }} }}"
-                                       class="card__btn">
+                                    <a href="{{ $topBlog->getLink() }} }}" class="card__btn">
                                         {{ __('app.itemInfo') }}
                                     </a>
                                 </div>
