@@ -27,6 +27,22 @@ return [
                 'title' => 'Analysegespräch',
                 'description' => 'Es erfolgt eine individuelle Analyse Ihrer persönlichen Situation durch unser Team, dabei werden Ihre Ziele und Wünsche festgehalten',
             ],
+            'item3' => [
+                'title' => 'Informationen',
+                'description' => 'Unsere Kooperationspartner erstellen eine Steuerliche- und eine Renditeberechnung für einen bestimmten Zeitraum. Dabei wird auch das Einsparpotenzial während der Kaufabwicklung berücksichtigt',
+            ],
+            'item4' => [
+                'title' => 'Projekt',
+                'description' => 'Sie entscheiden sich für ein Objekt aus unserem Portfolio oder haben eine andere Immobilie in Aussicht. Über die Kontaktfunktion vereinbaren sie ein Termin mit unserem Team',
+            ],
+            'item5' => [
+                'title' => 'Analysegespräch',
+                'description' => 'Es erfolgt eine individuelle Analyse Ihrer persönlichen Situation durch unser Team, dabei werden Ihre Ziele und Wünsche festgehalten',
+            ],
+            'item6' => [
+                'title' => 'Informationen',
+                'description' => 'Unsere Kooperationspartner erstellen eine Steuerliche- und eine Renditeberechnung für einen bestimmten Zeitraum. Dabei wird auch das Einsparpotenzial während der Kaufabwicklung berücksichtigt',
+            ],
         ],
         'topApartmentsBlock' => [
             'title' => 'TOP Immobilien',
@@ -57,4 +73,13 @@ return [
         'showMore' => 'Zeig mehr',
     ],
     'itemInfo' => 'Mehr Info',
+    'comments' => [
+        'blockTitle' => 'Comments',
+        'addTitle' => 'Leave a Comment',
+        'labels' => [
+            'name' => 'Name',
+            'text' => 'Add comment',
+        ],
+    ],
+    'send' => 'Senden',
 ];

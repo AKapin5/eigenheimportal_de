@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Interfaces\HasComments;
 use App\Traits\HasOptions;
 use App\Traits\HasTranslations;
 use App\Traits\LocalizedLinks;
@@ -10,6 +11,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 
 /**
@@ -29,7 +31,7 @@ use Spatie\MediaLibrary\HasMedia;
  * @mixin Eloquent
  *
  */
-class Blog extends Model implements HasMedia
+class Blog extends Model implements HasMedia, HasComments
 {
     use HasTranslations;
     use HasOptions;
@@ -47,9 +49,16 @@ class Blog extends Model implements HasMedia
      * @var string[]
      */
     protected $fillable = [
-        'category_id', 'status', 'is_top',
-        'name', 'alias', 'short_text', 'description',
-        'seo_title', 'seo_keywords', 'seo_description',
+        'category_id',
+        'status',
+        'is_top',
+        'name',
+        'alias',
+        'short_text',
+        'description',
+        'seo_title',
+        'seo_keywords',
+        'seo_description',
     ];
 
 
@@ -98,6 +107,16 @@ class Blog extends Model implements HasMedia
     public function category(): BelongsTo
     {
         return $this->belongsTo(BlogCategory::class, 'category_id', 'id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'entity_id', 'id')
+            ->where('entity_class', Blog::class)
+            ->orderBy('created_at', 'desc');
     }
 
     /**

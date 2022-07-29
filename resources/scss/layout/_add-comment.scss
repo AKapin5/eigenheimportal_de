@@ -58,7 +58,7 @@
         border-radius: 5px;
         border: 1px solid #CCCCCC;
         font-weight: 700;
-        width: 100%; 
+        width: 100%;
         padding: 2rem;
         resize: none;
 
@@ -73,5 +73,9 @@
             font-size: $font-size-h5;
             line-height: $line-height-h5;
         }
+    }
+
+    .form__btn {
+        margin-top: 10px;
     }
 }

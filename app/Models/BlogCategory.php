@@ -48,7 +48,13 @@ class BlogCategory extends Model
      * @var string[]
      */
     protected $fillable = [
-       'sort', 'status', 'name', 'alias', 'seo_title', 'seo_keywords', 'seo_description',
+        'sort',
+        'status',
+        'name',
+        'alias',
+        'seo_title',
+        'seo_keywords',
+        'seo_description',
     ];
 
     /**

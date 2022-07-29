@@ -61,7 +61,15 @@ class ApartmentCategory extends Model implements HasMedia
      * @var string[]
      */
     protected $fillable = [
-        'parent_id', 'sort', 'status', 'name', 'alias', 'description', 'seo_title', 'seo_keywords', 'seo_description',
+        'parent_id',
+        'sort',
+        'status',
+        'name',
+        'alias',
+        'description',
+        'seo_title',
+        'seo_keywords',
+        'seo_description',
     ];
 
     /**

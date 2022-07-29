@@ -38,9 +38,4 @@ class Apartments extends Component
         $this->page++;
         $this->apartments->push(...$newApartments);
     }
-
-    public function render()
-    {
-        return view('livewire.apartments');
-    }
 }

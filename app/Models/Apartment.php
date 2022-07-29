@@ -63,12 +63,31 @@ class Apartment extends Model implements HasMedia
      * @var string[]
      */
     protected $fillable = [
-        'category_id', 'status', 'is_top', 'name', 'alias',
-        'short_text', 'description', 'seo_title', 'seo_keywords', 'seo_description',
-        'price', 'living_space', 'construction_year', 'rooms_count', 'heating',
-        'airport_travel_time', 'highway_travel_time', 'hospital_travel_time', 'school_travel_time',
-        'contact_phone', 'contact_email', 'contact_website',
-        'location_address', 'location_map', 'youtube_video',
+        'category_id',
+        'status',
+        'is_top',
+        'name',
+        'alias',
+        'short_text',
+        'description',
+        'seo_title',
+        'seo_keywords',
+        'seo_description',
+        'price',
+        'living_space',
+        'construction_year',
+        'rooms_count',
+        'heating',
+        'airport_travel_time',
+        'highway_travel_time',
+        'hospital_travel_time',
+        'school_travel_time',
+        'contact_phone',
+        'contact_email',
+        'contact_website',
+        'location_address',
+        'location_map',
+        'youtube_video',
     ];
 
     /**

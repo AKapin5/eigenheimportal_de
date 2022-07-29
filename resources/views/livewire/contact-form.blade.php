@@ -23,7 +23,7 @@
                 <textarea wire:model="text" class="form__input textarea" rows="5"></textarea>
                 @error('text') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <input type="submit" class="form__btn" value="{{ __('Senden') }}">
+            <input type="submit" class="form__btn" value="{{ __('app.send') }}">
         </form>
     @endif
 </section>
