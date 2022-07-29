@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
@@ -79,5 +80,14 @@ Route::group([
             [BlogController::class, 'search'])
             ->name('blogs.search');
         Route::resource('blogs', BlogController::class);
+
+        /** Feedback */
+        Route::match(['GET', 'POST'], '/feedback/search',
+            [FeedbackController::class, 'search'])
+            ->name('feedback/search');
+        Route::get('feedback',  [FeedbackController::class, 'index'])
+            ->name('feedback.index');
+        Route::delete('feedback/{feedback}', [FeedbackController::class, 'destroy'])
+            ->name('feedback.destroy');
     });
 });

@@ -101,6 +101,13 @@ class Menu extends Component
                 'match' => 'admin.menus.*',
             ],
 
+            [
+                'url' => "/$prefix/feedback",
+                'icon' => 'phone',
+                'label' => __('Feedback'),
+                'match' => 'admin.feedback.*',
+            ],
+
         ];
     }
 

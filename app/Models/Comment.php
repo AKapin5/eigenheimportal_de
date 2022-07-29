@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $entity_class
  * @property int $name
  * @property int $text
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  *
  * @mixin Eloquent
  */
