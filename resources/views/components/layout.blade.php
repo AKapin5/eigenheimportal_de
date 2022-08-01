@@ -15,8 +15,10 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.4/dist/cookieconsent.css" media="print" onload="this.media='all'">
 
         <!-- Scripts -->
+        <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.4/dist/cookieconsent.js"></script>
         <script src="{{ asset('js/libs.min.js') }}" defer></script>
         <script src="{{ asset('js/custom.min.js') }}" defer></script>
         @livewireStyles
