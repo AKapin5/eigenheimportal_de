@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use CodeZero\UniqueTranslation\UniqueTranslationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ApartmentCategoryRequest extends FormRequest
@@ -27,7 +28,10 @@ class ApartmentCategoryRequest extends FormRequest
             'apartmentCategory.name.' . app()->getLocale() => ['required'],
             'apartmentCategory.name.*' => 'max:255',
             'apartmentCategory.alias.' . app()->getLocale() => ['required'],
-            'apartmentCategory.alias.*' => 'max:255',
+            'apartmentCategory.alias.*' => [
+                'max:255',
+                UniqueTranslationRule::for('apartment_categories', 'alias')->ignore($this->route('apartmentCategory'))
+            ],
             'apartmentCategory.parent_id' => 'integer|nullable',
             'apartmentCategory.status' => 'integer',
             'apartmentCategory.sort' => 'integer|nullable',
