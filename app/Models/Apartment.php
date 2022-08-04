@@ -37,6 +37,7 @@ use Spatie\MediaLibrary\HasMedia;
  * @property string $contact_website
  * @property int $status
  * @property int $is_top
+ * @property int $is_reference
  *
  * @property ApartmentCategory $category
  * @property string $statusText
@@ -66,6 +67,7 @@ class Apartment extends Model implements HasMedia
         'category_id',
         'status',
         'is_top',
+        'is_reference',
         'name',
         'alias',
         'short_text',

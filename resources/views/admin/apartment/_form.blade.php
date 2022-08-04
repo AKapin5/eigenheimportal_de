@@ -81,11 +81,15 @@
         :model="$model"
         :label="__('Is top')" />
 
+    <x-admin.checkbox
+        :attribute="'is_reference'"
+        :model="$model"
+        :label="__('Is reference')" />
+
     <x-admin.input
         :attribute="'price'"
         :model="$model"
-        :label="__('Price $')"
-    />
+        :label="__('Price $')" />
 
     <x-admin.select
         :attribute="'category_id'"

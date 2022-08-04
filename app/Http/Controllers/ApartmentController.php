@@ -60,6 +60,26 @@ class ApartmentController extends Controller
     }
 
     /**
+     * @return View
+     */
+    public function references(): View
+    {
+        $pageTitle =  __('app.apartments.references');
+        $breadcrumbs[] = [
+            'name' => $pageTitle,
+            'url' => route('apartment.index'),
+        ];
+
+        $breadcrumbs[] = ['name' => $pageTitle];
+        view()->share('pageTitle', $pageTitle);
+        view()->share('breadcrumbs', $breadcrumbs);
+        $apartments = $this->apartmentRepository->getReferences()
+            ->get();
+        return view('apartment.references',
+            compact('apartments', 'pageTitle'));
+    }
+
+    /**
      * @param $path
      * @param $alias
      * @return View

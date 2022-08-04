@@ -38,6 +38,14 @@ class ApartmentRepository
         return $query;
     }
 
+    public function getReferences(): Builder
+    {
+        return Apartment::query()
+            ->where('is_reference', 1)
+            ->where('status', 1)
+            ->orderBy('id', 'desc');
+    }
+
     public function findCategory($path): ApartmentCategory
     {
         return ApartmentCategory::where('path->' . app()->getLocale(), $path)
