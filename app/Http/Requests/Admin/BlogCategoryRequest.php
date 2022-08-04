@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use CodeZero\UniqueTranslation\UniqueTranslationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BlogCategoryRequest extends FormRequest
@@ -27,7 +28,10 @@ class BlogCategoryRequest extends FormRequest
             'blogCategory.name.' . app()->getLocale() => ['required'],
             'blogCategory.name.*' => 'max:255',
             'blogCategory.alias.' . app()->getLocale() => ['required'],
-            'blogCategory.alias.*' => 'max:255',
+            'blogCategory.alias.*' => [
+                'max:255',
+                UniqueTranslationRule::for('blog_categories', 'alias')->ignore($this->route('blogCategory'))
+            ],
             'blogCategory.status' => 'integer',
             'blogCategory.sort' => 'integer|nullable',
             'blogCategory.seo_title.*' => 'max:255',
