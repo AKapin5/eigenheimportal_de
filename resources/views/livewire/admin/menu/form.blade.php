@@ -1,6 +1,6 @@
 <x-slot:title>
     @if ($menu->exists)
-        {{ __('Edit menu item ":name"', ['name' => $menu->name]) }}
+        {{ __('Edit menu item ":title"', ['title' => $menu->title]) }}
     @else
         {{ __('Create menu item') }}
     @endif
