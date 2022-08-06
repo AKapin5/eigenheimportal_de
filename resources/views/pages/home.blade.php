@@ -1,4 +1,4 @@
-<x-layout>
+<x-app>
     <section class="banner-hero">
         <div class="banner-hero__bg">
             <div class="wrapper m-secondary">
@@ -230,4 +230,4 @@
             </div>
         </section>
     @endif
-</x-layout>
+</x-app>

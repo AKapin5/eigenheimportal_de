@@ -1,27 +1,61 @@
 .form-control:invalid {
-    border-color: #dc3545;
+    border-color: #bb2d3b;
 }
 
-.btn-actions {
-    justify-content: center;
-    width: 120px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.btn-actions form {
-    width: 100%;
-}
-
-.btn-actions .btn {
-    width: 100%;
-    display: block;
+.pg-actions  {
+   width: 65px;
 }
 
 .tab-content {
     padding: 10px 0;
 }
 
-table.table-bordered.dataTable tbody td {
+.file-uploader .custom-file {
+    overflow: hidden;
+}
+.file-uploader > label {
+    display: block;
+}
+.file-uploader .file-item.single {
+    position: static;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: center;
+}
+.file-uploader .file-item.single.image {
+    flex-direction: column;
+    position: relative;
+}
+.file-uploader .file-item.single [data-remove-file] {
+    position: static;
+    margin-left: 10px;
+    color: black;
+}
+.file-uploader .file-item.single.image [data-remove-file] {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin-left: 0;
+    color: white;
+}
+.file-uploader .table td {
     vertical-align: middle;
+}
+.file-uploader .table .handle {
+    text-align: center;
+    cursor: move;
+}
+
+.has-errors .form-control,
+.has-errors .tox-tinymce {
+    border-color: #dc3545;
+}
+
+.has-errors .invalid-feedback {
+    display: block;
+}
+
+.navbar-nav>.user-menu>.dropdown-menu {
+    width: auto;
+    min-width: auto;
 }

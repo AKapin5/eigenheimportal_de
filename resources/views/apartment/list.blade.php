@@ -1,4 +1,4 @@
-<x-layout>
+<x-app>
     <div class="wrapper">
         <section class="sales-offers">
             <h1 class="sales-offers__title">{{ $pageTitle }}</h1>
@@ -8,4 +8,4 @@
             @endisset
         </section>
     </div>
-</x-layout>
+</x-app>

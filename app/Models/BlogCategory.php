@@ -6,18 +6,25 @@ namespace App\Models;
 use App\Traits\HasOptions;
 use App\Traits\HasTranslations;
 use App\Traits\LocalizedLinks;
+use App\Traits\NestedSets;
 use App\Traits\Sortable;
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property integer $id
+ * @property int $id
+ * @property int $lgt
+ * @property int $rgt
+ * @property int $parent_id
  * @property string $name
+ * @property string $path
  * @property string $alias
  * @property string $seo_title
  * @property string $seo_keywords
  * @property string $seo_description
+ * @property int $status
  *
  * @property string $statusText
  * @property Blog[] $blogs
@@ -29,12 +36,13 @@ class BlogCategory extends Model
     use Sortable;
     use HasOptions;
     use LocalizedLinks;
+    use NestedSets;
 
     /**
      * @var string[]
      */
     public $translatable = [
-        'name', 'alias', 'seo_title', 'seo_keywords', 'seo_description',
+        'name', 'alias', 'path', 'seo_title', 'seo_keywords', 'seo_description',
     ];
 
     /**
@@ -48,6 +56,7 @@ class BlogCategory extends Model
      * @var string[]
      */
     protected $fillable = [
+        'parent_id',
         'sort',
         'status',
         'name',
@@ -71,6 +80,30 @@ class BlogCategory extends Model
             __('No'),
             __('Yes'),
         ];
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function children(): HasMany
+    {
+        return $this->hasMany(static::class, 'parent_id', 'id')->orderBy('sort');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function activeChildren(): HasMany
+    {
+        return $this->children()->where('status', 1);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(static::class, 'parent_id', 'id');
     }
 
     /**

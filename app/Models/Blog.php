@@ -120,6 +120,22 @@ class Blog extends Model implements HasMedia, HasComments
     }
 
     /**
+     * @param Builder $query
+     * @param BlogCategory $category
+     * @param bool $descendants
+     * @return Builder
+     */
+    public function scopeOfCategory(Builder $query, BlogCategory $category, bool $descendants = true): Builder
+    {
+        if ($descendants) {
+            $descendantIds = $category->descendants()->get(['id'])->toArray();
+            return $query->whereIn('category_id', array_merge($descendantIds, [$category->id]));
+        } else {
+            return $query->where('category_id', $category->id);
+        }
+    }
+
+    /**
      * @param string $locale
      * @param bool $absolute
      * @return string|null

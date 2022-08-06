@@ -1,4 +1,4 @@
-<x-layout>
+<x-app>
     <div class="wrapper">
         <div class="advertising">
             <h1 class="advertising__title">{{ $pageTitle }}</h1>
@@ -33,4 +33,4 @@
             </ul>
         </div>
     </div>
-</x-layout>
+</x-app>

@@ -2,31 +2,20 @@
 
 namespace App\View\Components\Admin;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Menu extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
+    public $menuItems;
+
     public function __construct()
     {
-        //
+        $this->menuItems = $this->getItems();
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View
-     */
-    public function render(): View
+    public function render()
     {
-        $menuItems = $this->getItems();
-        $this->activate($menuItems);
-        return view('components.admin.menu', compact('menuItems'));
+        return view('components.admin.menu');
     }
 
     /**
@@ -35,7 +24,7 @@ class Menu extends Component
     protected function getItems(): array
     {
         $prefix = config('admin.urlPrefix');
-        return [
+        $menuItems = [
             [
                 'url' => "/$prefix",
                 'icon' => 'th',
@@ -87,14 +76,6 @@ class Menu extends Component
             ],
 
             [
-                'url' => "/$prefix/users",
-                'icon' => 'user',
-                'label' => __('Users'),
-                'match' => 'admin.users.*',
-            ],
-
-
-            [
                 'url' => "/$prefix/menus",
                 'icon' => 'bars',
                 'label' => __('Menu'),
@@ -108,7 +89,16 @@ class Menu extends Component
                 'match' => 'admin.feedback.*',
             ],
 
+
+            [
+                'url' => "/$prefix/users",
+                'icon' => 'user',
+                'label' => __('Users'),
+                'match' => 'admin.users.*',
+            ],
         ];
+        $this->activate($menuItems);
+        return $menuItems;
     }
 
     /**

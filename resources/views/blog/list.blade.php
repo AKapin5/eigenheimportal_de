@@ -1,4 +1,4 @@
-<x-layout>
+<x-app>
     <div class="wrapper">
         <section class="blog page">
             <h1 class="blog__title page">
@@ -38,4 +38,4 @@
         </section>
         {!! PaginateRoute::renderPageList($blogs, false, 'pagination', true) !!}
     </div>
-</x-layout>
+</x-app>

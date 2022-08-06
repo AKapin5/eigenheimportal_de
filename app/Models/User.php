@@ -24,6 +24,8 @@ use Str;
  * @property string $api_token
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $statusText
+ *
  * @mixin Eloquent
  */
 class User extends Authenticatable implements HasMedia

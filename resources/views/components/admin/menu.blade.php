@@ -1,13 +1,13 @@
 <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
         @foreach($menuItems as $menuItem)
             @isset($menuItem['items'])
-                <li class="nav-item has-treeview @if ($menuItem['active']) menu-open @endif">
-                    <a href="#" class="nav-link @if ($menuItem['active']) active @endif">
+                <li class="nav-item @if ($menuItem['active']) menu-open menu-is-open @endif">
+                    <a href="javascript:;" class="nav-link @if ($menuItem['active']) active @endif">
                         <i class="nav-icon fas fa-{{ $menuItem['icon'] }}"></i>
                         <p>
                             {{ $menuItem['label'] }}
-                            <i class="right fas fa-angle-left"></i>
+                            <i class="end fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview" @if (!$menuItem['active']) style="display: none;" @endif>

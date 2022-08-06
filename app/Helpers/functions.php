@@ -14,6 +14,12 @@ if (! function_exists('dot2Brackets')) {
     }
 }
 
+if (! function_exists('dot2Hyphen')) {
+    function dot2Hyphen($string): string {
+        return implode('-', collect(explode('.', $string))->map(fn($e) => strtolower($e))->all());
+    }
+}
+
 if (! function_exists('formatBytes')) {
     function formatBytes($size): string {
         return App\Helpers\HumanReadable::bytes($size);
@@ -23,12 +29,6 @@ if (! function_exists('formatBytes')) {
 if (! function_exists('supportedLocales')) {
     function supportedLocales(): array {
         return config('localized-routes.supported-locales');
-    }
-}
-
-if (! function_exists('localizeUrl')) {
-    function localizeUrl($url, $locale = null): string {
-        return App\Helpers\UrlFormatter::localizeUrl($url, $locale);
     }
 }
 
@@ -45,5 +45,11 @@ if (! function_exists('thumb')) {
 if (! function_exists('paginate')) {
     function paginate(LengthAwarePaginator $paginator, $full = false, $class = null, $additionalLinks = false): string {
         return PaginateRoute::renderPageList($paginator, $full, $class, $additionalLinks);
+    }
+}
+
+if (! function_exists('localizeUrl')) {
+    function localizeUrl($url, $locale = null): string {
+        return App\Helpers\UrlFormatter::localizeUrl($url, $locale);
     }
 }

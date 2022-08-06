@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('lft');
+            $table->unsignedBigInteger('rgt');
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->json('name');
             $table->json('alias');
+            $table->json('path')->nullable();
             $table->json('seo_title')->nullable();
             $table->json('seo_keywords')->nullable();
             $table->json('seo_description')->nullable();

@@ -1,4 +1,4 @@
-<x-layout>
+<x-app>
     <div class="wrapper">
         <section class="contact">
             <h1 class="contact__title">{{ __('app.contact.title') }}</h1>
@@ -39,4 +39,4 @@
             <livewire:contact-form theme="m-secondary"/>
         </section>
     </div>
-</x-layout>
+</x-app>

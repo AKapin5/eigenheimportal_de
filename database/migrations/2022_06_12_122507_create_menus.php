@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('lft');
+            $table->unsignedBigInteger('rgt');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->json('title');
             $table->json('url');

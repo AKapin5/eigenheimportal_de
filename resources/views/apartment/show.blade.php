@@ -1,4 +1,4 @@
-<x-layout>
+<x-app>
     <div class="wrapper">
         <section class="product">
             <div class="product__content">
@@ -188,4 +188,4 @@
         </section>
         <livewire:contact-form/>
     </div>
-</x-layout>
+</x-app>

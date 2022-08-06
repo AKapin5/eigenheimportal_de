@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\HasOptions;
 use App\Traits\HasTranslations;
+use App\Traits\NestedSets;
 use App\Traits\Sortable;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
@@ -27,6 +28,7 @@ class Menu extends Model
     use HasTranslations;
     use Sortable;
     use HasOptions;
+    use NestedSets;
 
     /**
      * @var string[]
@@ -72,6 +74,14 @@ class Menu extends Model
             __('No'),
             __('Yes'),
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getTreeNodeTextProperty(): string
+    {
+        return 'title';
     }
 
     /**

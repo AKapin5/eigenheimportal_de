@@ -41,9 +41,14 @@ trait NestedSets
         return $this->getAncestors()->add($this);
     }
 
+    public function getTreeNodeTextProperty(): string
+    {
+        return 'name';
+    }
+
     public function getTextPathAttribute(): string
     {
-        return implode(' / ', $this->breadcrumbs()->pluck('name')->all());
+        return implode(' / ', $this->breadcrumbs()->pluck($this->getTreeNodeTextProperty())->all());
     }
 
     public function updatePath(): void

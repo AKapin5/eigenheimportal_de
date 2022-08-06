@@ -16,10 +16,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 
 /**
- * @property integer $id
- * @property integer $lft
- * @property integer $rgt
- * @property integer $parent_id
+ * @property int $id
+ * @property int $lft
+ * @property int $rgt
+ * @property int $parent_id
  * @property string $name
  * @property string $alias
  * @property string $path
@@ -27,6 +27,8 @@ use Spatie\MediaLibrary\HasMedia;
  * @property string $seo_title
  * @property string $seo_keywords
  * @property string $seo_description
+ * @property int $sort
+ * @property int $status
  *
  * @property string $statusText
  * @property ApartmentCategory $parent

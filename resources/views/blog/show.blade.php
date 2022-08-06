@@ -1,4 +1,4 @@
-<x-layout>
+<x-app>
     <div class="wrapper">
         <section class="question">
             <div class="question__wrapper">
@@ -20,4 +20,4 @@
         </section>
         <livewire:comments :entity="$blog"/>
     </div>
-</x-layout>
+</x-app>
