@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('admin-panel/libs/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-panel/libs/adminlte/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-panel/libs/ionic/ionicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin-panel/libs/jQuery-ui/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-panel/libs/jquery-ui/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-panel/libs/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-panel/libs/select2-bootstrap5/select2-bootstrap-5-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-panel/libs/flatpickr/flatpickr.min.css') }}">
@@ -104,8 +104,8 @@
     </footer>
 
 </div>
-<script src="{{ asset('admin-panel/libs/jQuery/jquery-3.6.0.min.js') }}"></script>
-<script src="{{ asset('admin-panel/libs/jQuery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('admin-panel/libs/jquery/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('admin-panel/libs/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('admin-panel/libs/bootstrap5/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('admin-panel/libs/flatpickr/flatpickr.min.js') }}"></script>
 <script src="{{ asset('admin-panel/libs/flatpickr/i10n/ru.js') }}"></script>
