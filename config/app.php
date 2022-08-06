@@ -196,7 +196,6 @@ return [
         App\Providers\PaginateRouteServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
-        Yajra\Datatables\DatatablesServiceProvider::class,
     ],
 
     /*
