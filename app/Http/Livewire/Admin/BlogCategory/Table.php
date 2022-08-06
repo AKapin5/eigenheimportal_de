@@ -68,7 +68,8 @@ final class Table extends PowerGridComponent
     public function datasource(): Builder
     {
         return BlogCategory::query()
-            ->where('parent_id', $this->parent->id ?? null);
+            ->where('parent_id', $this->parent->id ?? null)
+            ->orderBy('sort');
     }
 
     /*

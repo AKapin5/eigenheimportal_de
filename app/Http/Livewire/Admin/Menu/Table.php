@@ -65,7 +65,9 @@ final class Table extends PowerGridComponent
     */
     public function datasource(): Builder
     {
-        return Menu::query()->where('parent_id', $this->parent->id ?? null);
+        return Menu::query()
+            ->where('parent_id', $this->parent->id ?? null)
+            ->orderBy('sort');
     }
 
     /*
