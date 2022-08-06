@@ -107,7 +107,7 @@ final class Table extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('photo', function(Blog $model) {
-                if ($file = $model->getFirstMedia('photos')) {
+                if ($file = $model->getFirstMedia('photo')) {
                     return '<img src="' . thumb($file, 'fit', 100) . '">';
                 } else {
                     return null;
