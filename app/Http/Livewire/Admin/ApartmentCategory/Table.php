@@ -171,10 +171,8 @@ final class Table extends PowerGridComponent
 
            Button::make('delete', '<i class="fas fa-trash"></i>')
                ->class('btn btn-delete-row')
-               ->target('_self')
-               ->method('delete')
-               ->tooltip(__('Delete'))
-               ->route('admin.apartment-categories.destroy', ['apartmentCategory' => 'id', '_return' => $this->returnUrl()]),
+               ->emit('onDelete', ['id' => 'id', '_return' => $this->returnUrl()])
+               ->tooltip(__('Delete')),
        ];
     }
 

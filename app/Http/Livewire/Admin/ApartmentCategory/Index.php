@@ -9,6 +9,14 @@ class Index extends BaseComponent
 {
     public ?ApartmentCategory $parent;
 
+    protected $listeners = ['onDelete'];
+
+    public function onDelete($params)
+    {
+        ApartmentCategory::findOrFail($params['id'])->delete();
+        return redirect()->to($params['_return'] ?: route('admin.apartment-categories.index'));
+    }
+
     public function mount()
     {
         $this->parent = ApartmentCategory::find(request('parent_id'));
