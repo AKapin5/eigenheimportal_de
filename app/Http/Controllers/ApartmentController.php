@@ -35,7 +35,7 @@ class ApartmentController extends Controller
                 'url' => route('apartment.index'),
             ];
             $pageTitle = $category->name;
-            $pageDescription = nl2br($category->description);
+            $pageDescription = $category->description;
             foreach ($category->getAncestors() as $node) {
                 $breadcrumbs[] = [
                     'name' => $node->name,
@@ -66,7 +66,7 @@ class ApartmentController extends Controller
     {
         $pageTitle =  __('app.apartments.references');
         $breadcrumbs[] = [
-            'name' => $pageTitle,
+            'name' => __('app.apartments.title'),
             'url' => route('apartment.index'),
         ];
 
