@@ -2,7 +2,7 @@
 
 return [
     'home' => [
-        'breadCrumbsLabel' => 'Heim',
+        'breadCrumbsLabel' => 'Home',
         'mainBanner' => [
             'title' => 'Gestalten Sie Ihre Zukunft selbst.',
             'heroText' => 'Die passenden Lösungen gibt es bei uns!',
@@ -52,7 +52,7 @@ return [
         ],
     ],
     'apartments' => [
-        'title' => 'Alle Eigenschaften',
+        'title' => 'Objekte',
         'description' => 'Finden Sie die neuesten zum Verkauf stehenden Häuser, Immobiliennachrichten und Immobilienmarktdaten',
         'references' => 'Referenzen',
     ],
