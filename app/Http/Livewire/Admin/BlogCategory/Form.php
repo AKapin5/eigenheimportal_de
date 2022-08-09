@@ -79,7 +79,7 @@ class Form extends AdminForm
     public function store()
     {
         $this->validate();
-        if (!isset($this->apartmentCategory->sort)) {
+        if (!isset($this->blogCategory->sort)) {
             $this->blogCategory->assignNewSort();
         }
         if ($this->blogCategory->save()) {
