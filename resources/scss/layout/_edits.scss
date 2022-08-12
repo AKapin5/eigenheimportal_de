@@ -1,0 +1,320 @@
+// helper styles. Don't copy
+
+.header {
+    order: 2;
+}
+
+.content {
+    order: 3;
+}
+
+.footer {
+    order: 4;
+}
+// finished helper styles. Don't copy
+
+//menu styles
+.menu__link {
+    margin-right: 2rem;
+}
+
+.menu__sublist {
+    position: absolute;
+    padding: 1rem;
+    display: none;
+    background: #F3EDDF;
+    border-radius: 5px;
+    width: 10rem;
+    margin-top: 1rem;
+
+    @include breakpoint($breakpoint: medium){
+        position: relative;
+        background: none;
+        margin: 0;
+        padding: 0.5rem 0 0.5rem 2rem;
+        color: #fff;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        height: 10px;
+        width: 100%;
+        background: transparent;
+        top: -10px;
+        left: 0;
+
+        @include breakpoint($breakpoint: medium){
+            content: "";
+            position: absolute;
+            opacity: 0;
+            width: 9rem;
+            left: 0;
+            top: -2rem;
+            height: 2rem;
+            top: 0;
+        }
+    }
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-left: 1rem solid transparent;
+        border-right: 1rem solid transparent;
+        border-bottom: 2rem solid #F3EDDF;
+        border-radius: 10px;
+        top: -1.5rem;
+    }
+}
+
+
+
+.menu__sublink {
+    color: #A08A79;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.9rem;
+}
+
+@media screen and (max-width: 1024px){
+    .menu__sublink {
+        color: #fff;
+        font-weight: 600;
+    }
+}
+
+.menu__item {
+    display: block;
+}
+
+@media screen and (min-width: 1024px){
+    .menu__item:hover {
+        .menu__sublist {
+            display: block;
+        }
+    }
+}
+//finished menu styles
+
+
+// card styles
+.card {
+    height: 100%;
+
+    @include breakpoint($breakpoint: medium){
+        display: block;
+
+    }
+}
+
+.card__container {
+    align-items: center;
+}
+.card__item {
+    @include breakpoint($breakpoint: medium){
+        flex-direction: column;
+        width: calc(50% - 15px);
+        margin: 0 0 30px;
+    }
+    @include breakpoint($breakpoint: small){
+        width: 100%;
+    }
+}
+.card__wrapper-img {
+    height: 235px;
+    @include breakpoint($breakpoint: medium){
+        margin: 0;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.card__item.m-secondary .card__wrapper-img {
+    max-width: 100%;
+    max-height: 235px;
+}
+.card__img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__info {
+    height: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+}
+.card__btn {
+    margin-top: auto;
+}
+
+//card finished
+
+//contact
+@media screen and (max-width: 767px) {
+    .contact__list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+.contact__item {
+    max-width: 20rem;
+    &-container {
+        position: relative;
+        margin-bottom: 0.5rem;
+        &:last-child{
+            margin: 0;
+        }
+    }
+}
+//finish contact
+
+//banner
+.banner-hero__btn {
+    @include secondary-btn($width: 219px, $font-weight: 600)
+}
+.banner-hero__title {
+    font-weight: 600;
+}
+.banner-hero__text {
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .banner-hero__bg {
+        padding-top: 20px;
+    }
+
+}
+
+//banner
+
+
+//slider
+
+.product__slider {
+    max-height: 100% !important;
+}
+
+.product__slide-link {
+    display: block;
+    width: 100%;
+    padding-bottom: 68%;
+    height: 0;
+    position: relative;
+}
+
+//finished slider
+
+
+//menu
+.menu__item-btn {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .menu__list {
+        width: 250px;
+        margin-left: 0;
+        padding: 80px 20px;
+    }
+    .menu__item {
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 30px;
+    }
+
+    .menu__sublist {
+        transition: all 0.3s;
+        position: relative;
+        display: none;
+        margin: 0;
+        transform: translateY(-10px);
+        padding: 15px 0 0 15px;
+        background: none;
+        width: 100%;
+    }
+
+    .menu__subitem {
+        margin-bottom: 10px;
+    }
+
+    .menu__link {
+        display: block;
+    }
+
+    .menu__sublist:before,
+    .menu__sublist:after {
+        display: none;
+    }
+
+    .menu__item.m-active {
+        .menu__sublist {
+            display: block;
+            height: 100%;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu__item-btn:after {
+            display: none;
+        }
+    }
+
+    .menu__item-btn {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 25px;
+        height: 20px;
+        border: none;
+        background: none;
+    }
+    .menu__item-btn:before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        height: 2px;
+        width: 12px;
+        left: 6px;
+        background: #fff;
+    }
+
+    .menu__item-btn:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        transform: translate(-50%);
+        height: 12px;
+        width: 2px;
+        left: 12px;
+        background: #fff;
+    }
+    .menu__link {
+        margin: 0;
+    }
+
+    .contact__list {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .contact__list {
+        flex-direction: column;
+    }
+}
+
+//add to content
+
+body.m-fixed {
+    overflow: hidden;
+    position: relative;
+}
+

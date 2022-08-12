@@ -31,6 +31,15 @@
                     @foreach($menuItems as $menuItem)
                         <li class="menu__item @if ($menuItem->url == '/' . request()->path()) m-active @endif">
                             <a class="menu__link" href="{{ $menuItem->url }}">{{ $menuItem->title }}</a>
+                            @if ($menuItem->activeChildren()->exists())
+                                <ul class="menu__sublist">
+                                    @foreach ($menuItem->activeChildren as $childItem)
+                                        <li class="menu__subitem">
+                                            <a class="menu__sublink" href="{{ $childItem->url }}">{{ $childItem->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </li>
                     @endforeach
                 </ul>

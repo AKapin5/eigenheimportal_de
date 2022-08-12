@@ -93,6 +93,14 @@ class Menu extends Model
     }
 
     /**
+     * @return HasMany
+     */
+    public function activeChildren(): HasMany
+    {
+        return $this->children()->where('status', 1);
+    }
+
+    /**
      * @param null $locale
      * @return string
      */
@@ -106,6 +114,6 @@ class Menu extends Model
      */
     public static function getItems(): Collection
     {
-        return static::query()->orderBy('sort')->get();
+        return static::query()->whereNull('parent_id')->orderBy('sort')->get();
     }
 }
