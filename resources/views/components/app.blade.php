@@ -15,10 +15,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.4/dist/cookieconsent.css" media="print" onload="this.media='all'">
 
         <!-- Scripts -->
-        <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.4/dist/cookieconsent.js"></script>
         <script src="{{ asset('js/libs.min.js') }}" defer></script>
         <script src="{{ asset('js/custom.min.js') }}" defer></script>
         @livewireStyles
@@ -40,5 +38,15 @@
         <div class="icon-load"></div>
         <!-- BODY EOF   -->
         @livewireScripts
+
+        <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+        <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
+        <script type="text/javascript" charset="UTF-8">
+            document.addEventListener('DOMContentLoaded', function () {
+                cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","palette":"light","language":"de","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"http://eigenheim.seocms.com.ua/"});
+            });
+        </script>
+        <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="noopener">Free Privacy Policy Generator</a></noscript>
+        <!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
     </body>
 </html>
