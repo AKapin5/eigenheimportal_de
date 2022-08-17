@@ -3,7 +3,7 @@
         <div class="wrapper m-secondary">
             <div class="footer__container">
                 <div class="footer__item">
-                    <a href="#" class="footer__item-link">
+                    <a href="{{ route('home') }}" class="footer__item-link">
                         <div class="footer__item-img">
                             <object type="image/svg+xml" data="/img/logo/logo-footer.svg"></object>
                         </div> {{ config('app.name') }}
