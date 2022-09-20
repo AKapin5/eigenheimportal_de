@@ -22,7 +22,8 @@
 
     &__list {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 20px;
 
         @include breakpoint($breakpoint: large){
             flex-direction: column;
@@ -36,7 +37,7 @@
         width: 100%;
 
         @include breakpoint($breakpoint: large){
-            margin-bottom: 2rem;
+            margin-bottom: 6rem;
             max-width: 100%;
         }
 
@@ -55,6 +56,14 @@
         &-text {
             display: flex;
             padding-left: 25px;
+        }
+
+        > div {
+            display: flex;
+        }
+
+        &-icon {
+            width: 18px;
         }
     }
 }

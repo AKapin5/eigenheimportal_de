@@ -32,17 +32,15 @@
                 <div class="footer__data">
                     <h5 class="footer__title">{{ __('Data') }}</h5>
                     <ul class="footer__data-list">
+                        @foreach($topBlogs as $topBlog)
+                            <li class="footer__data-item">
+                                <a href="{{ $topBlog->getLink() }}" class="footer__data-link">{{ $topBlog->name }}</a>
+                            </li>
+                        @endforeach
                         <li class="footer__data-item">
-                            <a href="/blog/news-1.html" class="footer__data-link">{{ __('News 1') }}</a>
-                        </li>
-                        <li class="footer__data-item">
-                            <a href="/blog/news-2.html" class="footer__data-link">{{ __('News 2') }}</a>
-                        </li>
-                        <li class="footer__data-item">
-                            <a href="/blog/news-3.html" class="footer__data-link">{{ __('News 3') }}</a>
-                        </li>
-                        <li class="footer__data-item">
-                            <a href="/blog" class="footer__data-link m-secondary">{{ __('Alles sehen') }}</a>
+                            <a href="/blog" class="footer__data-link m-secondary">
+                                {{ __('Alles sehen') }}
+                            </a>
                         </li>
                     </ul>
                 </div>

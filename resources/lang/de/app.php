@@ -61,13 +61,16 @@ return [
     ],
     'contact' => [
         'title' => 'Kontakte',
-        'section1' => 'EigenheimWunsch GmbH
-    Hauptstraße 28
-    15806 Zossen',
-
-        'section2' => 'EigenheimWunsch GmbH
-    Hauptstraße 28
-    15806 Zossen',
+        'address1' => [
+            'title' => 'EigenheimWunsch GmbH',
+            'street' => 'Hauptstraße 28',
+            'city' => '15806 Zossen',
+        ],
+        'address2' => [
+            'title' => 'EigenheimWunsch GmbH',
+            'street' => 'Hauptstraße 196',
+            'city' => '79576 Weil am Rhein',
+        ],
     ],
     'pagination' => [
         'showAll' => 'Alles sehen',

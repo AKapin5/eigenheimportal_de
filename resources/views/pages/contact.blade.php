@@ -7,32 +7,39 @@
                     <li class="contact__item">
                         <div class="contact__item-wrapper-icon">
                             <img class="contact__item-icon" src="/img/icons/geolocation-secondary.svg" alt="">
+                            <div class="contact__item-text">
+                                {{ __('app.contact.address1.title') }}<br>
+                                {{ __('app.contact.address1.street') }}<br>
+                                {{ __('app.contact.address1.city') }}<br>
+                            </div>
                         </div>
-                        <div class="contact__item-text">{{ __('app.contact.section1') }}</div>
                     </li>
-
                     <li class="contact__item">
                         <div class="contact__item-wrapper-icon">
                             <img class="contact__item-icon" src="/img/icons/geolocation-secondary.svg" alt="">
+                            <div class="contact__item-text">
+                                {{ __('app.contact.address2.title') }}<br>
+                                {{ __('app.contact.address2.street') }}<br>
+                                {{ __('app.contact.address2.city') }}<br>
+                            </div>
                         </div>
-                        <div class="contact__item-text">{{ __('app.contact.section2') }}</div>
                     </li>
 
                     <li class="contact__item">
-                        <div class="contact__item-wrapper-icon">
-                            <img class="contact__item-icon" src="/img/icons/mail-secondary.svg" alt="">
-                        </div>
-                        <a href="mailto:info@eigenheimwunsch.de" class="contact__item-text">
-                            info@eigenheimwunsch.de
-                        </a>
-                    </li>
-
-                    <li class="contact__item">
-                        <div class="contact__item-wrapper-icon">
+                        <div>
                             <img class="contact__item-icon" src="/img/icons/phone-secondary.svg" alt="">
+                            <a href="tel:+4976211569777" class="contact__item-text">+49 7621 1569 777</a>
                         </div>
-                        <a href="tel:+4976211569111" class="contact__item-text">+49 7621 1569 111</a>
-                        <a href="tel:+4976211569777" class="contact__item-text">+49 7621 1569 777</a>
+                        <div>
+                            <div class="contact__item-icon"></div>
+                            <a href="tel:+4976211569111" class=" contact__item-text">+49 7621 1569 111</a>
+                        </div>
+                        <div>
+                            <img class="contact__item-icon" src="/img/icons/mail-secondary.svg" alt="">
+                            <a href="mailto:info@eigenheimwunsch.de" class="contact__item-text">
+                                info@eigenheimwunsch.de
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </div>

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Menu;
+use App\Repositories\BlogRepository;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 
@@ -15,7 +16,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
@@ -38,6 +39,7 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer('partials.footer', function(View $view) {
             $view->with([
                 'menuItems' => Menu::getItems(),
+                'topBlogs' => $this->app->get(BlogRepository::class)->getTop(),
             ]);
         });
     }
