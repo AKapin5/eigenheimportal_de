@@ -146,28 +146,36 @@
                         {!! $apartment->location_map !!}
                     </div>
                     <ul class="product__details-list">
-                        <li class="product__details-item">
-                            <img src="/img/icons/geolocation.svg" alt="" class="product__details-icon">
-                            <div class="product__details-info">{{ $apartment->location_address }}</div>
-                        </li>
-                        <li class="product__details-item">
-                            <a href="tel:+16197195939" class="product__details-link">
-                                <img src="/img/icons/phone.svg" alt="" class="product__details-icon">
-                                <div class="product__details-info">{{ $apartment->contact_phone }}</div>
-                            </a>
-                        </li>
-                        <li class="product__details-item">
-                            <a href="mailto:info@www.seotm.net" class="product__details-link">
-                                <img src="/img/icons/mail.svg" alt="" class="product__details-icon">
-                                <div class="product__details-info">{{ $apartment->contact_email }}</div>
-                            </a>
-                        </li>
-                        <li class="product__details-item">
-                            <a href="{{ $apartment->contact_website }}" class="product__details-link">
-                                <img src="/img/icons/Internet.svg" alt="" class="product__details-icon">
-                                <div class="product__details-info">{{ $apartment->contact_website }}</div>
-                            </a>
-                        </li>
+                        @if ($apartment->location_address)
+                            <li class="product__details-item">
+                                <img src="/img/icons/geolocation.svg" alt="" class="product__details-icon">
+                                <div class="product__details-info">{{ $apartment->location_address }}</div>
+                            </li>
+                        @endif
+                        @if ($apartment->contact_phone)
+                            <li class="product__details-item">
+                                <a href="tel:+16197195939" class="product__details-link">
+                                    <img src="/img/icons/phone.svg" alt="" class="product__details-icon">
+                                    <div class="product__details-info">{{ $apartment->contact_phone }}</div>
+                                </a>
+                            </li>
+                        @endif
+                        @if ($apartment->contact_email)
+                            <li class="product__details-item">
+                                <a href="mailto:info@www.seotm.net" class="product__details-link">
+                                    <img src="/img/icons/mail.svg" alt="" class="product__details-icon">
+                                    <div class="product__details-info">{{ $apartment->contact_email }}</div>
+                                </a>
+                            </li>
+                        @endif
+                        @if ($apartment->contact_website)
+                            <li class="product__details-item">
+                                <a href="{{ $apartment->contact_website }}" class="product__details-link">
+                                    <img src="/img/icons/Internet.svg" alt="" class="product__details-icon">
+                                    <div class="product__details-info">{{ $apartment->contact_website }}</div>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                     <a href="#contactForm" class="product__details-btn">{{ __('Contact an agent') }}</a>
                     @if ($apartment->price)
