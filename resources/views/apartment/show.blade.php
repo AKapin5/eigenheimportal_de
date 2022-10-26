@@ -70,7 +70,7 @@
                                 <img class="features__icon" src="/img/icons/feature-icon_5.svg" alt="">
                             </div>
                             <div class="features__info">
-                                <div class="features__info-title">{{ __('Airport') }}</div>
+                                <div class="features__info-title">{{ __('Flughafen') }}</div>
                                 <div class="features__info-value">
                                     {{ __(':time min by car', ['time' => $apartment->airport_travel_time]) }}
                                 </div>
@@ -103,7 +103,7 @@
                                 <img class="features__icon" src="/img/icons/feature-icon_8.svg" alt="">
                             </div>
                             <div class="features__info">
-                                <div class="features__info-title">{{ __('School') }}</div>
+                                <div class="features__info-title">{{ __('Schule') }}</div>
                                 <div class="features__info-value">
                                     {{ __(':time min by car', ['time' => $apartment->school_travel_time]) }}
                                 </div>
@@ -154,7 +154,7 @@
                         @endif
                         @if ($apartment->contact_phone)
                             <li class="product__details-item">
-                                <a href="tel:+16197195939" class="product__details-link">
+                                <a href="tel:+{{ str_replace(['+', ' '], ['', ''], $apartment->contact_phone) }}" class="product__details-link">
                                     <img src="/img/icons/phone.svg" alt="" class="product__details-icon">
                                     <div class="product__details-info">{{ $apartment->contact_phone }}</div>
                                 </a>
@@ -177,7 +177,7 @@
                             </li>
                         @endif
                     </ul>
-                    <a href="#contactForm" class="product__details-btn">{{ __('Contact an agent') }}</a>
+                    <a href="#contactForm" class="product__details-btn">{{ __('Unser Ansprechpartner') }}</a>
                     @if ($apartment->price)
                         <div class="product__details-price">
                             € {{ number_format($apartment->price, 2) }}

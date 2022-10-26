@@ -1,5 +1,5 @@
 <aside class="blog__categories {{ $theme ?? '' }}">
-    <h3 class="blog__categories-header">{{ __('Categories') }}</h3>
+    <h3 class="blog__categories-header">{{ __('Kategorien') }}</h3>
     <ul class="blog__categories-list js-categories-list">
         @foreach($categories as $category)
             <li class="blog__categories-item">
