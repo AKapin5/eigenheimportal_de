@@ -102,6 +102,9 @@ final class Table extends PowerGridComponent
             ->addColumn('children', function(Menu $model) {
                 $indexRoute = route("admin.menus.index", ['parent_id' => $model->id]);
                 return '<a href="' . $indexRoute . '">' . __('Sub-items (:count)', ['count' => $model->children()->count()]) . '</a>';
+            })
+            ->addColumn('status', function(Menu $model) {
+                return $model->statusText;
             });
     }
 
