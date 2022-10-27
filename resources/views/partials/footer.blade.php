@@ -30,7 +30,7 @@
                     </ul>
                 </div>
                 <div class="footer__data">
-                    <h5 class="footer__title">{{ __('Data') }}</h5>
+                    <h5 class="footer__title">{{ __('Blog') }}</h5>
                     <ul class="footer__data-list">
                         @foreach($topBlogs as $topBlog)
                             <li class="footer__data-item">
