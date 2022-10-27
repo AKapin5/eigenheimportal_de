@@ -180,7 +180,7 @@
                     <a href="#contactForm" class="product__details-btn">{{ __('Unser Ansprechpartner') }}</a>
                     @if ($apartment->price)
                         <div class="product__details-price">
-                            € {{ number_format($apartment->price, 2) }}
+                            € {{ number_format($apartment->price, 2, ',', ' ') }}
                         </div>
                     @endif
                 </section>
