@@ -30,7 +30,7 @@
                             </div>
                             <div class="features__info">
                                 <div class="features__info-title">{{ __('Wohnfläche') }}</div>
-                                <div class="features__info-value">{{ $apartment->living_space }} m<sup>2</sup></div>
+                                <div class="features__info-value">{{ number_format($apartment->living_space, 2, ',', ' ') }} m<sup>2</sup></div>
                             </div>
                         </li>
                         <li class="features__item">
