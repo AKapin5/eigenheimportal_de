@@ -123,6 +123,8 @@ class Apartment extends Model implements HasMedia
             __('Geothermal'),
             __('Radiant'),
             __('Steam Radiant'),
+            __('Gas'),
+            __('Wärmepumpe'),
         ];
     }
 
