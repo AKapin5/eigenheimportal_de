@@ -72,7 +72,7 @@
                             <div class="features__info">
                                 <div class="features__info-title">{{ __('Flughafen') }}</div>
                                 <div class="features__info-value">
-                                    {{ __(':time min by car', ['time' => $apartment->airport_travel_time]) }}
+                                    {{ __(':time mit dem Auto', ['time' => $apartment->airport_travel_time]) }}
                                 </div>
                             </div>
                         </li>
@@ -83,7 +83,7 @@
                             <div class="features__info">
                                 <div class="features__info-title">{{ __('Autobahn') }}</div>
                                 <div class="features__info-value">
-                                    {{ __(':time min by car', ['time' => $apartment->highway_travel_time]) }}
+                                    {{ __(':time mit dem Auto', ['time' => $apartment->highway_travel_time]) }}
                                 </div>
                             </div>
                         </li>
@@ -94,7 +94,7 @@
                             <div class="features__info">
                                 <div class="features__info-title">{{ __('Krankenhaus') }}</div>
                                 <div class="features__info-value">
-                                    {{ __(':time min by car', ['time' => $apartment->hospital_travel_time]) }}
+                                    {{ __(':time mit dem Auto', ['time' => $apartment->hospital_travel_time]) }}
                                 </div>
                             </div>
                         </li>
@@ -105,7 +105,7 @@
                             <div class="features__info">
                                 <div class="features__info-title">{{ __('Schule') }}</div>
                                 <div class="features__info-value">
-                                    {{ __(':time min by car', ['time' => $apartment->school_travel_time]) }}
+                                    {{ __(':time mit dem Auto', ['time' => $apartment->school_travel_time]) }}
                                 </div>
                             </div>
                         </li>
