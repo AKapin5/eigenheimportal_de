@@ -46,7 +46,7 @@
                 </div>
                 <div class="footer__services">
                     <h5 class="footer__title">{{ __('Unsere Leistungen') }}</h5>
-                    <a href="{{ route('home') }}" class="footer__services-link link_1">{{ config('app.name') }}</a>
+                    <a href="https://eigenheimwunsch.de" class="footer__services-link link_1">{{ __('EigenheimWunsch.de') }}</a>
                     <p class="footer__services-text">{{ __('Finanzieren Sie Ihr Eigenheim schnell und unkompliziert!') }}</p>
                     <a href="https://eigenheiminfo.de" rel="nofollow" class="footer__services-link link_2">{{ __('EigenheimInfo.de') }}</a>
                     <p class="footer__services-text">{{ __('Berechnen Sie den Wert Ihrer Immobilie schnell und unkompliziert!') }}</p>
