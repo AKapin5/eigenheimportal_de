@@ -21,7 +21,7 @@
                         <a href="https://eigenheiminfo.de" class="nav__link link_3" rel="nofollow">
                             <div class="nav__link-img">
                                 <object type="image/svg+xml" data="/img/logo/logo-info.svg"></object>
-                            </div> Eigenheiminfo.de
+                            </div> EigenheimInfo.de
                         </a>
                     </li>
                 </ul>
