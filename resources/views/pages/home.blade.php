@@ -159,7 +159,7 @@
         </div>
     </section>
     @if (!$topApartments->isEmpty())
-        <section class="real-estate">
+        <section class="real-estate" style="display: none">
             <div class="wrapper">
                 <h2 class="real-estate-title">{{ __('app.home.topApartmentsBlock.title') }}</h2>
                 <ul class="card__list">

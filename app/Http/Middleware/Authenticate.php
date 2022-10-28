@@ -51,7 +51,7 @@ class Authenticate extends Middleware
     {
         if (!$user->status) {
             Auth::logout();
-            return redirect('login')->withErrors(__('Ваш аккаунт деактивирован!'));
+            return redirect('login')->withErrors(__('Your account is deactivated!'));
         }
         return false;
     }
