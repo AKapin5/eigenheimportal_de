@@ -10,6 +10,9 @@ class ImageResizer
 {
     public function thumb($path, $method, ...$args): string
     {
+        if (!file_exists($path)) {
+            return $path;
+        }
         $img = Image::make($path);
         $baseDir = pathinfo($path, PATHINFO_DIRNAME) . '/thumbs';
         if (!File::isDirectory($baseDir)) {
