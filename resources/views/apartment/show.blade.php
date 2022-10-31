@@ -114,11 +114,9 @@
                 @if ($floorPlan = $apartment->getFirstMedia('floor_plan'))
                     <section class="product-plan">
                         <h3 class="product__title">{{ __('Grundrisse') }}</h3>
-                        <div class="product-plan-wrapper-img">
-                            <a href="{{ $floorPlan->getUrl() }}">
-                                <img class="product-plan-img" src="{{ thumb($floorPlan, 'fit', 800) }}" alt="">
-                            </a>
-                        </div>
+                        <a class="product-plan-wrapper-img" href="{{ $floorPlan->getUrl() }}" target="_blank">
+                            <img class="product-plan-img" src="{{ thumb($floorPlan, 'fit', 800) }}" alt="">
+                        </a>
                     </section>
                 @endif
                 @if ($attachments = $apartment->getMedia('attachments') AND $attachments->isNotEmpty())
