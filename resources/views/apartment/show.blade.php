@@ -115,7 +115,9 @@
                     <section class="product-plan">
                         <h3 class="product__title">{{ __('Grundrisse') }}</h3>
                         <div class="product-plan-wrapper-img">
-                            <img class="product-plan-img" src="{{ thumb($floorPlan, 'fit', 800) }}" alt="">
+                            <a href="{{ $floorPlan->getUrl() }}">
+                                <img class="product-plan-img" src="{{ thumb($floorPlan, 'fit', 800) }}" alt="">
+                            </a>
                         </div>
                     </section>
                 @endif
