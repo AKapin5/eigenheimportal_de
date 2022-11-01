@@ -9,12 +9,17 @@
                     </a>
                 </div>
                 @if ($photos = $apartment->getMedia('photos') AND $photos->isNotEmpty())
-                    <div class="product__slider js-slick">
-                        @foreach($photos as $photo)
-                            <a class="product__slide slide_{{ $loop->index }}" href="{{ $photo->getUrl() }}" target="_blank">
-                                <img src="{{ thumb($photo, 'fit', 800) }}" alt="">
-                            </a>
-                        @endforeach
+                    <div class="product__slider swiper">
+                        <div class="swiper-wrapper">
+                            @foreach($photos as $photo)
+                                <a class="swiper-slide product__slide slide_{{ $loop->index }}" href="{{ $photo->getUrl() }}" target="_blank">
+                                    <img src="{{ thumb($photo, 'fit', 800) }}" alt="">
+                                </a>
+                            @endforeach
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 @endif
                 <h3 class="product__title">{{ __('Beschreibung') }}</h3>
@@ -196,4 +201,19 @@
         </section>
         <livewire:contact-form/>
     </div>
+    @push('js')
+        <script>
+            let swiper = new Swiper(".product__slider", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        </script>
+    @endpush
 </x-app>
+

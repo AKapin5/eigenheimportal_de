@@ -13,6 +13,7 @@
         @endisset
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
 
@@ -38,6 +39,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/libs.min.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         <script src="{{ asset('js/custom.min.js') }}?v=1"></script>
 
         <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
@@ -49,5 +51,6 @@
         </script>
         <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="noopener">Free Privacy Policy Generator</a></noscript>
         <!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+        @stack('js')
     </body>
 </html>
