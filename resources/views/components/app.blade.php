@@ -15,7 +15,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.min.css') }}?v=100">
 
         @livewireStyles
     </head>
@@ -40,7 +40,7 @@
         <!-- Scripts -->
         <script src="{{ asset('js/libs.min.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script src="{{ asset('js/custom.min.js') }}"></script>
+        <script src="{{ asset('js/custom.min.js') }}?v=100"></script>
 
         <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
         <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
