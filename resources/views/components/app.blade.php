@@ -16,9 +16,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/libs.min.js') }}" defer></script>
-        <script src="{{ asset('js/custom.min.js') }}?v=1" defer></script>
         @livewireStyles
     </head>
     <body class="loaded" id="body">
@@ -38,6 +35,10 @@
         <div class="icon-load"></div>
         <!-- BODY EOF   -->
         @livewireScripts
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/libs.min.js') }}"></script>
+        <script src="{{ asset('js/custom.min.js') }}?v=1"></script>
 
         <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
         <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
