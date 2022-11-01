@@ -18,7 +18,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/libs.min.js') }}" defer></script>
-        <script src="{{ asset('js/custom.min.js') }}" defer></script>
+        <script src="{{ asset('js/custom.min.js') }}?v=1" defer></script>
         @livewireStyles
     </head>
     <body class="loaded" id="body">
