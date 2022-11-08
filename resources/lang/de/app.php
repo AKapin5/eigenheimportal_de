@@ -32,16 +32,16 @@ return [
                 'description' => 'Unsere Kooperationspartner erstellen eine Steuerliche- und eine Renditeberechnung für einen bestimmten Zeitraum. Dabei wird auch das Einsparpotenzial während der Kaufabwicklung berücksichtigt',
             ],
             'item4' => [
-                'title' => 'Projekt',
-                'description' => 'Sie entscheiden sich für ein Objekt aus unserem Portfolio oder haben eine andere Immobilie in Aussicht. Über die Kontaktfunktion vereinbaren sie ein Termin mit unserem Team',
+                'title' => 'Gesellschaft',
+                'description' => 'Eine passende Rechtsform für ihr Unternehmen wird in die Wege geleitet. Dabei haben wir alle Möglichkeiten von einer Deutschen GmbH bis zu einer Schweizer AG',
             ],
             'item5' => [
-                'title' => 'Analysegespräch',
-                'description' => 'Es erfolgt eine individuelle Analyse Ihrer persönlichen Situation durch unser Team, dabei werden Ihre Ziele und Wünsche festgehalten',
+                'title' => 'Bankverbindung',
+                'description' => 'Für den gesamten Prozess und die späteren Einnahmen wird ein Konto bei einer Bank vor Ort eingerichtet. Dabei werden auch alle Miet- und Pachtverträge von uns erstellt',
             ],
             'item6' => [
-                'title' => 'Informationen',
-                'description' => 'Unsere Kooperationspartner erstellen eine Steuerliche- und eine Renditeberechnung für einen bestimmten Zeitraum. Dabei wird auch das Einsparpotenzial während der Kaufabwicklung berücksichtigt',
+                'title' => 'Weitere Betreuung',
+                'description' => 'Wir begleiten Sie auch bei einer eventuellen Finanzierung und dem endgültigen Schritt zum Notar. Auf eine erfolgreiche Zusammenarbeit',
             ],
         ],
         'topApartmentsBlock' => [
