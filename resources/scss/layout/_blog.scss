@@ -3,6 +3,7 @@
 
     &__content {
         margin-right: 2rem;
+        width: calc(100% - 28.5rem);
         @include breakpoint($breakpoint: medium){
             order: 2;
             margin-right: 0;
@@ -29,7 +30,7 @@
     &__wrapper {
         display: flex;
         align-items: flex-start;
-        
+
         @include breakpoint($breakpoint: medium){
             flex-direction: column;
         }
@@ -71,12 +72,12 @@
         &-date {
             padding: 1.5rem 0 1.5rem 2.5rem;
             font-weight: 400;
-            
+
             &:before {
                 position: absolute;
                 content: "";
                 left: 0;
-                top: 50%; 
+                top: 50%;
                 transform: translateY(-50%);
                 width: 15px;
                 height: 15px;
@@ -113,7 +114,7 @@
                 border: none;
                 background: $primary-color;
                 color: #fff;
-                
+
             }
         }
     }
@@ -181,7 +182,7 @@
                 content: "";
                 left: 0;
                 top: 50%;
-                transform: translateY(-50%) rotate(0); 
+                transform: translateY(-50%) rotate(0);
                 width: 10px;
                 height: 10px;
                 background: url("../img/icons/arrow.png") 50% 50% no-repeat;

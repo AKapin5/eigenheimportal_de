@@ -1,12 +1,12 @@
 /* reset */
-$min-width: 320px; 
-$max-width: 960px; 
-$max-width-secondary: 1170px;
-$base-bg: #FFF; 
-$base-font-size: 12px; 
-$base-line-height: 18px; 
-$base-font-family: 'poppins', sans-serif; 
-$custom-font-family: 'poppins', sans-serif; 
+$min-width: 320px;
+$max-width: 1600px;
+$max-width-secondary: 1710px;
+$base-bg: #FFF;
+$base-font-size: 12px;
+$base-line-height: 18px;
+$base-font-family: 'poppins', sans-serif;
+$custom-font-family: 'poppins', sans-serif;
 $link-color: #193C40;
 $default-transition:all 0.2s linear;
 
@@ -17,7 +17,8 @@ $breakpoints: (
     small: 576px,
     medium: 768px,
     large: 1024px,
-    xl: 1200px
+    xl: 1200px,
+    xxl: 1920px,
 );
 
 /* main variables */
