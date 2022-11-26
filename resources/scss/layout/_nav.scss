@@ -10,11 +10,7 @@
     &__item {
         display: flex;
         align-items: center;
-        margin: 0 0 0 1rem;
-
-        @include breakpoint($breakpoint: medium){
-            margin: 0 0 1rem 0;
-        }
+        margin: 0;
     }
 
     &__link {
@@ -32,11 +28,16 @@
 
         @include breakpoint($breakpoint: medium){
             justify-content: flex-start;
+            flex-direction: column;
+            font-size: 8px;
+            padding: 0.4rem;
         }
 
         &-img {
-            margin-right: 1rem;
-
+            margin-right: 10px;
+            @include breakpoint($breakpoint: medium){
+                margin-right: 0;
+            }
             svg {
                 @include breakpoint($breakpoint: xl){
                     width: 5rem;
@@ -55,7 +56,7 @@
         &.link_3 {
             color: $nav-link-primary;
         }
-        
+
         &.m-active {
             background: $primary-color;
             color: #fff;
