@@ -47,7 +47,7 @@
 
       &__info {
          max-width: 100%;
-         width: 900px;
+         width: 700px;
          margin-left: 1rem;
 
          @include breakpoint($breakpoint: medium) {
@@ -60,7 +60,7 @@
       &__title {
          color: $title-color;
          font-weight: 700;
-         font-size: 40px;
+         font-size: 58px;
 
          @include breakpoint($breakpoint: medium) {
             font-weight: 400;
