@@ -24,12 +24,12 @@
          position: relative;
          padding: 10.7rem 0;
 
-         @include breakpoint($breakpoint: xl) {
+         @include breakpoint($breakpoint: xxl) {
              min-height: 600px;
+             background-size: cover;
          }
 
          @include breakpoint($breakpoint: medium) {
-            background-size: cover;
             background-position-x: 70%;
             min-height: auto;
 
