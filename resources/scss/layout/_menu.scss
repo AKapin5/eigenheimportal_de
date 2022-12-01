@@ -22,17 +22,29 @@
     &__item {
         display: flex;
         align-items: center;
-        
+        margin-right: 35px;
+
+        &:last-child {
+            .menu__link {
+                border: 2px solid $title-color;
+                border-radius: 12px;
+                padding: .5em .75em;
+            }
+        }
+
         &.m-active {
-            .menu__link:before {
-                opacity: 1;
+            &:not(:last-child) {
+                .menu__link {
+                    &:before {
+                        opacity: 1;
+                    }
+                }
             }
         }
     }
 
     &__link {
         color: $title-color;
-        margin-right: 1rem;
         font-size: 1.3rem;
         font-weight: 600;
         line-height: 1.9rem;

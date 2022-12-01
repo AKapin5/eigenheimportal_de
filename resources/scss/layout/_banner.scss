@@ -14,19 +14,25 @@
       }
 
       &__bg {
-         max-width: 1350px;
+         max-width: 1920px;
          margin-left: auto;
          margin-right: auto;
 
          background: url("../img/Banner.png") 50% 50% no-repeat;
-         height: 592px;
+         background-size: cover;
+         min-height: 850px;
          position: relative;
-         padding: 7.7rem 0;
+         padding: 10.7rem 0;
+
+         @include breakpoint($breakpoint: xl) {
+             min-height: 600px;
+         }
 
          @include breakpoint($breakpoint: medium) {
             background-size: cover;
             background-position-x: 70%;
-   
+            min-height: auto;
+
             &::before {
                content: "";
                position: absolute;
@@ -40,7 +46,8 @@
       }
 
       &__info {
-         max-width: 370px;
+         max-width: 100%;
+         width: 700px;
          margin-left: 1rem;
 
          @include breakpoint($breakpoint: medium) {
@@ -53,21 +60,24 @@
       &__title {
          color: $title-color;
          font-weight: 700;
+         font-size: 58px;
 
          @include breakpoint($breakpoint: medium) {
             font-weight: 400;
+            font-size: 4rem;
          }
       }
 
       &__text {
          color: $text-color;
-         font-size: $font-size-h3;
+         font-size: 18px;
          line-height: $line-height-h3;
          font-weight: 500;
          width: 24rem;
 
          @include breakpoint($breakpoint: medium) {
             font-weight: 400;
+            font-size: 1.8rem;
          }
       }
 
@@ -85,7 +95,6 @@
    &.m-secondary {
       .banner__wrapper {
          width: 100%;
-         max-height: 355px;
       }
    }
 }

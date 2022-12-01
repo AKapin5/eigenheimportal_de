@@ -1,31 +1,27 @@
 <header class="header">
     <div class="wrapper m-secondary">
         <div class="header__wrapper">
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="{{ route('home') }}" class="nav__link link-1 m-active">
-                            <div class="nav__link-img">
-                                <object type="image/svg+xml" data="/img/logo/logo-portal.svg"></object>
-                            </div> {{ config('app.name') }}
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="https://eigenheimwunsch.de" class="nav__link link_2" rel="nofollow">
-                            <div class="nav__link-img">
-                                <object type="image/svg+xml" data="/img/logo/logo-wunsch.svg"></object>
-                            </div> EigenheimWunsch.de
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="https://eigenheiminfo.de" class="nav__link link_3" rel="nofollow">
-                            <div class="nav__link-img">
-                                <object type="image/svg+xml" data="/img/logo/logo-info.svg"></object>
-                            </div> EigenheimInfo.de
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="nav__item">
+                <a href="{{ route('home') }}" class="nav__link link-1 m-active">
+                    <div class="nav__link-img">
+                        <object type="image/svg+xml" data="/img/logo/logo-portal.svg"></object>
+                    </div> {{ config('app.name') }}
+                </a>
+            </div>
+            <div class="nav__item">
+                <a href="https://eigenheimwunsch.de" class="nav__link link_2" rel="nofollow">
+                    <div class="nav__link-img">
+                        <object type="image/svg+xml" data="/img/logo/logo-wunsch.svg"></object>
+                    </div> EigenheimWunsch.de
+                </a>
+            </div>
+            <div class="nav__item">
+                <a href="https://eigenheiminfo.de" class="nav__link link_3" rel="nofollow">
+                    <div class="nav__link-img">
+                        <object type="image/svg+xml" data="/img/logo/logo-info.svg"></object>
+                    </div> EigenheimInfo.de
+                </a>
+            </div>
             <nav class="menu">
                 <ul class="menu__list js-menu-list">
                     @foreach($menuItems as $menuItem)
