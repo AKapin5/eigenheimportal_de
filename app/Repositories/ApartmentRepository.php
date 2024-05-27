@@ -27,13 +27,17 @@ class ApartmentRepository
             ->where('parent_id', $parent->id ?? null);
     }
 
-    public function getApartments(ApartmentCategory $parent = null): Builder
+    public function getApartments(ApartmentCategory $category = null): Builder
     {
         $query = Apartment::query()
             ->where('status', 1)
             ->orderBy('id', 'desc');
-        if ($parent) {
-            $query->where('category_id', $parent->id);
+
+        if ($category) {
+            $query->where(function (Builder $criteria) use ($category) {
+                $criteria->where('category_id', $category->id);
+                $criteria->orWhereIn('category_id', $category->getDescendants()->pluck('id'));
+            });
         }
         return $query;
     }

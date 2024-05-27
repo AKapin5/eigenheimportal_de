@@ -35,17 +35,17 @@
 @mixin breakpoint($breakpoint, $width-range: up) {
 	@if (map-has-key($breakpoints, $breakpoint)) {
 	   $value: map-get($breakpoints, $breakpoint);
- 
+
 	   @if $width-range==up {
 		  @media screen and (max-width: $value) {
 			 @content;
 		  }
 	   }
- 
+
 	   @else if $width-range==only {
 		  $next-key: nextMapKey($breakpoint);
 		  $next-value: map-get($breakpoints, $next-key);
- 
+
 		  @if $value != $next-value {
 			 @media screen and (min-width: $value) and (max-width: $next-value) {
 				@content;
@@ -55,7 +55,7 @@
 				@content;
 			 }
 		  }
-		  
+
 	   }
 	}
  }
@@ -166,4 +166,22 @@
       font-size: $font-size-h6--large;
       line-height: $line-height-h6--large;
    }
+}
+
+@mixin nice-scroll {
+    /* width */
+    &::-webkit-scrollbar {
+        height: 3px;
+        width: 3px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: $scroll-bar-color;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $scroll-bar-thumb-color;
+    }
 }

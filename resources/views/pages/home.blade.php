@@ -206,7 +206,7 @@
                                     </a>
                                 @endif
                                 <div class="card__info">
-                                    <figcaption class="card__container m-secondary">
+                                    <figcaption class="card__container">
                                         <div class="card__date">
                                             <div class="card__date-icon"></div>
                                             <p class="card__date-text">{{ date('M d, Y', $topBlog->from_date) }}</p>

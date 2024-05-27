@@ -1,8 +1,8 @@
 <div>
     @if ($apartments->isNotEmpty())
-        <ul class="card__list">
+        <ul class="card__list {{ $template }}">
             @foreach($apartments as $apartment)
-                @include('apartment._item', compact('apartment'))
+                @include("apartment.$template._item")
             @endforeach
         </ul>
     @endif

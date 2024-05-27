@@ -5,7 +5,7 @@
             @if ($apartments->isNotEmpty())
                 <ul class="card__list">
                     @foreach($apartments as $apartment)
-                        @include('apartment._item', compact('apartment'))
+                        @include('apartment.common._item', compact('apartment'))
                     @endforeach
                 </ul>
             @endif

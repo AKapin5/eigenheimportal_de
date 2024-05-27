@@ -14,11 +14,32 @@
     &__list {
         display: flex;
         margin: 0 -1.5rem;
-        justify-content: space-between;
+        //justify-content: space-between;
         flex-wrap: wrap;
 
         @include breakpoint($breakpoint: medium){
             margin: 0;
+        }
+
+        &.alternate {
+            .card__wrapper-img {
+                height: 250px;
+                border-radius: 0.8rem;
+            }
+            .card__item {
+                margin-top: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+            .card__img {
+                height: 100%;
+            }
+            .card__container {
+                align-items: flex-start;
+            }
+            .card__subtitle {
+                color: $primary-gray;
+                margin-bottom: 0;
+            }
         }
     }
 
@@ -67,9 +88,58 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         img {
             height: 220px;
+        }
+
+        .features {
+            padding: 0.8rem;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+
+            .feature {
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $light-gray;
+                font-weight: 600;
+
+                &.rooms {
+                    gap: 5px;
+                    img {
+                        height: 23px;
+                    }
+                }
+
+                sup {
+                    font-size: 0.8rem;
+                }
+            }
+
+            &.layout-top {
+                top: 0;
+                justify-content: space-between;
+                .feature {
+                    height: 3.8rem;
+                    border-radius: .8rem;
+                    font-size: 1.4rem;
+                }
+            }
+            &.layout-bottom {
+                bottom: 0;
+                .feature {
+                    height: 2.8rem;
+                    border-radius: .6rem;
+                    font-size: 1.2rem;
+                }
+            }
         }
 
         @include breakpoint($breakpoint: medium){

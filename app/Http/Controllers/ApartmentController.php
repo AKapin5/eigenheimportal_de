@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CategoryLinks;
 use App\Repositories\ApartmentRepository;
 use Illuminate\Contracts\View\View;
 
@@ -13,11 +14,18 @@ class ApartmentController extends Controller
     protected ApartmentRepository $apartmentRepository;
 
     /**
-     * @param ApartmentRepository $apartmentRepository
+     * @var CategoryLinks
      */
-    public function __construct(ApartmentRepository $apartmentRepository)
+    protected CategoryLinks $categoryLinks;
+
+    /**
+     * @param ApartmentRepository $apartmentRepository
+     * @param CategoryLinks $categoryLinks
+     */
+    public function __construct(ApartmentRepository $apartmentRepository, CategoryLinks $categoryLinks)
     {
         $this->apartmentRepository = $apartmentRepository;
+        $this->categoryLinks = $categoryLinks;
     }
 
     /**
@@ -50,12 +58,13 @@ class ApartmentController extends Controller
         view()->share('pageTitle', $pageTitle);
         view()->share('breadcrumbs', $breadcrumbs);
 
-        if ($subCategories->isNotEmpty()) {
-            return view('apartment.categories',
-                compact('category', 'subCategories', 'pageTitle', 'pageDescription'));
-        } else {
-            return view('apartment.list',
+        if ($subCategories->isEmpty()) {
+            return view('apartment.common.list',
                 compact('category', 'pageTitle', 'pageDescription'));
+        } else {
+            $categoryLinks = $this->categoryLinks->buildMenu();
+            return view('apartment.alternate.list',
+                compact('category', 'subCategories', 'pageTitle', 'pageDescription', 'categoryLinks'));
         }
     }
 
