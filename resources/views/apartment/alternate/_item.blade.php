@@ -20,7 +20,11 @@
             </div>
         </a>
         <figcaption class="card__container">
-            <h4 class="card__title">{{ $apartment->name }}</h4>
+            <h4 class="card__title">
+                <a href="{{ $apartment->getLink() }}">
+                    {{ $apartment->name }}
+                </a>
+            </h4>
             <p class="card__subtitle">
                 <img src="/img/icons/geolocation.svg" alt="" class="card__location-icon">
                 {{ nl2br($apartment->short_text) }}
