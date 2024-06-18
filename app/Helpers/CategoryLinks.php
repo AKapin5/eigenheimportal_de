@@ -12,22 +12,17 @@ class CategoryLinks
         $links = [
             [
                 'path' => '',
-                'name' => __('All Objekte'),
+                'name' => __('Alles Objekte'),
                 'icon' => 'objects',
             ],
             [
                 'path' => 'wohnung',
-                'name' => __('Wohnungen'),
-                'icon' => 'wohnung',
-            ],
-            [
-                'path' => 'haus',
-                'name' => __('Häuser'),
+                'name' => __('Wohnobjekte'),
                 'icon' => 'haus',
             ],
             [
                 'path' => 'gewerbe',
-                'name' => __('Gewerbe'),
+                'name' => __('Gewerbeobjekte'),
                 'icon' => 'gewerbe',
             ],
             [
