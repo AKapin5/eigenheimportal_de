@@ -114,6 +114,6 @@ class Menu extends Model
      */
     public static function getItems(): Collection
     {
-        return static::query()->whereNull('parent_id')->orderBy('sort')->get();
+        return static::query()->whereNull('parent_id')->where('status', 1)->orderBy('sort')->get();
     }
 }
