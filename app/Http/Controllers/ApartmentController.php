@@ -58,14 +58,9 @@ class ApartmentController extends Controller
         view()->share('pageTitle', $pageTitle);
         view()->share('breadcrumbs', $breadcrumbs);
 
-        if ($subCategories->isEmpty()) {
-            return view('apartment.common.list',
-                compact('category', 'pageTitle', 'pageDescription'));
-        } else {
-            $categoryLinks = $this->categoryLinks->buildMenu();
-            return view('apartment.alternate.list',
-                compact('category', 'subCategories', 'pageTitle', 'pageDescription', 'categoryLinks'));
-        }
+        $categoryLinks = $this->categoryLinks->buildMenu();
+        return view('apartment.alternate.list',
+            compact('category', 'subCategories', 'pageTitle', 'pageDescription', 'categoryLinks'));
     }
 
     /**
