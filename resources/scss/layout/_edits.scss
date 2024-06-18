@@ -256,7 +256,13 @@
     display: none;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+    .menu__item {
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
     .menu__list {
         width: 250px;
         margin-left: 0;

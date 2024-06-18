@@ -1,4 +1,4 @@
-.burger-menu {  
+.burger-menu {
     display: none;
     cursor: pointer;
     padding: 12px 0;
@@ -6,10 +6,10 @@
     top: 1rem;
     right: 0;
     z-index: 4;
-    @include breakpoint($breakpoint: large){
+    @include breakpoint($breakpoint: el){
         display: block;
     }
-    
+
     span {
         position: relative;
         display: block;
@@ -17,7 +17,7 @@
         height: 5px;
         background: $title-color;
         transition: all .2s ease-in-out;
-      
+
         &:before, &:after {
             position: absolute;
             background: $title-color;
@@ -26,32 +26,32 @@
             height: 5px;
             transition: all .2s ease-in-out;
         }
-        
+
         &:before {
             top: -8px;
         }
-      
+
         &:after {
             top: 8px;
         }
-        
+
     }
     &.m-active {
         span {
-            background: transparent; 
-            
+            background: transparent;
+
             &:before, &:after {
                 background: #fff;
             }
-        
+
             &:before {
                 transform: rotate(45deg) translate(5px, 6px);
-                
+
             }
-        
+
             &:after {
                 transform: rotate(-45deg) translate(5px, -6px);
             }
         }
     }
-} 
+}

@@ -2,7 +2,7 @@
     &__list {
         display: flex;
         margin-left: 1rem;
-        @include breakpoint($breakpoint: large){
+        @include breakpoint($breakpoint: el){
             background: $primary-color;
             position: fixed;
             display: block;
@@ -51,7 +51,7 @@
         position: relative;
         padding-top: 0.2rem;
 
-        @include breakpoint($breakpoint: large){
+        @include breakpoint($breakpoint: el){
             color: #fff;
             margin-bottom: 1rem;
         }
