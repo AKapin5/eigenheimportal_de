@@ -12,7 +12,7 @@ class CategoryLinks
         $links = [
             [
                 'path' => '',
-                'name' => __('Alles Objekte'),
+                'name' => __('Alle Objekte'),
                 'icon' => 'objects',
             ],
             [
