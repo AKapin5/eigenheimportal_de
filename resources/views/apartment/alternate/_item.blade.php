@@ -2,7 +2,7 @@
     <figure  class="card">
         <a class="card__wrapper-img" href="{{ $apartment->getLink() }}">
             @if ($photo = $apartment->getFirstMedia('photos'))
-                <img class="card__img" src="{{ thumb($photo, 'fit', 650, null) }}" alt="">
+                <img class="card__img" src="{{ thumb($photo, 'resize', 600, null) }}" alt="">
             @endif
             <div class="features layout-top">
                 <div class="feature space">
