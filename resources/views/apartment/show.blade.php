@@ -13,7 +13,7 @@
                         <div class="swiper-wrapper">
                             @foreach($photos as $photo)
                                 <a class="swiper-slide product__slide slide_{{ $loop->index }}" href="{{ $photo->getUrl() }}" target="_blank">
-                                    <img src="{{ thumb($photo, 'fit', 800) }}" alt="">
+                                    <img src="{{ thumb($photo, 'fit', 800, null) }}" alt="">
                                 </a>
                             @endforeach
                         </div>
