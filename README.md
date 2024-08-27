@@ -13,3 +13,7 @@ php artisan ide-helper:generate
 php artisan migrate
 php artisan db:seed
 ```
+
+## For project localization use command:
+```
+php artisan translate:files

@@ -32,6 +32,7 @@ class BlogController extends Controller
         if ($blogCategory) {
             $breadcrumbs[] = ['name' => __('app.blogs.title'), 'url' => route('blog.index')];
             $pageTitle = $blogCategory->name;
+            view()->share('pageLinks', $blogCategory->getLinks());
         } else {
             $pageTitle = __('app.blogs.title');
         }
@@ -60,6 +61,7 @@ class BlogController extends Controller
         ];
         view()->share('pageTitle', $blog->name);
         view()->share('breadcrumbs', $breadcrumbs);
+        view()->share('pageLinks', $blog->getLinks());
         $categories = $this->blogRepository->getCategories()->get();
         return view('blog.show', compact('blog', 'blogCategory', 'categories'));
     }

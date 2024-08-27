@@ -50,6 +50,7 @@ class ApartmentController extends Controller
                     'url' => $node->getLink(),
                 ];
             }
+            view()->share('pageLinks', $category->getLinks());
         } else {
             $pageTitle = __('app.apartments.title');
             $pageDescription = __('app.apartments.description');
@@ -102,6 +103,7 @@ class ApartmentController extends Controller
                 'url' => $node->getLink(),
             ];
         }
+        view()->share('pageLinks', $apartment->getLinks());
         view()->share('pageTitle', $apartment->name);
         $breadcrumbs[] = ['name' => $apartment->name];
         view()->share('breadcrumbs', $breadcrumbs);

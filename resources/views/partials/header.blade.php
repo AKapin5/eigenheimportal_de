@@ -43,6 +43,7 @@
             <div class="burger-menu js-burger-menu">
                 <span></span>
             </div>
+{{--            <livewire:language-switcher />--}}
         </div>
         <x-breadcrumbs />
     </div>
