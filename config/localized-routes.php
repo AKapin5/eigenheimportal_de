@@ -5,7 +5,7 @@ return [
     /**
      * The locales you wish to support.
      */
-    'supported-locales' => ['de'],
+    'supported-locales' => ['de', 'ru', 'uk', 'en'],
 
     /**
      * If you have a main locale and don't want
