@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Helpers\CategoryLinks;
 use App\Repositories\ApartmentRepository;
 use App\Repositories\BlogRepository;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (str_starts_with((string) config('app.url'), 'https://')) {
+            URL::forceScheme('https');
+        }
     }
 }
