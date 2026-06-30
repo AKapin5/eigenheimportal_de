@@ -6,6 +6,7 @@
                     <div class="banner-hero__info">
                         <h1 class="banner-hero__title"> {{ __('app.home.mainBanner.title') }} </h1>
                         <p class="banner-hero__text"> {{ __('app.home.mainBanner.heroText') }} </p>
+                        <a href="{{ route('apartment.index') }}" class="banner-hero__btn"> {{ __('app.home.mainBanner.buttonText') }} </a>
                     </div>
                 </div>
             </div>

@@ -68,8 +68,8 @@ return [
         ],
         'address2' => [
             'title' => 'EigenheimWunsch GmbH',
-            'street' => 'Hauptstraße 196',
-            'city' => '79576 Weil am Rhein',
+            'street' => 'Grabenstraße 10',
+            'city' => '79539 Lorrach',
         ],
     ],
     'pagination' => [
