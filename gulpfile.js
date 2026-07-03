@@ -57,5 +57,7 @@ const serve = () => {
 
 };
 
-exports.build = (scss, js, libsJS, libsCSS);
+exports.build = series(scss, js, libsJS, libsCSS);
+exports.default = exports.build;
+
 exports.serve = series(scss, js, libsJS, libsCSS, serve);
