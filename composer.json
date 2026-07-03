@@ -14,7 +14,7 @@
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "livewire/livewire": "^2.10",
+        "livewire/livewire": "^2.12.8",
         "michaloravec/laravel-paginateroute": "^1.0",
         "power-components/livewire-powergrid": "^3.2",
         "spatie/laravel-medialibrary": "^10.3",
