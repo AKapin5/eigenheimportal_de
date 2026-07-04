@@ -168,7 +168,11 @@
 
 //banner
 .banner-hero__btn {
-    @include secondary-btn($width: 219px, $font-weight: 600)
+    @include secondary-btn($width: auto, $font-weight: 600);
+    padding: 0 2.4rem;
+    width: auto;
+    max-width: 100%;
+    text-align: center;
 }
 .banner-hero__title {
     font-weight: 600;

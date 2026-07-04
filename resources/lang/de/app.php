@@ -6,7 +6,7 @@ return [
         'mainBanner' => [
             'title' => 'Gestalten Sie Ihre Zukunft selbst.',
             'heroText' => 'Die passenden Lösungen gibt es bei uns!',
-            'buttonText' => 'Objekte',
+            'buttonText' => 'JETZT UNVERBINDLICH BERATEN LASSEN',
         ],
         'infoBlock' => [
             'title' => 'Wie verkaufe ich meine Immobilie selbst',
