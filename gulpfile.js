@@ -6,7 +6,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const plumber = require('gulp-plumber');
 const uglify = require('gulp-uglify-es').default;
-const minifyCSS = require('gulp-minify-css');
 
 const scss = () => {
     return src('resources/scss/*.scss')
@@ -17,7 +16,7 @@ const scss = () => {
         }).on('error', sass.logError))
         .pipe(autoprefixer(['last 10 versions', '> 1%', 'ie 9', 'ie 10'], { cascade: true }))
         .pipe(concat('style.min.css'))
-        .pipe(minifyCSS())
+        .pipe(cleanCSS())
         .pipe(sourcemaps.write('.'))
         .pipe(dest('public/css'));
 };
