@@ -1,13 +1,16 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
 .real-estate {
     padding: 8rem 0;
 
     &-title {
         text-align: center;
-        color: $title-color;
+        color: colors.$title-color;
         font-weight: 600;
         margin-bottom: 2.5rem;
     }
-    @include breakpoint($breakpoint: medium){
+    @include mixins.breakpoint($breakpoint: medium){
         padding: 4rem 0;
     }
 }

@@ -1,9 +1,12 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
 .menu {
     &__list {
         display: flex;
         margin-left: 1rem;
-        @include breakpoint($breakpoint: el){
-            background: $primary-color;
+        @include mixins.breakpoint($breakpoint: el){
+            background: colors.$primary-color;
             position: fixed;
             display: block;
             top: 0;
@@ -26,7 +29,7 @@
 
         &:last-child {
             .menu__link {
-                border: 2px solid $title-color;
+                border: 2px solid colors.$title-color;
                 border-radius: 12px;
                 padding: .5em .75em;
             }
@@ -44,14 +47,14 @@
     }
 
     &__link {
-        color: $title-color;
+        color: colors.$title-color;
         font-size: 1.3rem;
         font-weight: 600;
         line-height: 1.9rem;
         position: relative;
         padding-top: 0.2rem;
 
-        @include breakpoint($breakpoint: el){
+        @include mixins.breakpoint($breakpoint: el){
             color: #fff;
             margin-bottom: 1rem;
         }
@@ -61,7 +64,7 @@
             position: absolute;
             bottom: -0.5rem;
             opacity: 0;
-            background: $primary-color;
+            background: colors.$primary-color;
             height: 2px;
             width: 100%;
         }

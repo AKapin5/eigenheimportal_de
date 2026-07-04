@@ -1,3 +1,5 @@
+@use "../base/colors";
+
 .download {
     margin-bottom: 6rem;
 
@@ -5,7 +7,7 @@
         display: flex;
         padding: 2rem 0;
         border-radius: 1rem;
-        border: 1px solid $primary-color;
+        border: 1px solid colors.$primary-color;
     }
 
     &__item {

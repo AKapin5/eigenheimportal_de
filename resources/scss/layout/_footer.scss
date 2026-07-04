@@ -1,3 +1,6 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
 .footer {
     padding: 4rem 0 3rem;
     background: #F7F5F6;
@@ -19,17 +22,17 @@
         display: flex;
         justify-content: space-between;
 
-        @include breakpoint($breakpoint: large){
+        @include mixins.breakpoint($breakpoint: large){
             flex-wrap: wrap;
         }
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             justify-content: space-around;
         }
     }
 
     &__title {
-        color: $title-color;
+        color: colors.$title-color;
         padding: 1rem 0;
         font-weight: 700;
         text-transform: uppercase;
@@ -37,11 +40,11 @@
 
     &__item {
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             width: 100%;
         }
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             display: flex;
             flex-direction:column;
             align-items: center;
@@ -51,7 +54,7 @@
         &-link {
             display: flex;
             align-items: center;
-            color: $title-color;
+            color: colors.$title-color;
             font-weight: 700;
             padding-bottom: 1rem;
         }
@@ -121,7 +124,7 @@
             }
 
             &.m-secondary {
-                color: $title-color;
+                color: colors.$title-color;
                 text-decoration: underline;
 
                 &:before {
@@ -132,12 +135,12 @@
     }
     
     &__services {
-        @include breakpoint($breakpoint: large){
+        @include mixins.breakpoint($breakpoint: large){
             width: 100%;
             padding-top: 2.5rem;
         }
         
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             display: flex;
             flex-direction:column;
             align-items: center;
@@ -148,11 +151,11 @@
             text-decoration: underline;
             font-weight: 700;
             &.link_1{
-                color: $nav-link;
+                color: colors.$nav-link;
             }
 
             &.link_2 {
-                color: $nav-link-primary;
+                color: colors.$nav-link-primary;
             }
         } 
 

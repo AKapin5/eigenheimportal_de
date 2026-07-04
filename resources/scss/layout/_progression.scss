@@ -1,14 +1,18 @@
+@use "../base/colors";
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .progression {
     padding: 3rem 0 0 0;
     background: #F7F5F6;
 
-    @include breakpoint($breakpoint: medium){
+    @include mixins.breakpoint($breakpoint: medium){
         padding: 4rem 0;
     }
 
     &__wrapper-img {
         max-width: 330px;
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             margin: 0 auto 3rem;
             width: 30%;
             order: 2;
@@ -25,7 +29,7 @@
         margin-bottom: 2.5rem;
         align-items: flex-start;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             margin-bottom: 1.5rem;
         }
 
@@ -34,23 +38,23 @@
         }
 
         &-title {
-            color: $text-color;
+            color: colors.$text-color;
             font-weight: 600;
         }
         &-subtitle {
             font-weight: 400;
-            color: $text-color;
+            color: colors.$text-color;
         }
 
         &-icon {
-            background: $title-color;
+            background: colors.$title-color;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 10px;
             color: #fff;
             font-weight: 700;
-            font-size: $font-size-h2;
+            font-size: variables.$font-size-h2;
             line-height: 1;
             padding: 1.4rem 1.5rem 1rem 1.5rem;
             height: 4.6rem;
@@ -65,7 +69,7 @@
         align-items: center;
 
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             flex-direction: column;
             margin: 0;
         }
@@ -79,17 +83,17 @@
         width: calc(100% - (37% + 4rem));
 
         &-title {
-            color: $title-color;
+            color: colors.$title-color;
             font-weight: 600;
             margin-bottom: 2.5rem;
 
-            @include breakpoint($breakpoint: medium){
+            @include mixins.breakpoint($breakpoint: medium){
                 font-weight: 500;
                 text-align: center;
             }
         }
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             margin: 0;
             padding: 0;
             width: 100%;

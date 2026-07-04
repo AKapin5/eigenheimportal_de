@@ -1,3 +1,6 @@
+@use "../base/colors";
+@use "../utils/variables";
+
 .pagination {
     display: flex;
     padding-bottom: 13rem;
@@ -5,7 +8,7 @@
 
     li {
         &.active > * {
-            background: $primary-color;
+            background: colors.$primary-color;
             color: #fff;
             border: none;
         }
@@ -16,14 +19,14 @@
             width: 4rem;
             height: 4rem;
             background: none;
-            color: $title-color;
-            font-size: $font-size-h5;
-            line-height: $line-height-h5;
+            color: colors.$title-color;
+            font-size: variables.$font-size-h5;
+            line-height: variables.$line-height-h5;
             font-weight: 500;
             border-radius: 10px;
             align-items: center;
             justify-content: center;
-            border: 1px solid $primary-color;
+            border: 1px solid colors.$primary-color;
         }
     }
 }

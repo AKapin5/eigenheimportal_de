@@ -1,17 +1,21 @@
+@use "../base/colors";
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .advertising {
     padding: 3rem 0 7rem 0;
 
     &__title {
         text-align: center;
         font-weight: 700;
-        color: $title-color;
+        color: colors.$title-color;
     }
 
     &__subtitle {
         text-align: center;
         font-weight: 500;
-        font-size: $font-size-h3;
-        line-height: $line-height-h3;
+        font-size: variables.$font-size-h3;
+        line-height: variables.$line-height-h3;
         max-width: 50rem;
         width: 100%;
         margin: 0 auto;
@@ -20,7 +24,7 @@
 
 
     &__list {
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             max-width: 460px;
             margin: 0 auto;
         }
@@ -34,7 +38,7 @@
         border-radius: 10px;
         align-items: center;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             flex-direction: column;
             text-align: center;
             align-items: center;
@@ -48,7 +52,7 @@
             display: flex;
             align-items: center;
 
-            @include breakpoint($breakpoint: medium){
+            @include mixins.breakpoint($breakpoint: medium){
                 max-width: 100%;
                 width: 100%;
                 margin-bottom: 1.5rem;
@@ -64,7 +68,7 @@
         align-items: center;
         width: calc(100% - (28.3rem + 4rem));
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             padding: 0;
             width: 100%;
         }
@@ -74,21 +78,21 @@
             margin-bottom: 1.5rem;
             align-items: center;
 
-            @include breakpoint($breakpoint: medium){
+            @include mixins.breakpoint($breakpoint: medium){
                 justify-content: center;
             }
         }
 
         &-link {
-            color: $title-color;
-            font-size: $font-size-h4;
-            line-height: $line-height-h4;
+            color: colors.$title-color;
+            font-size: variables.$font-size-h4;
+            line-height: variables.$line-height-h4;
             font-weight: 500;
             margin-right: 2rem;
         }
 
         &-title {
-            color: $title-color;
+            color: colors.$title-color;
             font-weight: 600;
             margin-bottom: 0.8rem;
         }
@@ -98,8 +102,8 @@
             max-width: 42rem;
             width: 100%;
             font-weight: 500;
-            font-size: $font-size-h4;
-            line-height: $line-height-h4;
+            font-size: variables.$font-size-h4;
+            line-height: variables.$line-height-h4;
             margin-bottom: 2rem;
             line-clamp: 2;
             -webkit-line-clamp: 2;
@@ -107,9 +111,9 @@
         }
 
         &-btn {
-            @include secondary-btn($width:220px, $height:48px);
+            @include mixins.secondary-btn($width:220px, $height:48px);
 
-            @include breakpoint($breakpoint: medium){
+            @include mixins.breakpoint($breakpoint: medium){
                 margin: 0 auto;
             }
         }

@@ -1,8 +1,12 @@
+@use "../base/colors";
+@use "../utils/mixins";
+@use "../utils/variables";
+
 
 //main styles
 
 html {
-	font-size: $global-font-size;
+	font-size: variables.$global-font-size;
 }
 
 #body {
@@ -13,7 +17,7 @@ html {
 }
 
 .main-wrapper{
-	min-width: $min-width;
+	min-width: variables.$min-width;
     width: 100%;
 	position: relative;
 	overflow: hidden;
@@ -22,19 +26,19 @@ html {
 	flex-direction:column;
 }
 .wrapper{
-	min-width: $min-width;
-	max-width: $max-width;
+	min-width: variables.$min-width;
+	max-width: variables.$max-width;
 	padding: 0 50px;
 	margin: 0 auto;
 	position: relative;
 	height: 100%;
 
-	@include breakpoint($breakpoint: medium){
+	@include mixins.breakpoint($breakpoint: medium){
 		padding: 0 1.5rem;
 	}
 
 	&.m-secondary {
-		max-width: $max-width-secondary;
+		max-width: variables.$max-width-secondary;
 	}
 }
 
@@ -42,36 +46,36 @@ html {
 
 /* titles */
 p{
-	@include font($base-font-size,$base-line-height,$text-color);
+	@include mixins.font(variables.$base-font-size,variables.$base-line-height,colors.$text-color);
 	padding: 0;
 	margin-bottom: 1rem;
 	font-weight: 400;
 	letter-spacing: 0.1px;
 }
 h1{
-	@include font($font-size-h1,$line-height-h1,$title-color);
-	font-family: $title-font-family;
+	@include mixins.font(variables.$font-size-h1,variables.$line-height-h1,colors.$title-color);
+	font-family: variables.$title-font-family;
 	padding: 0;
 	margin-bottom: 1rem;
 	font-weight: 400;
 }
 h2{
-	@include font($font-size-h2,$line-height-h2,$title-color);
-	font-family: $title-font-family;
+	@include mixins.font(variables.$font-size-h2,variables.$line-height-h2,colors.$title-color);
+	font-family: variables.$title-font-family;
 	padding: 0;
 	margin-bottom: 1rem;
 	font-weight: 400;
 }
 h3{
-	@include font($font-size-h3,$line-height-h3,$title-color);
-	font-family: $title-font-family;
+	@include mixins.font(variables.$font-size-h3,variables.$line-height-h3,colors.$title-color);
+	font-family: variables.$title-font-family;
 	padding: 0;
 	margin-bottom: 1rem;
 	font-weight: 400;
 }
 h4{
-	@include font($font-size-h4,$line-height-h4,$title-color);
-	font-family: $title-font-family;
+	@include mixins.font(variables.$font-size-h4,variables.$line-height-h4,colors.$title-color);
+	font-family: variables.$title-font-family;
 	padding: 0;
 	margin-bottom: 1rem;
 	font-weight: 400;
@@ -100,7 +104,7 @@ ul,li{
 ================================================================================
 */
 .content{
-	min-width: $min-width;
+	min-width: variables.$min-width;
 	text-align:left;
     width: 100%;
 	order: 2;

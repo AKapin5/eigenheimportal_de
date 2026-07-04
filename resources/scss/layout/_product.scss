@@ -1,8 +1,12 @@
+@use "../base/colors";
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .product {
     display: flex;
     padding-top: 3rem;
 
-    @include breakpoint($breakpoint: medium){
+    @include mixins.breakpoint($breakpoint: medium){
         flex-direction: column;
     }
     &__header {
@@ -38,7 +42,7 @@
         margin-right: 20px;
         width: calc(100% - 303px);
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             order: 1;
             width: 100%;
         }
@@ -46,10 +50,10 @@
 
     &__title {
         font-weight: 600;
-        font-size: $font-size-h3-large;
-        line-height: $line-height-h3-large;
+        font-size: variables.$font-size-h3-large;
+        line-height: variables.$line-height-h3-large;
         margin-bottom: 1.5rem;
-        color: $text-color;
+        color: colors.$text-color;
     }
 
     &__slider {
@@ -69,7 +73,7 @@
     }
 
     &__details{
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             order: 2;
         }
 
@@ -84,7 +88,7 @@
             border-radius: 10px;
             width: 283px;
             margin-bottom: 3rem;
-            @include breakpoint($breakpoint: medium){
+            @include mixins.breakpoint($breakpoint: medium){
                 width: 100%;
             }
         }
@@ -93,10 +97,10 @@
             display: flex;
             margin: 0 auto;
             border-radius: 10px;
-            border: 1px solid $primary-color;
+            border: 1px solid colors.$primary-color;
             overflow: hidden;
             margin-bottom: 2rem;
-            @include breakpoint($breakpoint: medium){
+            @include mixins.breakpoint($breakpoint: medium){
                 height: 28rem;
             }
         }
@@ -133,7 +137,7 @@
         }
 
         &-btn {
-            @include secondary-btn($width:25.5rem, $height:4.5rem);
+            @include mixins.secondary-btn($width:25.5rem, $height:4.5rem);
             font-weight: 700;
             margin: 0 auto;
             margin-bottom: 1.5rem;
@@ -141,7 +145,7 @@
             justify-content: center;
 
             &.m-secondary {
-                background: $secondary-color;
+                background: colors.$secondary-color;
             }
         }
 
@@ -158,7 +162,7 @@
 
     &__video {
         width: 100%;
-        border: 1px solid $primary-color;
+        border: 1px solid colors.$primary-color;
         border-radius: 10px;
         overflow: hidden;
 
@@ -177,7 +181,7 @@
             max-height: 290px;
             display: flex;
             justify-content: center;
-            border: 1px solid $primary-color;
+            border: 1px solid colors.$primary-color;
             border-radius: 10px;
             overflow: hidden;
             padding: 1.5rem 5rem;

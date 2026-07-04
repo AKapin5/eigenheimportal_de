@@ -1,3 +1,6 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
 .question {
 
     margin-bottom: 40px;
@@ -14,18 +17,18 @@
 
     &__date {
         margin-bottom: 3rem;
-        color: $text-color;
+        color: colors.$text-color;
         font-weight: 300;
     }
 
     &__title {
-        color: $text-color;
+        color: colors.$text-color;
         font-weight: 600;
         margin-bottom: 1rem;
     }
 
     &__text {
-        color: $text-color;
+        color: colors.$text-color;
         font-weight: 400;
         margin-bottom: 1rem;
     }
@@ -34,7 +37,7 @@
         display: flex;
         align-items: flex-start;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             flex-direction: column;
         }
     }
@@ -43,7 +46,7 @@
         margin-right: 2rem;
         width: calc(100% - 30.5rem);
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             order: 2;
             width: 100%;
             margin-right: 0;

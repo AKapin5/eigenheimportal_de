@@ -1,3 +1,6 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .features {
 
     &__wrapper-icon {
@@ -9,8 +12,8 @@
 
     &__title {
         font-weight: 600;
-        font-size: $font-size-h3-large;
-        line-height: $line-height-h3-large;
+        font-size: variables.$font-size-h3-large;
+        line-height: variables.$line-height-h3-large;
         margin-bottom: 2rem;
     }
 
@@ -27,7 +30,7 @@
         align-items: center;
         width: calc(25% - 2rem);
 
-        @include breakpoint($breakpoint: small){
+        @include mixins.breakpoint($breakpoint: small){
             width: calc(50% - 2rem);
         }
     }

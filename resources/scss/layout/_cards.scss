@@ -1,13 +1,17 @@
+@use "../base/colors";
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .card {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    @include breakpoint($breakpoint: medium){
+    @include mixins.breakpoint($breakpoint: medium){
         flex-direction: row;
     }
 
-    @include breakpoint($breakpoint: small){
+    @include mixins.breakpoint($breakpoint: small){
         flex-direction: column;
     }
 
@@ -17,7 +21,7 @@
         //justify-content: space-between;
         flex-wrap: wrap;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             margin: 0;
         }
 
@@ -58,7 +62,7 @@
                 }
             }
             .card__subtitle {
-                color: $primary-gray;
+                color: variables.$primary-gray;
                 margin-bottom: 0;
             }
         }
@@ -71,7 +75,7 @@
         width: calc(33.33% - 3rem);
         overflow: hidden;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             margin: 0;
             margin: 0 auto;
             width: 100%;
@@ -80,7 +84,7 @@
         }
 
         &.m-secondary {
-            border: 1px solid $primary-color;
+            border: 1px solid colors.$primary-color;
 
             .card__img {
                 border-radius: 0;
@@ -89,7 +93,7 @@
             .card__wrapper-img {
                 border-radius: 10px 10px 0 0;
 
-                @include breakpoint($breakpoint: medium){
+                @include mixins.breakpoint($breakpoint: medium){
                     max-width: 230px;
                     align-self: flex-start;
                     border-radius: 10px;
@@ -129,7 +133,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: $light-gray;
+                background-color: variables.$light-gray;
                 font-weight: 600;
 
                 &.rooms {
@@ -163,11 +167,11 @@
             }
         }
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             margin: 0 2rem 0 0;
         }
 
-        @include breakpoint($breakpoint: small){
+        @include mixins.breakpoint($breakpoint: small){
             margin: 0 auto 1.5rem;
         }
     }
@@ -178,38 +182,38 @@
 
     &__title {
         font-weight: 600;
-        color: $text-color;
-        font-size: $font-size-h4;
-        line-height: $line-height-h4;
+        color: colors.$text-color;
+        font-size: variables.$font-size-h4;
+        line-height: variables.$line-height-h4;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             margin-bottom: 2rem;
         }
     }
 
     &__subtitle {
-        color: $text-color;
+        color: colors.$text-color;
         font-weight: 400;
-        font-size: $font-size-h5;
-        line-height: $line-height-h5;
+        font-size: variables.$font-size-h5;
+        line-height: variables.$line-height-h5;
         margin-bottom: 2.4rem;
     }
 
     &__btn {
-        @include primary-btn ($width:13rem, $height:3.7rem, $color:$title-color);
+        @include mixins.primary-btn ($width:13rem, $height:3.7rem, $color:colors.$title-color);
 
         transition: all 0.4s;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             margin-top: auto;
         }
 
-        @include breakpoint($breakpoint: small){
+        @include mixins.breakpoint($breakpoint: small){
             margin: 0 auto;
         }
 
         &:hover {
-            background: $primary-color;
+            background: colors.$primary-color;
             color: #fff;
         }
     }
@@ -218,7 +222,7 @@
         display: flex;
         flex-direction: column;
 
-        @include breakpoint($breakpoint: small){
+        @include mixins.breakpoint($breakpoint: small){
             align-items: center;
         }
     }
@@ -227,7 +231,7 @@
         display: flex;
         padding-bottom: 1rem;
         &-text {
-            color: $text-color;
+            color: colors.$text-color;
             font-weight: 400;
         }
         &-icon {

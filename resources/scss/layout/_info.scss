@@ -1,13 +1,16 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
 .info {
     padding: 8rem;
 
-    @include breakpoint($breakpoint: large){
+    @include mixins.breakpoint($breakpoint: large){
         padding: 6rem 0;
     }
 
     &__title {
         text-align: center;
-        color: $title-color;
+        color: colors.$title-color;
         font-weight: 600;
         margin-bottom: 2rem;
     }
@@ -18,7 +21,7 @@
         flex-wrap: wrap;
         margin: 0 -1.5rem;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             flex-direction: column;
         }
     }
@@ -34,10 +37,10 @@
 
         &:hover {
             border-radius: 10px;
-            background: $tertiary-color;
+            background: colors.$tertiary-color;
         }
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             max-width: 70%;
             width: 100%;
             margin: 0 auto 2.5rem;
@@ -58,11 +61,11 @@
         }
 
         &-text {
-            color: $text-color;
+            color: colors.$text-color;
             font-weight: 300;
             margin: 0;
 
-            @include breakpoint($breakpoint: medium){
+            @include mixins.breakpoint($breakpoint: medium){
                 line-height: 2.4rem;
             }
         }

@@ -1,3 +1,6 @@
+@use "../base/colors";
+@use "../utils/variables";
+
 .comments {
 
     &__container {
@@ -20,7 +23,7 @@
     }
 
     &__title {
-        color: $text-color;
+        color: colors.$text-color;
         font-weight: 700;
     }
     &__icon-wrapper {
@@ -47,8 +50,8 @@
         &-name {
             margin-bottom: 0.5rem;
             font-weight: 700;
-            font-size: $font-size-h4;
-            line-height: $line-height-h4;
+            font-size: variables.$font-size-h4;
+            line-height: variables.$line-height-h4;
         }
 
         &-date {
@@ -72,8 +75,8 @@
             border-radius: 5px;
             color: #fff;
             font-weight: 400;
-            font-size: $font-size-h5;
-            line-height: $line-height-h5;
+            font-size: variables.$font-size-h5;
+            line-height: variables.$line-height-h5;
             width: 60px;
             text-transform: uppercase;
             cursor: pointer;

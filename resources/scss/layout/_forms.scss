@@ -1,3 +1,6 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
 .form {
     &__wrapper {
         background: #F7F5F6;
@@ -5,14 +8,14 @@
         border-radius: 10px;
         padding: 5em 10rem;
         margin-bottom: 13rem;
-        color: $title-color;
+        color: colors.$title-color;
 
         &.m-secondary {
             background: #A05E2A;
             color: #fff;
         }
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             padding: 1.5rem 3rem;
         }
     }
@@ -65,7 +68,7 @@
     &__group {
         display: flex;
         margin-bottom: 2rem;
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             display: block;
         }
     }
@@ -83,17 +86,17 @@
         }
 
         .error {
-            color: $primary-color;
+            color: colors.$primary-color;
         }
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             width: 100%;
             margin-bottom: 1rem;
         }
     }
 
     &__btn {
-        @include secondary-btn($width: 13.5rem, $height:4.5rem);
+        @include mixins.secondary-btn($width: 13.5rem, $height:4.5rem);
         text-align: center;
         margin: 0 auto;
         &.m-secondary {

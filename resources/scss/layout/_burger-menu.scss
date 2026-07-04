@@ -1,3 +1,6 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
 .burger-menu {
     display: none;
     cursor: pointer;
@@ -6,7 +9,7 @@
     top: 1rem;
     right: 0;
     z-index: 4;
-    @include breakpoint($breakpoint: el){
+    @include mixins.breakpoint($breakpoint: el){
         display: block;
     }
 
@@ -15,12 +18,12 @@
         display: block;
         width: 30px;
         height: 5px;
-        background: $title-color;
+        background: colors.$title-color;
         transition: all .2s ease-in-out;
 
         &:before, &:after {
             position: absolute;
-            background: $title-color;
+            background: colors.$title-color;
             content: '';
             width: 30px;
             height: 5px;

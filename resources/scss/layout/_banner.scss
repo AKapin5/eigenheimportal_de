@@ -1,3 +1,7 @@
+@use "../base/colors";
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .banner {
    &-hero {
 
@@ -7,7 +11,7 @@
       &__wrapper {
          height: 100%;
 
-         @include breakpoint($breakpoint: medium) {
+         @include mixins.breakpoint($breakpoint: medium) {
             display: flex;
             align-items: center;
          }
@@ -24,12 +28,12 @@
          position: relative;
          padding: 10.7rem 0;
 
-         @include breakpoint($breakpoint: xxl) {
+         @include mixins.breakpoint($breakpoint: xxl) {
              min-height: 600px;
              background-size: cover;
          }
 
-         @include breakpoint($breakpoint: medium) {
+         @include mixins.breakpoint($breakpoint: medium) {
             background-position-x: 70%;
             min-height: auto;
 
@@ -50,7 +54,7 @@
          width: 700px;
          margin-left: 1rem;
 
-         @include breakpoint($breakpoint: medium) {
+         @include mixins.breakpoint($breakpoint: medium) {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -58,31 +62,31 @@
       }
 
       &__title {
-         color: $title-color;
+         color: colors.$title-color;
          font-weight: 700;
          font-size: 58px;
 
-         @include breakpoint($breakpoint: medium) {
+         @include mixins.breakpoint($breakpoint: medium) {
             font-weight: 400;
             font-size: 4rem;
          }
       }
 
       &__text {
-         color: $text-color;
+         color: colors.$text-color;
          font-size: 18px;
-         line-height: $line-height-h3;
+         line-height: variables.$line-height-h3;
          font-weight: 500;
          width: 24rem;
 
-         @include breakpoint($breakpoint: medium) {
+         @include mixins.breakpoint($breakpoint: medium) {
             font-weight: 400;
             font-size: 1.8rem;
          }
       }
 
       &__btn {
-         @include secondary-btn($width: 219px)
+         @include mixins.secondary-btn($width: 219px)
       }
    }
 

@@ -1,8 +1,11 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
 .contact {
     padding: 3.5rem 0 0;
 
     &__title {
-        color: $title-color;
+        color: colors.$title-color;
         font-weight: 700;
         margin-bottom: 3rem;
         text-align: center;
@@ -14,7 +17,7 @@
         margin-bottom: 6rem;
         padding: 2.7rem 1.5rem;
 
-        @include breakpoint($breakpoint: large){
+        @include mixins.breakpoint($breakpoint: large){
             display: flex;
             justify-content: center;
         }
@@ -25,7 +28,7 @@
         justify-content: center;
         gap: 20px;
 
-        @include breakpoint($breakpoint: large){
+        @include mixins.breakpoint($breakpoint: large){
             flex-direction: column;
         }
     }
@@ -36,13 +39,13 @@
         max-width: 17rem;
         width: 100%;
 
-        @include breakpoint($breakpoint: large){
+        @include mixins.breakpoint($breakpoint: large){
             margin-bottom: 6rem;
             max-width: 100%;
         }
 
         &:last-child {
-            @include breakpoint($breakpoint: large){
+            @include mixins.breakpoint($breakpoint: large){
                 margin-bottom: 0;
             }
         }

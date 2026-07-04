@@ -1,3 +1,5 @@
+@use "../base/colors";
+
 /* Slider */
 
 .slick-slider {
@@ -162,7 +164,7 @@
         cursor: pointer;
 
         &.slick-active {
-            background: $primary-color;
+            background: colors.$primary-color;
         }
     }
 }

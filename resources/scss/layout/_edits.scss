@@ -1,3 +1,5 @@
+@use "../utils/mixins";
+
 // helper styles. Don't copy
 
 .header {
@@ -22,7 +24,7 @@
     width: 10rem;
     margin-top: 1rem;
 
-    @include breakpoint($breakpoint: medium){
+    @include mixins.breakpoint($breakpoint: medium){
         position: relative;
         background: none;
         margin: 0;
@@ -39,7 +41,7 @@
         top: -10px;
         left: 0;
 
-        @include breakpoint($breakpoint: medium){
+        @include mixins.breakpoint($breakpoint: medium){
             content: "";
             position: absolute;
             opacity: 0;
@@ -98,7 +100,7 @@
 .card {
     height: 100%;
 
-    @include breakpoint($breakpoint: medium){
+    @include mixins.breakpoint($breakpoint: medium){
         display: block;
 
     }
@@ -108,18 +110,18 @@
     align-items: center;
 }
 .card__item {
-    @include breakpoint($breakpoint: medium){
+    @include mixins.breakpoint($breakpoint: medium){
         flex-direction: column;
         width: calc(50% - 15px);
         margin: 0 0 30px;
     }
-    @include breakpoint($breakpoint: small){
+    @include mixins.breakpoint($breakpoint: small){
         width: 100%;
     }
 }
 .card__wrapper-img {
     height: 235px;
-    @include breakpoint($breakpoint: medium){
+    @include mixins.breakpoint($breakpoint: medium){
         margin: 0;
         margin-bottom: 1.5rem;
     }
@@ -168,7 +170,7 @@
 
 //banner
 .banner-hero__btn {
-    @include secondary-btn($width: auto, $font-weight: 600);
+    @include mixins.secondary-btn($width: auto, $font-weight: 600);
     padding: 0 2.4rem;
     width: auto;
     max-width: 100%;
